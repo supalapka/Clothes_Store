@@ -1,4 +1,5 @@
 using Clothes_Store.Data;
+using DbAccessLibrary.DbAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,7 +30,12 @@ namespace Clothes_Store
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DefaultConnection"))); 
+
+            services.AddDbContext<ClotherStoreDbContext>(options => 
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));//DbAccessLib
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
