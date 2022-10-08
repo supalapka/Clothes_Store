@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,5 +13,7 @@ namespace DbAccessLibrary.Models
         public int Price { get; set; }
         public TypesOfClothes typeOfClothes { get; set; }
         public Colors Color { get; set; }
+
+        public ICollection<Cart> Carts { get; set; } //fix later.  does not showing in database table
     }
 }

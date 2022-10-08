@@ -8,11 +8,17 @@
   <ItemGroup>
     <Compile Remove="Data\Migrations\20221007130951_UserInit.cs" />
     <Compile Remove="Data\Migrations\20221007130951_UserInit.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221008133126_add-relationCartToClothes.cs" />
+    <Compile Remove="Data\Migrations\20221008133126_add-relationCartToClothes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221008180905_added custom props.cs" />
+    <Compile Remove="Data\Migrations\20221008180905_added custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221008181218_added custom props.cs" />
+    <Compile Remove="Data\Migrations\20221008181218_added custom props.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.22" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.29" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.25">
