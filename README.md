@@ -16,6 +16,6 @@
 ## Technology stack
 - HTML, CSS, JS
 - C#  ASP.NET MVC
-    - .NET 5
+    - .NET 3.1
     - Entity Framework (SQL)
 - SQL DATABASE
