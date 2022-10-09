@@ -2,12 +2,12 @@
 ## Group 6
 | ПІБ | Група | Роль |
 |:-----:|:-------:|:--------:|
+|Нодь Олександр Андрійович|ІПЗ|Design|
+|Цар Сергій Михайлович|ІПЗ|Figma/Design|
 |Грига Михайло Михайлович|ІПЗ|Frontend|
-|Дрекслер Ерік Вікторович|ІПЗ|Backend|
-|Нодь Олександр Андрійович|ІПЗ|Designer|
 |Липчей Владислав Васильович|ІПЗ|Frontend|
 |Цех Михайло Михайлович|ІПЗ|Frontend|
-|Цар Сергій Михайлович|ІПЗ|Figma/Design|
+|Дрекслер Ерік Вікторович|ІПЗ|Backend|
 |Балінт Юрій Юрійович|ІПЗ|Backend|
 
 <br>
@@ -15,7 +15,18 @@
 
 ## Technology stack
 - HTML, CSS, JS
-- C#  ASP.NET MVC
+- C# ASP.NET MVC
     - .NET 3.1
     - Entity Framework (SQL)
 - SQL DATABASE
+
+<br>
+
+## Database creation
+You need to apply migrations before running the project
+
+Open Package Manager Console and paste 2 commands
+
+>  update-database -context ApplicationDbContext
+
+> update-database -context ClothesStoreDbContext
