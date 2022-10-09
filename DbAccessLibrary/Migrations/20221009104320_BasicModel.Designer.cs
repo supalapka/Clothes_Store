@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DbAccessLibrary.Migrations
 {
     [DbContext(typeof(ClothesStoreDbContext))]
-    [Migration("20221008183319_add 3 tables")]
-    partial class add3tables
+    [Migration("20221009104320_BasicModel")]
+    partial class BasicModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -60,18 +60,15 @@ namespace DbAccessLibrary.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<string>("SellerId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SellerId1")
+                    b.Property<int?>("SellerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("typeOfClothes")
+                    b.Property<int>("TypeOfClothes")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SellerId1");
+                    b.HasIndex("SellerId");
 
                     b.ToTable("Clothes");
                 });
@@ -102,7 +99,7 @@ namespace DbAccessLibrary.Migrations
                 {
                     b.HasOne("DbAccessLibrary.Models.Seller", null)
                         .WithMany("Clothes")
-                        .HasForeignKey("SellerId1");
+                        .HasForeignKey("SellerId");
                 });
 #pragma warning restore 612, 618
         }

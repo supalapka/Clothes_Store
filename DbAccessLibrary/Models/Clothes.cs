@@ -8,12 +8,11 @@ namespace DbAccessLibrary.Models
     public class Clothes
     {
         public int Id { get; set; }
-        public string SellerId { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
-        public TypesOfClothes typeOfClothes { get; set; }
+        public TypesOfClothes TypeOfClothes { get; set; }
         public Colors Color { get; set; }
 
-        public ICollection<Cart> Carts { get; set; } //fix later.  does not showing in database table
+        public ICollection<Cart> Carts { get; set; }
     }
 }

@@ -8,6 +8,7 @@ namespace DbAccessLibrary.Models
     {
         public int Id { get; set; }
         public int Quantity { get; set; }
+        public Size Size { get; set; }
         public bool IsOrderFinished { get; set; }
     }
 }

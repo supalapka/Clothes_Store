@@ -14,6 +14,14 @@
     <Compile Remove="Data\Migrations\20221008180905_added custom props.Designer.cs" />
     <Compile Remove="Data\Migrations\20221008181218_added custom props.cs" />
     <Compile Remove="Data\Migrations\20221008181218_added custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009085418_user custom props.cs" />
+    <Compile Remove="Data\Migrations\20221009085418_user custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009085517_user custom props.cs" />
+    <Compile Remove="Data\Migrations\20221009085517_user custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009101400_user Custom Props.cs" />
+    <Compile Remove="Data\Migrations\20221009101400_user Custom Props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009101508_user Custom Props.cs" />
+    <Compile Remove="Data\Migrations\20221009101508_user Custom Props.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

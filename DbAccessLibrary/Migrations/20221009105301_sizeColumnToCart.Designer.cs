@@ -4,14 +4,16 @@ using DbAccessLibrary.DbAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbAccessLibrary.Migrations
 {
     [DbContext(typeof(ClothesStoreDbContext))]
-    partial class ClothesStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221009105301_sizeColumnToCart")]
+    partial class sizeColumnToCart
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
