@@ -37,12 +37,9 @@ namespace Clothes_Store
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));//DbAccessLib
 
-           // services.AddIdentity<ApplicationUser, IdentityRole>()
-           //.AddEntityFrameworkStores<ApplicationDbContext>()
-           //.AddDefaultUI()
-           //.AddDefaultTokenProviders();
+          //  services.AddDbContext<ApplicationDbContext>(); //check later
 
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
