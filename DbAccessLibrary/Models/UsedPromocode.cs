@@ -4,12 +4,8 @@ using System.Text;
 
 namespace DbAccessLibrary.Models
 {
-    public enum ClothingCtegory
+    public class UsedPromocode
     {
-        Default,
-        Male,
-        Female,
-        Winter,
-        Summer
+        public int Id { get; set; }
     }
 }

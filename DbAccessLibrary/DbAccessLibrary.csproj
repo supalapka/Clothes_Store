@@ -17,6 +17,8 @@
     <Compile Remove="Migrations\20221008134245_refresh.Designer.cs" />
     <Compile Remove="Migrations\20221009103406_BasicModel.cs" />
     <Compile Remove="Migrations\20221009103406_BasicModel.Designer.cs" />
+    <Compile Remove="Migrations\20221010082842_promocodes.cs" />
+    <Compile Remove="Migrations\20221010082842_promocodes.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

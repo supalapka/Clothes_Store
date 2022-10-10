@@ -11,5 +11,6 @@ namespace Clothes_Store.Models
         public string DeliveryAddress { get; set; }
 
         public ICollection<Cart> Carts { get; set; }
+        public ICollection<UsedPromocode> UsedPromocodes { get; set; }
     }
 }
