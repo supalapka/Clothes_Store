@@ -10,5 +10,10 @@ namespace DbAccessLibrary.Models
         public int Quantity { get; set; }
         public Size Size { get; set; }
         public bool IsOrderFinished { get; set; }
+
+        public int ClothesId { get; set; }
+        public Clothes Clothes { get; set; }
+
+        public string ApplicationUserId { get; set; }
     }
 }

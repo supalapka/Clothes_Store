@@ -19,6 +19,12 @@
     <Compile Remove="Migrations\20221009103406_BasicModel.Designer.cs" />
     <Compile Remove="Migrations\20221010082842_promocodes.cs" />
     <Compile Remove="Migrations\20221010082842_promocodes.Designer.cs" />
+    <Compile Remove="Migrations\20221011053954_updateRelations.cs" />
+    <Compile Remove="Migrations\20221011053954_updateRelations.Designer.cs" />
+    <Compile Remove="Migrations\20221011054306_refresh2.cs" />
+    <Compile Remove="Migrations\20221011054306_refresh2.Designer.cs" />
+    <Compile Remove="Migrations\20221011062455_updRelationships.cs" />
+    <Compile Remove="Migrations\20221011062455_updRelationships.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,10 +32,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.29" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.29" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

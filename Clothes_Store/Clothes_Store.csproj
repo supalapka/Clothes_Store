@@ -22,6 +22,10 @@
     <Compile Remove="Data\Migrations\20221009101400_user Custom Props.Designer.cs" />
     <Compile Remove="Data\Migrations\20221009101508_user Custom Props.cs" />
     <Compile Remove="Data\Migrations\20221009101508_user Custom Props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221011062038_userRelationships.cs" />
+    <Compile Remove="Data\Migrations\20221011062038_userRelationships.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221011062157_userRelationships.cs" />
+    <Compile Remove="Data\Migrations\20221011062157_userRelationships.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -26,7 +26,7 @@ namespace DbAccessLibrary.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("ClothesId")
+                    b.Property<int>("ClothesId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsOrderFinished")
@@ -61,7 +61,7 @@ namespace DbAccessLibrary.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SellerId")
+                    b.Property<int>("SellerId")
                         .HasColumnType("int");
 
                     b.Property<int>("TypeOfClothes")
@@ -129,16 +129,20 @@ namespace DbAccessLibrary.Migrations
 
             modelBuilder.Entity("DbAccessLibrary.Models.Cart", b =>
                 {
-                    b.HasOne("DbAccessLibrary.Models.Clothes", null)
+                    b.HasOne("DbAccessLibrary.Models.Clothes", "Clothes")
                         .WithMany("Carts")
-                        .HasForeignKey("ClothesId");
+                        .HasForeignKey("ClothesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DbAccessLibrary.Models.Clothes", b =>
                 {
-                    b.HasOne("DbAccessLibrary.Models.Seller", null)
+                    b.HasOne("DbAccessLibrary.Models.Seller", "Seller")
                         .WithMany("Clothes")
-                        .HasForeignKey("SellerId");
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DbAccessLibrary.Models.UsedPromocode", b =>

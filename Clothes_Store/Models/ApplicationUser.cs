@@ -10,7 +10,8 @@ namespace Clothes_Store.Models
         public string LastName { get; set; }
         public string DeliveryAddress { get; set; }
 
-        public ICollection<Cart> Carts { get; set; }
-        public ICollection<UsedPromocode> UsedPromocodes { get; set; }
+        public List<Cart> Carts { get; set; }
+        public List<UsedPromocode> UsedPromocodes { get; set; }
     }
+
 }
