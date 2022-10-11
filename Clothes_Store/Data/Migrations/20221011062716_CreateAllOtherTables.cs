@@ -22,7 +22,7 @@ namespace Clothes_Store.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Seller",
+                name: "Sellers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -31,7 +31,7 @@ namespace Clothes_Store.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Seller", x => x.Id);
+                    table.PrimaryKey("PK_Sellers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,9 +77,9 @@ namespace Clothes_Store.Data.Migrations
                 {
                     table.PrimaryKey("PK_Clothes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Clothes_Seller_SellerId",
+                        name: "FK_Clothes_Sellers_SellerId",
                         column: x => x.SellerId,
-                        principalTable: "Seller",
+                        principalTable: "Sellers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -154,7 +154,7 @@ namespace Clothes_Store.Data.Migrations
                 name: "Promocode");
 
             migrationBuilder.DropTable(
-                name: "Seller");
+                name: "Sellers");
         }
     }
 }

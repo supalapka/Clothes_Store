@@ -1,0 +1,13 @@
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@using System.IO
+@model List<Clothes>
+
+
+
+@foreach (var item in Model)
+{
+  
+        var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.PreviewImage);
+        <img src="@imgSrc" />
+}
