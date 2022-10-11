@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clothes_Store.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221010083649_userPromocodes")]
-    partial class userPromocodes
+    [Migration("20221011062001_userCustomProps")]
+    partial class userCustomProps
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -93,49 +93,6 @@ namespace Clothes_Store.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-                });
-
-            modelBuilder.Entity("DbAccessLibrary.Models.Cart", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("IsOrderFinished")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("Cart");
-                });
-
-            modelBuilder.Entity("DbAccessLibrary.Models.UsedPromocode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
-
-                    b.ToTable("UsedPromocode");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -271,20 +228,6 @@ namespace Clothes_Store.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("DbAccessLibrary.Models.Cart", b =>
-                {
-                    b.HasOne("Clothes_Store.Models.ApplicationUser", null)
-                        .WithMany("Carts")
-                        .HasForeignKey("ApplicationUserId");
-                });
-
-            modelBuilder.Entity("DbAccessLibrary.Models.UsedPromocode", b =>
-                {
-                    b.HasOne("Clothes_Store.Models.ApplicationUser", null)
-                        .WithMany("UsedPromocodes")
-                        .HasForeignKey("ApplicationUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

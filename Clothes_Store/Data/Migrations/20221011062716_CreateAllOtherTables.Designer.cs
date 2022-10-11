@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Clothes_Store.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221009101541_user Custom Props")]
-    partial class userCustomProps
+    [Migration("20221011062716_CreateAllOtherTables")]
+    partial class CreateAllOtherTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -105,17 +105,112 @@ namespace Clothes_Store.Data.Migrations
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("ClothesId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsOrderFinished")
                         .HasColumnType("bit");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int>("Size")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ApplicationUserId");
 
+                    b.HasIndex("ClothesId");
+
                     b.ToTable("Cart");
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.Clothes", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Color")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SellerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TypeOfClothes")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SellerId");
+
+                    b.ToTable("Clothes");
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.Promocode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Category")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DiscountPercentage")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Promocode");
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.Seller", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Seller");
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.UsedPromocode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("PromocodeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("PromocodeId");
+
+                    b.ToTable("UsedPromocode");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -258,6 +353,34 @@ namespace Clothes_Store.Data.Migrations
                     b.HasOne("Clothes_Store.Models.ApplicationUser", null)
                         .WithMany("Carts")
                         .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("DbAccessLibrary.Models.Clothes", "Clothes")
+                        .WithMany("Carts")
+                        .HasForeignKey("ClothesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.Clothes", b =>
+                {
+                    b.HasOne("DbAccessLibrary.Models.Seller", "Seller")
+                        .WithMany("Clothes")
+                        .HasForeignKey("SellerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.UsedPromocode", b =>
+                {
+                    b.HasOne("Clothes_Store.Models.ApplicationUser", null)
+                        .WithMany("UsedPromocodes")
+                        .HasForeignKey("ApplicationUserId");
+
+                    b.HasOne("DbAccessLibrary.Models.Promocode", "Promocode")
+                        .WithMany("Promocodes")
+                        .HasForeignKey("PromocodeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
