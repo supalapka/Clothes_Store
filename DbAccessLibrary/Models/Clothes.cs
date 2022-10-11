@@ -14,7 +14,7 @@ namespace DbAccessLibrary.Models
         public int Price { get; set; }
         public TypesOfClothes TypeOfClothes { get; set; }
         public Colors Color { get; set; }
-
+        public byte[] PreviewImage { get; set; }
 
         public int SellerId { get; set; }
         [ForeignKey("SellerId")]

@@ -15,6 +15,5 @@ namespace DbAccessLibrary.DbAccess
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Promocode> Promocodes { get; set; }
         public DbSet<UsedPromocode> UsedPromocodes { get; set; }
-
     }
 }

@@ -67,6 +67,7 @@ namespace Clothes_Store.Data.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
+                    PreviewImage = table.Column<byte[]>(nullable: true),
                     Price = table.Column<int>(nullable: false),
                     TypeOfClothes = table.Column<int>(nullable: false),
                     Color = table.Column<int>(nullable: false),
