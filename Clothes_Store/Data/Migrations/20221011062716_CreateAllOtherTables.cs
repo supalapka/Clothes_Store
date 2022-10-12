@@ -94,7 +94,7 @@ namespace Clothes_Store.Data.Migrations
                     Size = table.Column<int>(nullable: false),
                     IsOrderFinished = table.Column<bool>(nullable: false),
                     ClothesId = table.Column<int>(nullable: false),
-                    ApplicationUserId = table.Column<string>(nullable: true)
+                    ApplicationUserId = table.Column<string>(maxLength:450, nullable: true)
                 },
                 constraints: table =>
                 {
