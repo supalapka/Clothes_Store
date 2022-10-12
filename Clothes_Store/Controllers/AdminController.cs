@@ -51,5 +51,11 @@ namespace Clothes_Store.Controllers
                clothes.Color, seller.Id, clothes.Price,_context);
             return RedirectToAction("Index");
         }
+
+        public async Task<IActionResult> DeleteClothes(int id)
+        {
+            await ClothesRepository.DeleteAsync(id, _context);
+            return RedirectToAction("Index");
+        }
     }
 }
