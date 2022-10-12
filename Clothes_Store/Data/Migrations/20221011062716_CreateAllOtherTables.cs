@@ -85,7 +85,7 @@ namespace Clothes_Store.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cart",
+                name: "Carts",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -98,15 +98,15 @@ namespace Clothes_Store.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cart", x => x.Id);
+                    table.PrimaryKey("PK_Carts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Cart_AspNetUsers_ApplicationUserId",
+                        name: "FK_Carts_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Cart_Clothes_ClothesId",
+                        name: "FK_Carts_Clothes_ClothesId",
                         column: x => x.ClothesId,
                         principalTable: "Clothes",
                         principalColumn: "Id",
@@ -114,13 +114,13 @@ namespace Clothes_Store.Data.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cart_ApplicationUserId",
-                table: "Cart",
+                name: "IX_Carts_ApplicationUserId",
+                table: "Carts",
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cart_ClothesId",
-                table: "Cart",
+                name: "IX_Carts_ClothesId",
+                table: "Carts",
                 column: "ClothesId");
 
             migrationBuilder.CreateIndex(
@@ -142,7 +142,7 @@ namespace Clothes_Store.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cart");
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "UsedPromocode");
