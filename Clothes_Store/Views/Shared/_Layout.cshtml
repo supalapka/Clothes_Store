@@ -9,14 +9,47 @@
 </head>
 <body>
     <header>
+      <nav>
+        <ul class="menu">
+          <li class="logo">
+            <a href="#"
+              ><img src="img/logo.png" alt="" class="logotype" />GATI</a
+            >
+          </li>
+          <li class="item">
+            <form action="#" class="search">
+              <input type="text" placeholder=" Пошук по сайту" />
+            </form>
+          </li>
+          <li class="item">
+            <a href="#"
+              ><i class="fa fa-user" aria-hidden="true"></i> Профіль</a
+            >
+          </li>
+          <li class="item"><a href="#">ПРО нас</a></li>
+          <li class="item has-submenu">
+            <a tabindex="0">Категорії товарів</a>
+            <ul class="submenu">
+              <li class="subitem"><a href="#">Футболки</a></li>
+              <li class="subitem"><a href="#">Сорочки</a></li>
+              <li class="subitem"><a href="#">Штани</a></li>
+              <li class="subitem"><a href="#">Кросівки</a></li>
+            </ul>
+          </li>
+          <li class="item"><a href="#">Адмінпанель</a></li>
+          <li class="item">
+            <a href="#"><i class="fas fa-lightbulb"></i></a>
+          </li>
 
-        <nav>
-
-        @* header code here *@
-
-        </nav>
-
-
+          <li class="item button"><a href="#" class="btn">Log In</a></li>
+          <li class="item button secondary">
+            <a href="#" class="btn">Sign Up</a>
+          </li>
+          <li class="toggle">
+            <a href="#"><i class="fas fa-bars"></i></a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -30,6 +63,7 @@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/slick.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
