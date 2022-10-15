@@ -4,8 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Clothes_Store</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
 </head>
 <body>
     <header>
@@ -13,7 +16,7 @@
         <ul class="menu">
           <li class="logo">
             <a href="#"
-              ><img src="img/logo.png" alt="" class="logotype" />GATI</a
+              ><img src="~/Images/logo.png" alt="" class="logotype" />GATI</a
             >
           </li>
           <li class="item">
@@ -36,14 +39,14 @@
               <li class="subitem"><a href="#">Кросівки</a></li>
             </ul>
           </li>
-          <li class="item"><a href="#">Адмінпанель</a></li>
+          <li class="item"><a asp-controller="Admin" asp-action="AddClothes">Адмін панель</a></li>
           <li class="item">
             <a href="#"><i class="fas fa-lightbulb"></i></a>
           </li>
 
-          <li class="item button"><a href="#" class="btn">Log In</a></li>
+          <li class="item button"><a asp-area="Identity" asp-page="/Account/Login"class="btn">Log In</a></li>
           <li class="item button secondary">
-            <a href="#" class="btn">Sign Up</a>
+            <a asp-area="Identity" asp-page="/Account/Register" class="btn">Sign Up</a>
           </li>
           <li class="toggle">
             <a href="#"><i class="fas fa-bars"></i></a>
@@ -58,14 +61,12 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Clothes_Store - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/slick.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
