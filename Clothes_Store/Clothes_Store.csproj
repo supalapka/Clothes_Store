@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,11 +6,43 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20221007130951_UserInit.cs" />
+    <Compile Remove="Data\Migrations\20221007130951_UserInit.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221008133126_add-relationCartToClothes.cs" />
+    <Compile Remove="Data\Migrations\20221008133126_add-relationCartToClothes.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221008180905_added custom props.cs" />
+    <Compile Remove="Data\Migrations\20221008180905_added custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221008181218_added custom props.cs" />
+    <Compile Remove="Data\Migrations\20221008181218_added custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009085418_user custom props.cs" />
+    <Compile Remove="Data\Migrations\20221009085418_user custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009085517_user custom props.cs" />
+    <Compile Remove="Data\Migrations\20221009085517_user custom props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009101400_user Custom Props.cs" />
+    <Compile Remove="Data\Migrations\20221009101400_user Custom Props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221009101508_user Custom Props.cs" />
+    <Compile Remove="Data\Migrations\20221009101508_user Custom Props.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221011062038_userRelationships.cs" />
+    <Compile Remove="Data\Migrations\20221011062038_userRelationships.Designer.cs" />
+    <Compile Remove="Data\Migrations\20221011062157_userRelationships.cs" />
+    <Compile Remove="Data\Migrations\20221011062157_userRelationships.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.22" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.22" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.22" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.29" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.25">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
+    <ProjectReference Include="..\DbAccessLibrary\DbAccessLibrary.csproj" />
   </ItemGroup>
 
 </Project>

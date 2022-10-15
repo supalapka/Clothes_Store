@@ -1,0 +1,55 @@
+﻿@model Clothes_Store.Models.ClothesPreview
+
+@{
+    ViewData["Title"] = "AddClothes";
+}
+
+<h1>AddClothes</h1>
+
+<h4>ClothesPreview</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddClothes" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <div class="form-group">
+                <label asp-for="PreviwImageFileInput" class="control-label"></label>
+                <input type="file" asp-for="PreviwImageFileInput" class="form-control" />
+                <span asp-validation-for="PreviwImageFileInput" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Color" class="control-label"></label>
+                <input asp-for="Color" class="form-control" />
+                <span asp-validation-for="Color" class="text-danger"></span>
+            </div>
+               <div class="form-group">
+                <label asp-for="TypeOfClothes" class="control-label"></label>
+                <input asp-for="TypeOfClothes" class="form-control" />
+                <span asp-validation-for="TypeOfClothes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SellerName" class="control-label"></label>
+                <input asp-for="SellerName" class="form-control" />
+                <span asp-validation-for="SellerName" class="text-danger"></span>
+            </div>
+              <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
