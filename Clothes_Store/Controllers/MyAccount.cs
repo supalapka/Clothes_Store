@@ -1,5 +1,7 @@
 ﻿using DbAccessLibrary.DbAccess;
+using DbAccessLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
@@ -28,7 +30,12 @@ namespace Clothes_Store.Controllers
             var cart = _context.Carts.Where(x => x.ApplicationUserId == userId
             && x.IsOrderFinished == false).ToList();
 
-            return View(cart);
+            List<Clothes> clothes = new List<Clothes>();
+            foreach (var cartItem in cart)
+            {
+                clothes.Add(_context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault());
+            }
+            return View(clothes);
         }
 
         public IActionResult Orders()  //finished orders
@@ -38,7 +45,12 @@ namespace Clothes_Store.Controllers
             var orders = _context.Carts.Where(x => x.ApplicationUserId == userId
             && x.IsOrderFinished == true).ToList();
 
-            return View(orders);
+            List<Clothes> clothes = new List<Clothes>();
+            foreach (var order in orders)
+            {
+                clothes.Add(_context.Clothes.Where(x => x.Id == order.ClothesId).FirstOrDefault());
+            }
+            return View(clothes);
         }
 
         public IActionResult MyAds()
