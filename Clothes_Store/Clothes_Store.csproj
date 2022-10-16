@@ -45,8 +45,4 @@
     <ProjectReference Include="..\DbAccessLibrary\DbAccessLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Images\" />
-  </ItemGroup>
-
 </Project>
