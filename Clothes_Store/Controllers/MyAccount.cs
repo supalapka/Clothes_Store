@@ -54,8 +54,6 @@ namespace Clothes_Store.Controllers
 
         public IActionResult MyAds()
         {
-
-
             return View();
         }
     }

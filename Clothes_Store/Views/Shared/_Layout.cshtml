@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -25,9 +27,8 @@
             </form>
           </li>
           <li class="item">
-            <a href="#"
-              ><i class="fa fa-user" aria-hidden="true"></i> Профіль</a
-            >
+            <a asp-controller="MyAccount" asp-action="Index"
+              ><i class="fa fa-user" aria-hidden="true"></i> Профіль</a>
           </li>
           <li class="item"><a href="#">ПРО нас</a></li>
           <li class="item has-submenu">
@@ -54,19 +55,60 @@
         </ul>
       </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer style="margin-top: auto;">
+        <div class="footer-container">
+        <!--SOCIAL MEDIA -->
+        <div class="social-media">
+          <div class="logo-name">
+            <img src="~/Images/logo.png" class="logotype" alt="" />
+          </div>
+          <span class="footer-shop-name footer-text">GATI SHOP</span>
+          <div class="social-media-items">
+            <i class="fab fa-instagram"></i
+            ><i class="fab fa-facebook-square"></i
+            ><i class="fab fa-telegram"></i>
+          </div>
+          <div class="footer-copyrigth footer-text">© 2022, gatishop.com</div>
+        </div>
+        <!--CONTACTS-->
+        <div class="contacts">
+          <div class="email prefix footer-text">E-MAIL:</div>
+          <div class="email-name footer-text">support@gatishop.com</div>
+          <div class="working-hours prefix footer-text">
+            ЧАС РОБОТИ СЛУЖБИ ПІДТРИМКИ
+          </div>
+          <div class="working-hours-content footer-text">
+            ПН-ПТ: 9:00 - 22:00
+          </div>
+        </div>
+        <!--PAYMENT OPTIONS-->
+        <div class="payment-options">
+          <div class="prefix footer-text">ПРИЙМАЄМО ДО СПЛАТИ</div>
+          <div class="visa-wayforpray">
+            <i class="fab fa-cc-visa"></i>
+            <img src="~/Images/wayforpray.png" alt="" />
+          </div>
+          <div class="mastercard-privat">
+            <img src="~/Images/mastercard.webp" alt="" />
+            <img src="~/Images/privat24.webp" alt="" />
+          </div>
+        </div>
+      </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/slick.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/myaccount.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

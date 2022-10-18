@@ -1,1 +1,27 @@
-﻿login html here
+﻿@page
+@model LoginModel
+
+            <div class="login">
+                <div class="main-block">
+                    <div class="EN-button">
+                        <p class="EN">Укр</p>
+                    </div>
+                    <div class="theme-button">
+                        <a href="#"><img src="icons/Theme button.png" alt=""></a>
+                    </div>
+                    <p class="log_in">Увійти</p>
+
+                      <form id="account" method="post">
+                        <input class="username" asp-for="Input.Email" placeholder="Пошта">
+                        <input class="password" asp-for="Input.Password" placeholder="Пароль">
+                         <div class="items-center" >
+                          <button type="submit" class="form_btn">Продовжити</button>
+                        </div>
+                    </form>
+                  
+                    <ul class="list-login">
+                        <li><a class="create-account" asp-area="Identity" asp-page="/Account/Register">Створити акаунт?</a></li>
+                        <li><a class="lost-password" asp-area="Identity" asp-page="/Account/Register">Забув пароль?</a></li>
+                    </ul>
+                </div>
+            </div>

@@ -1,1 +1,56 @@
-﻿
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+ @model List<Cart>
+
+
+<section class="main_content">
+        <nav class="navigation_account">
+            <div id = "nav_title" class="nav_title">Мій акаунт</div>
+            <div class="nav_items">
+                <ul>
+                      <a asp-controller="MyAccount" asp-action="Cart" ><li>Кошик</li></a>
+                    <a asp-controller="MyAccount" asp-action="Orders" ><li>Мої замовлення</li></a>
+                    <a href="../data_account/data_accout.html"><li>Дані облікового запису</li></a>
+                    <a href="../my_sales/my_sales.html"><li>Мої оголошення</li></a>
+                </ul>
+            </div>
+        </nav>
+        <div class="mine_block">
+            <div class="location"><p><strong>Мій акаунт</strong></p><p>> Мої замовлення</p></div>
+            <h2>Мої замовлення</h2>
+
+          @if(Model.Count == 0)
+            {
+            <div class="empty_block">
+                <p>ЗАМОВЛЕНЬ НЕМАЄ</p>
+                <button class="form_btn"><strong><a asp-controller="Home" asp-action="Index" >НА ГОЛОВНУ</a></strong></button>
+            </div>
+        } else  {
+                @foreach(var item in Model)
+                    {
+                         <div class="order_block">
+                            <div class="order_info">
+                                @{int total = @item.Clothes.Price * @item.Quantity;}
+                                <p class="price_info">Оплата: <span>@total </span>грн</p>
+                                <p class="data_info">Дата: <span>@item.Date </span></p>
+                            </div>
+
+                            <div class="cart_wrapper">
+                                <div class="goods">
+                                     @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(item.Clothes.PreviewImage);
+                                   <img src="@imgSrc"  alt="goods" />   }
+                                    <div class = "about_goods">
+                                        <h2>@item.Clothes.Name</h2>
+                                        <p>Колір: @item.Clothes.Color</p>
+                                        <p>Розмір: @item.Size </p>
+                                        <p>@item.Quantity <span>шт.</span></p>
+                                        <p>@item.Clothes.Price <span>грн</span></p>
+                                    </div>
+                                </div>         
+                            </div>  
+                        </div>             
+                    }
+            }
+            </div>
+        }
+    </section>

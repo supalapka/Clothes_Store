@@ -1,4 +1,5 @@
-﻿@model Clothes_Store.Models.ClothesPreview
+﻿@using DbAccessLibrary.Models
+@model Clothes_Store.Models.ClothesPreview
 
 @{
     ViewData["Title"] = "AddClothes";
@@ -24,12 +25,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
+                    <select asp-for="Color" class="form-control" asp-items="Html.GetEnumSelectList<Colors>()" >
+                        <option value="Choose color"></option>
+                        </select>
                 <span asp-validation-for="Color" class="text-danger"></span>
             </div>
                <div class="form-group">
                 <label asp-for="TypeOfClothes" class="control-label"></label>
-                <input asp-for="TypeOfClothes" class="form-control" />
+                 <select asp-for="TypeOfClothes" class="form-control" asp-items="Html.GetEnumSelectList<TypesOfClothes>()" >
+                       <option value="Choose type"></option>
+                        </select>
                 <span asp-validation-for="TypeOfClothes" class="text-danger"></span>
             </div>
             <div class="form-group">
