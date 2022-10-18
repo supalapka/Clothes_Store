@@ -1,17 +1,5 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -24,6 +12,13 @@ body {
     background: #040918;
     font-family: Montserrat;
     color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
 }
 
 nav {
@@ -569,6 +564,7 @@ slider */
     padding: 40px 50px;
     display: flex;
     justify-content: space-between;
+   
 }
 
 .social-media {
@@ -1220,6 +1216,10 @@ input, .form_prom {
     }
 }
 
+.items-center {
+    text-align: center;
+}
+
 @media only screen and (max-width:880px) {
     .nav_title::before {
         transform: rotate(40deg);
@@ -1373,6 +1373,7 @@ input, .form_prom {
     margin: auto auto;
     padding-top: 70px;
     background-size: cover;
+    margin-bottom:40px;
 }
 
 .main-block {
@@ -1478,9 +1479,6 @@ input, .form_prom {
     padding: 0px;
 }
 
-li {
-    display: inline;
-}
 
 .create-account {
     color: #5B5B5B;
@@ -1502,13 +1500,9 @@ li {
     text-decoration: none;
 }
 
-@media only screen and (max-width: 1279px) and (min-width: 932px)
-@media only screen and (max-width: 768px) and (min-width: 400px)
-@media only screen and (max-width: 400px)
 
 
 
-/*register*/
 
 .register {
     background-color: #040918;
@@ -1517,6 +1511,7 @@ li {
     margin: auto auto;
     padding-top: 70px;
     background-size: cover;
+    margin-bottom:40px;
 }
 
 .register-block {
@@ -1635,3 +1630,6 @@ li {
     text-decoration: none;
 }
 
+@media only screen and (max-width: 1279px) and (min-width: 932px)
+@media only screen and (max-width: 768px) and (min-width: 400px)
+@media only screen and (max-width: 400px)
