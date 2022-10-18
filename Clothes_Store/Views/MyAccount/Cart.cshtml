@@ -1,0 +1,91 @@
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+ @model List<Clothes>
+
+<section class="main_content">
+        <nav class="navigation_account">
+            <div id = "nav_title" class="nav_title">Мій акаунт</div>
+            <div class="nav_items">
+                <ul>
+                    <a asp-controller="MyAccount" asp-action="Cart" ><li>Кошик</li></a>
+                    <a asp-controller="MyAccount" asp-action="Orders" ><li>Мої замовлення</li></a>
+                    <a href="../data_account/data_accout.html"><li>Дані облікового запису</li></a>
+                    <a href="../my_sales/my_sales.html"><li>Мої оголошення</li></a>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="mine_block">
+            <div class="location"><p><strong>Мій акаунт</strong></p><p>> Кошик</p></div>
+            <h2>Кошик</h2>
+        @{
+            int deliveryPrice = 100;
+            int allClothesPrice = 0;
+            int totalPrice = 0;
+        }
+            @if(Model.Count == 0)
+            {
+            <div class="empty_block">
+                <p>Кошик пустий</p>
+                <button class="form_btn"><strong><a asp-controller="Home" asp-action="Index" >НА ГОЛОВНУ</a></strong></button>
+            </div>
+        }
+        else
+            {
+                @foreach(var item in Model)
+                    {
+                          allClothesPrice += item.Price;
+
+                         <div class="order_block">
+                            <div class="order_info">
+                                <p class="price_info">Оплата: <span>0</span>грн</p>
+                                <p class="data_info">Дата: <span>10.10.2022</span></p>
+                            </div>
+
+                            <div class="cart_wrapper">
+                                <div class="goods">
+                                     @{  var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.PreviewImage);
+                                   <img src="@imgSrc"  alt="goods" />   }
+                                    <div class = "about_goods">
+                                        <h2>@item.Name</h2>
+                                        <p>Колір: @item.Color</p>
+                                        <p>Розмір: !EDIT </p>
+                                        <p>!EDIT<span>шт.</span></p>
+                                        <p>@item.Price <span>грн</span></p>
+                                    </div>
+                                </div>         
+                            </div>  
+                        </div>             
+                    }
+            }
+            </div>
+
+                @{
+                    if (allClothesPrice >= 2000) deliveryPrice = 0; // free delivary after 2000uah
+                    totalPrice = deliveryPrice + allClothesPrice;
+                }
+             <div class="final_price">
+            <div><p>Ціна товарів</p>
+                <p class="price_right"><span class="total_price">@allClothesPrice </span>грн</p>
+            </div>
+            <div>
+                <p>Ціна доставки</p>
+                <p class="price_right"><span class="dev_price">@deliveryPrice </span><p class="currency">грн</p></p>
+            </div>
+            <hr>
+            <div>
+                <p>Загальна сума</p>
+                <p class="price_right"><span class="all_price" span>@totalPrice </span>грн</p>
+            </div>   
+            <button>Оформити</button>   
+            <div class="block_promcode">
+                <p class="prom_p">У МЕНЕ Є ПРОМКОД</p>
+                <div>
+                    <form>
+                        <input class = "form_prom" type="text" name="" id="" placeholder="Введіть код">
+                        <input class = "form_btn" type="button" name="" id="" value="ЗАСТОСУВАТИ">
+                    </form>
+                </div>  
+            </div>  
+            </div>  
+    </section>

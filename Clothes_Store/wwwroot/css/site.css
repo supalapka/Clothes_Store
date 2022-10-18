@@ -1,17 +1,5 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -24,6 +12,13 @@ body {
     background: #040918;
     font-family: Montserrat;
     color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    margin-top: auto;
 }
 
 nav {
@@ -569,6 +564,7 @@ slider */
     padding: 40px 50px;
     display: flex;
     justify-content: space-between;
+   
 }
 
 .social-media {
@@ -863,3 +859,777 @@ slider */
         padding: 50px 10px;
     }
 }
+
+
+
+
+/*myacc styles*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.form, .order_info, .goods, .main_content, .final_price, .location, .about_goods, .quantity_goods, .trash_price, .final_price div, .block_promcode, .block_promcode form {
+    display: flex
+}
+
+    .form, .final_price, .about_goods, .trash_price, .block_promcode, .block_promcode form {
+        flex-direction: column
+    }
+
+.form {
+    margin: 20px 0 0px
+}
+
+.input_txt, .form_prom {
+    height: 30px;
+    padding-left: 10px
+}
+
+.input_txt, .btn_condition, .navigation_account, .goods h2 {
+    font-size: 16px
+}
+
+.input_txt, .input_btn, .form_btn, .btn_condition, a, .main_content, .quantity_goods button, .form_prom, .final_price button {
+    color: white
+}
+
+.input_txt, .order_block, .goods, .navigation_account, .final_price {
+    background-color: rgba(255,255,255,0.04)
+}
+
+.input_txt, .order_block, .goods, .navigation_account, .final_price, .quantity_goods {
+    border: 2px solid rgba(41,40,40,0.3)
+}
+
+.input_txt {
+    margin-bottom: 20px
+}
+
+.form h2, .form_btn, .btn_condition, .navigation_account li, .location, .goods p, .quantity_goods, .trash_price {
+    margin-bottom: 10px
+}
+
+.form p {
+    margin-bottom: 5px
+}
+
+.input_btn {
+    margin: 0 auto;
+    font-size: 18px;
+    padding: 10px 60px
+}
+
+.input_btn, .form_btn, .nav_title, .quantity_goods button, .trash_price button, .final_price button {
+    cursor: pointer
+}
+
+.input_btn, .form_btn, .final_price, .final_price button {
+    text-transform: uppercase
+}
+
+    .input_btn, .form_btn, .btn_condition, .final_price button, .form_btn:hover, .btn_condition:hover, .final_price button:hover, .input_btn:hover {
+        background-color: #4c2bee
+    }
+
+    .input_btn, .form_btn, .btn_condition, .quantity_goods button, .trash_price button, .final_price button {
+        border: none
+    }
+
+    .input_btn, .form_btn, .btn_condition, .empty_block, .quantity_goods, .final_price button {
+        text-align: center
+    }
+
+    .input_btn, .form_btn, .btn_condition, a, .final_price button {
+        text-decoration: none
+    }
+
+    .input_btn, .form_btn, .btn_condition, .final_price button {
+        border-radius: 100px
+    }
+
+.mine_block {
+    padding: 0 40px;
+    width: 50%;
+    margin: 60px 30px 0
+}
+
+.pusto {
+    width: 15%
+}
+
+.order_block {
+    padding: 10px;
+    margin-top: 30px
+}
+
+.main_content {
+    padding: 10px;
+    margin-top: 50px;
+    letter-spacing: 0.8px;
+    max-width: 1200px
+}
+
+.price_info, .main_content {
+    margin-right: auto
+}
+
+.goods {
+    width: 100%;
+    margin-top: 15px;
+    height: 200px
+}
+
+.image_blockk img {
+    width: 100%;
+    height: 100%
+}
+
+.goods, .navigation_account, .final_price {
+    border-radius: 10px
+}
+
+.form_btn {
+    margin-top: 8px;
+    padding: 10px 30px;
+    font-size: 11px
+}
+
+.btn_condition {
+    padding: 10px 5px;
+    max-width: 200px
+}
+
+.btn_condition, .quantity_goods, .trash_price p {
+    margin-top: auto
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat,sans-serif
+}
+
+body {
+    background-color: #040918
+}
+
+input, .form_prom {
+    outline: none
+}
+
+.main_content, .trash_price, .trash_price button, .price_right, .data_info {
+    margin-left: auto
+}
+
+.navigation_account {
+    width: 25%;
+    margin-top: 60px;
+    padding: 30px
+}
+
+.final_price {
+    width: 25%;
+    margin-top: 60px;
+    padding: 30px;
+    font-size: 13px
+}
+
+.navigation_account, .final_price {
+    height: max-content
+}
+
+    .final_price button {
+        font-size: 13px;
+        line-height: 3.08
+    }
+
+    .navigation_account ul {
+        margin: 10px 0 0px 35px
+    }
+
+    .navigation_account li {
+        list-style: none
+    }
+
+        .navigation_account li:hover {
+            text-decoration: underline
+        }
+
+.nav_title {
+    position: relative;
+    padding: 0 0 0px 24px
+}
+
+    .nav_title::before {
+        content: '';
+        width: 10px;
+        height: 1px;
+        position: absolute;
+        top: 8px;
+        left: 0
+    }
+
+    .nav_title::after {
+        content: '';
+        width: 10px;
+        height: 1px;
+        position: absolute;
+        top: 8px;
+        left: 8px
+    }
+
+    .nav_title::before, .nav_title::after {
+        background-color: white
+    }
+
+    .nav_title::before, .nav_title.active:after {
+        transform: rotate(-40deg)
+    }
+
+    .nav_title::after, .nav_title.active:before {
+        transform: rotate(40deg)
+    }
+
+.location p {
+    color: #949393;
+    margin-right: 6px
+}
+
+.location p, .goods p {
+    font-size: 14px
+}
+
+.goods img {
+    height: 100%;
+    width: 150px;
+    object-fit: cover
+}
+
+.about_goods {
+    margin: 10px 0 0px 10px
+}
+
+.empty_block {
+    font-size: 25px;
+    margin: 50px 0
+}
+
+.goods h2 {
+    margin-bottom: 15px
+}
+
+.quantity_goods, .block_promcode, .block_promcode form {
+    align-items: center;
+    justify-content: center
+}
+
+.quantity_goods {
+    max-width: max-content
+}
+
+    .quantity_goods p {
+        font-size: 17px;
+        margin: 5px
+    }
+
+    .quantity_goods button {
+        font-size: 32px;
+        width: 35px;
+        height: 35px;
+        opacity: .20
+    }
+
+    .quantity_goods button, .form_prom {
+        background: transparent
+    }
+
+.trash_price img {
+    width: 18px;
+    height: auto;
+    background-color: rgba(255,255,255,0)
+}
+
+.trash_price button {
+    background: url(images/sump.png)center center / 15px 15px no-repeat;
+    width: 15px;
+    height: 15px;
+    margin: 10px
+}
+
+.trash_price p {
+    margin: 10px
+}
+
+.trash_price button:hover {
+    background: url(images/sump_hover.png)center center / 15px 15px no-repeat
+}
+
+.final_price div {
+    margin: 10px 0
+}
+
+.prom_p {
+    margin-top: 20px
+}
+
+.form_prom {
+    border: 1px solid rgba(83,83,83,0.9);
+    max-width: 155px
+}
+
+.form_btn:hover, .btn_condition:hover, .final_price button:hover, .input_btn:hover {
+    box-shadow: 0 0 12px #563cd8;
+    -moz-box-shadow: 0 0 12px #5b45ca;
+    -o-box-shadow: 0 0 12px #5d40e9;
+    -ms-box-shadow: 0 0 12px #5b41dd;
+    -webkit-box-shadow: 0 0 12px #765cf5
+}
+
+@media only screen and (max-width:1279px) {
+    .mine_block {
+        width: 70%
+    }
+
+    .block_promcode form {
+        display: flex;
+        align-items: center
+    }
+
+    .block_promcode {
+        display: flex;
+        align-items: center
+    }
+
+        .block_promcode form, .block_promcode {
+            justify-content: center;
+            flex-direction: column
+        }
+
+    .navigation_account {
+        padding: 10px
+    }
+
+    .final_price {
+        padding: 10px
+    }
+}
+
+.items-center {
+    text-align: center;
+}
+
+@media only screen and (max-width:880px) {
+    .nav_title::before {
+        transform: rotate(40deg);
+        left: 0
+    }
+
+    .nav_title::after, .nav_title.active:before {
+        transform: rotate(-40deg)
+    }
+
+    .nav_title::after {
+        left: 8px
+    }
+
+    .nav_title.active:after {
+        transform: rotate(+40deg)
+    }
+
+    .mine_block {
+        margin: 20px auto 10px;
+        padding: 0 50px;
+        width: 90%;
+        margin-bottom: 10px;
+        margin-top: 20px
+    }
+
+    .final_price {
+        width: 90%;
+        padding: 10px
+    }
+
+    .mine_block, .navigation_account, .final_price {
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .navigation_account {
+        margin: 0 auto;
+        width: max-content;
+        display: flex;
+        text-align: center;
+        align-items: center
+    }
+
+    .final_price button {
+        margin: 0 auto;
+        width: 70%
+    }
+
+    .main_content {
+        display: flex
+    }
+
+    .navigation_account, .main_content {
+        flex-direction: column
+    }
+
+    .nav_items {
+        display: none
+    }
+
+    .navigation_account ul {
+        margin: 10px 0 0px
+    }
+
+    .nav_title {
+        margin-right: 24px
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .input_btn {
+        padding: 10px 40px
+    }
+
+    .btn_condition {
+        margin: 0 auto;
+        margin-bottom: 10px
+    }
+
+    .mine_block {
+        padding: 0 10px;
+        width: 97%
+    }
+
+    .final_price {
+        width: 97%
+    }
+
+    .goods img {
+        width: 100%
+    }
+
+    .trash_price, .about_goods, .goods {
+        display: flex
+    }
+
+    .trash_price {
+        flex-direction: row-reverse;
+        margin: 0
+    }
+
+    h2 {
+        font-size: 20px
+    }
+
+    .about_goods, .goods {
+        flex-direction: column;
+        height: auto
+    }
+}
+
+@media only screen and (max-width:300px) {
+    .input_txt {
+        font-size: 14px
+    }
+
+    .mine_block {
+        padding: 0 5px
+    }
+
+    .location {
+        flex-direction: column
+    }
+}
+
+@media only screen and (max-width:350px) {
+    .location {
+        flex-direction: column
+    }
+}
+
+@media only screen and (max-width:190px) {
+    .location {
+        flex-direction: column
+    }
+}
+
+
+
+
+
+
+
+
+/*login */
+.login {
+    background-color: #040918;
+    width: 1440px;
+    height: 780px;
+    margin: auto auto;
+    padding-top: 70px;
+    background-size: cover;
+    margin-bottom:40px;
+}
+
+.main-block {
+    background-color: rgba(255, 255, 255, 0.04);
+    width: 836px;
+    height: 640px;
+    margin: auto auto;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+.EN-button {
+    width: 30px;
+    height: 30px;
+    padding-top: 55px;
+    margin-left: 55px;
+}
+
+.EN {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 30px;
+}
+
+.theme-button {
+    padding-left: 747px;
+    margin-top: -20px;
+    width: 44px;
+    height: 44px;
+}
+
+.log_in {
+    font-size: 36px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 45px;
+    width: 101px;
+    color: white;
+    margin-left: 367px;
+    margin-top: -45px;
+}
+
+.username {
+    color: #5B5B5B;
+    font-size: 26px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 40px;
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 59px;
+    margin-left: 152px;
+    border: 0px;
+}
+
+.password-field {
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 59px;
+    margin-left: 152px;
+}
+
+.password {
+    color: #5B5B5B;
+    font-size: 26px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 40px;
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 59px;
+    margin-left: 152px;
+    border: 0px;
+}
+
+.proceed-button {
+    background-color: #1D275A;
+    padding: 10px 15px;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin-top: 56px;
+    margin-left: 325px;
+    border-radius: 10px;
+}
+
+.proceed {
+    color: #A9A9A9;
+    font-family: 'Mulish', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.list-login {
+    list-style: none;
+    margin-top: 66px;
+    padding: 0px;
+}
+
+
+.create-account {
+    color: #5B5B5B;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 25px;
+    margin-left: 154px;
+    text-decoration: none;
+}
+
+.lost-password {
+    color: #5B5B5B;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 25px;
+    margin-left: 212px;
+    text-decoration: none;
+}
+
+
+
+
+
+.register {
+    background-color: #040918;
+    width: 1440px;
+    height: 780px;
+    margin: auto auto;
+    padding-top: 70px;
+    background-size: cover;
+    margin-bottom:40px;
+}
+
+.register-block {
+    background-color: rgba(255, 255, 255, 0.04);
+    width: 836px;
+    height: 640px;
+    ф margin: auto auto;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+.EN-button {
+    width: 30px;
+    height: 30px;
+    padding-top: 55px;
+    margin-left: 55px;
+}
+
+.EN {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 30px;
+}
+
+.theme-button {
+    padding-left: 747px;
+    margin-top: -20px;
+    width: 44px;
+    height: 44px;
+}
+
+.create-account {
+    font-size: 36px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 50px;
+    width: 280px;
+    color: white;
+    margin-left: 295px;
+    margin-top: -45px;
+}
+
+.input1 {
+    color: #5B5B5B;
+    font-size: 26px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 40px;
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 39px;
+    margin-left: 153px;
+    border: 0px;
+}
+
+.input2 {
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 34px;
+    margin-left: 153px;
+    color: #5B5B5B;
+    font-size: 26px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 40px;
+    border: 0px;
+}
+
+.input3 {
+    color: #5B5B5B;
+    font-size: 26px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 40px;
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 34px;
+    margin-left: 153px;
+    border: 0px;
+}
+
+.proceed-button {
+    background-color: #1D275A;
+    padding: 10px 15px;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin-top: 56px;
+    margin-left: 325px;
+    border-radius: 10px;
+}
+
+.proceed {
+    color: #A9A9A9;
+    font-family: 'Mulish', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.log_in {
+    list-style: none;
+}
+
+.log-in {
+    color: #5B5B5B;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 156px;
+    margin-left: 350px;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 1279px) and (min-width: 932px)
+@media only screen and (max-width: 768px) and (min-width: 400px)
+@media only screen and (max-width: 400px)

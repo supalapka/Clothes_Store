@@ -1,2 +1,34 @@
 ﻿
-register html here
+@page
+@model RegisterModel
+
+    
+<div class="register" >
+    <div class="main-block">
+        <div class="EN-button">
+            <p class="EN">Укр</p>
+        </div>
+        <div class="theme-button">
+            <a href="#"><img src="icons/Theme button.png" alt=""></a>
+        </div>
+             <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                <p class="create-account">Створити акаунт</p>
+                    <input class="input1" asp-for="Input.Email" placeholder="Пошта">
+                    <input class="input2" asp-for="Input.Password" placeholder="Пароль">
+                    <input class="input3"asp-for="Input.ConfirmPassword" placeholder="Повторіть пароль">
+                    <div class="items-center" >
+                          <button style="" type="submit" class="form_btn " >Зареєструватись</button>
+                    </div>
+            </form>
+ 
+        <ul class="log_in">
+            <li><a class="log-in"asp-area="Identity" asp-page="/Account/Login">Увійти?</a></li>
+        </ul>
+    </div>
+</div>
+
+
+  
+
+
+
