@@ -19,7 +19,7 @@ namespace Clothes_Store.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Cart");
         }
 
 
