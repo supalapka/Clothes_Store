@@ -1,5 +1,7 @@
 ﻿using DbAccessLibrary.DbAccess;
+using DbAccessLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 
@@ -17,17 +19,21 @@ namespace Clothes_Store.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Cart");
         }
 
 
-        public IActionResult Cart() 
+        public IActionResult Cart()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var cart = _context.Carts.Where(x => x.ApplicationUserId == userId
             && x.IsOrderFinished == false).ToList();
 
+            foreach (var cartItem in cart)
+            {
+                cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault();
+            }
             return View(cart);
         }
 
@@ -37,6 +43,11 @@ namespace Clothes_Store.Controllers
 
             var orders = _context.Carts.Where(x => x.ApplicationUserId == userId
             && x.IsOrderFinished == true).ToList();
+
+            foreach (var order in orders)
+            {
+                order.Clothes = _context.Clothes.Where(x => x.Id == order.ClothesId).FirstOrDefault();
+            }
 
             return View(orders);
         }
