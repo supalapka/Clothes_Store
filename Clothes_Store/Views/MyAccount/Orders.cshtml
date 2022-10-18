@@ -1,5 +1,6 @@
-﻿@using DbAccessLibrary.Models
- @model List<Clothes>
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+ @model List<Cart>
 
 
 <section class="main_content">
@@ -25,40 +26,31 @@
                 <button class="form_btn"><strong><a asp-controller="Home" asp-action="Index" >НА ГОЛОВНУ</a></strong></button>
             </div>
         } else  {
-            
+                @foreach(var item in Model)
+                    {
+                         <div class="order_block">
+                            <div class="order_info">
+                                @{int total = @item.Clothes.Price * @item.Quantity;}
+                                <p class="price_info">Оплата: <span>@total </span>грн</p>
+                                <p class="data_info">Дата: <span>@item.Date </span></p>
+                            </div>
 
-             <div class="order_block">
-                <div class="order_info">
-                    <p class="price_info">Оплата: <span>0</span>грн</p>
-                    <p class="data_info">Дата: <span>10.10.2022</span></p>
-                </div>
-                <div class="cart_wrapper">
-                    <div class="goods">
-                        <img src="../images/t-shirt.png" alt="goods">
-                        <div class = "about_goods">
-                            <h2>Футболка regular із рослинним мотивом</h2>
-                            <p>Колір: темно-синій</p>
-                            <p>Розмір: M I UA 48-50</p>
-                            <p>10<span>шт.</span></p>
-                            <p>1000<span>грн</span></p>
-                        </div>
-                    </div>         
-                </div>  
-                <div class="cart_wrapper">
-                    <div class="goods">
-                        <img src="../images/t-shirt.png" alt="goods">
-                        <div class = "about_goods">
-                            <h2>Футболка regular із рослинним мотивом</h2>
-                            <p>Колір: темно-синій</p>
-                            <p>Розмір: M I UA 48-50</p>
-                            <p>10<span>шт.</span></p>
-                            <p>1000<span>грн</span></p>
-                        </div>
-                    </div>         
-                </div> 
-            </div> 
-
-
+                            <div class="cart_wrapper">
+                                <div class="goods">
+                                     @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(item.Clothes.PreviewImage);
+                                   <img src="@imgSrc"  alt="goods" />   }
+                                    <div class = "about_goods">
+                                        <h2>@item.Clothes.Name</h2>
+                                        <p>Колір: @item.Clothes.Color</p>
+                                        <p>Розмір: @item.Size </p>
+                                        <p>@item.Quantity <span>шт.</span></p>
+                                        <p>@item.Clothes.Price <span>грн</span></p>
+                                    </div>
+                                </div>         
+                            </div>  
+                        </div>             
+                    }
+            }
+            </div>
         }
-        </div>     
     </section>

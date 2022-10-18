@@ -1,6 +1,6 @@
 ﻿@using ClassLibrary
 @using DbAccessLibrary.Models
- @model List<Clothes>
+ @model List<Cart>
 
 <section class="main_content">
         <nav class="navigation_account">
@@ -15,55 +15,56 @@
             </div>
         </nav>
 
+
         <div class="mine_block">
             <div class="location"><p><strong>Мій акаунт</strong></p><p>> Кошик</p></div>
-            <h2>Кошик</h2>
-        @{
-            int deliveryPrice = 100;
+            <h2>Кошик</h2> 
+
+             @{ int deliveryPrice = 100;
             int allClothesPrice = 0;
             int totalPrice = 0;
-        }
-            @if(Model.Count == 0)
+            }
+            @if (Model.Count == 0)
             {
-            <div class="empty_block">
-                <p>Кошик пустий</p>
-                <button class="form_btn"><strong><a asp-controller="Home" asp-action="Index" >НА ГОЛОВНУ</a></strong></button>
-            </div>
-        }
-        else
-            {
+                <div class="empty_block">
+                    <p>Кошик пустий</p>
+                    <button class="form_btn"><strong><a asp-controller="Home" asp-action="Index" >НА ГОЛОВНУ</a></strong></button>
+                </div>
+            } else {
+              
+          
+                 <div class="cart_wrapper">
                 @foreach(var item in Model)
                     {
-                          allClothesPrice += item.Price;
-
-                         <div class="order_block">
-                            <div class="order_info">
-                                <p class="price_info">Оплата: <span>0</span>грн</p>
-                                <p class="data_info">Дата: <span>10.10.2022</span></p>
-                            </div>
-
-                            <div class="cart_wrapper">
-                                <div class="goods">
-                                     @{  var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.PreviewImage);
+                           allClothesPrice += item.Clothes.Price;
+                  <div class="goods_block"><!-- товар -->
+                        <div class="goods">
+                             @{  var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.Clothes.PreviewImage);
                                    <img src="@imgSrc"  alt="goods" />   }
-                                    <div class = "about_goods">
-                                        <h2>@item.Name</h2>
-                                        <p>Колір: @item.Color</p>
-                                        <p>Розмір: !EDIT </p>
-                                        <p>!EDIT<span>шт.</span></p>
-                                        <p>@item.Price <span>грн</span></p>
-                                    </div>
-                                </div>         
-                            </div>  
-                        </div>             
+                            <div class = "about_goods">
+                                <h2>@item.Clothes.Name</h2>
+                                <p>Колір: @item.Clothes.Color</p>
+                                <p>Розмір: @item.Size</p>
+                                <div class="quantity_goods">  
+                                    <button id="minus" data-action="minus">-</button>  
+                                    <p id="amount" data-counter>1</p>         
+                                    <button id="plus" data-action="plus">+</button>  
+                                </div>
+                            </div>
+                            <div class="trash_price">
+                                <button data-action = "to_trash"></button>
+                                <p><span id = "price" class="pricee">@item.Clothes.Price </span>грн</p>
+                            </div>
+                        </div>         
+                    </div> 
                     }
+          </div>   
             }
-            </div>
+              
+            </div>   
+            
 
-                @{
-                    if (allClothesPrice >= 2000) deliveryPrice = 0; // free delivary after 2000uah
-                    totalPrice = deliveryPrice + allClothesPrice;
-                }
+
              <div class="final_price">
             <div><p>Ціна товарів</p>
                 <p class="price_right"><span class="total_price">@allClothesPrice </span>грн</p>
