@@ -27,6 +27,10 @@
     <Compile Remove="Migrations\20221011062455_updRelationships.Designer.cs" />
     <Compile Remove="Migrations\20221011065654_delete.cs" />
     <Compile Remove="Migrations\20221011065654_delete.Designer.cs" />
+    <Compile Remove="Migrations\20221018205048_addedDateToCart.cs" />
+    <Compile Remove="Migrations\20221018205048_addedDateToCart.Designer.cs" />
+    <Compile Remove="Migrations\20221018205138_addedDateToCart.cs" />
+    <Compile Remove="Migrations\20221018205138_addedDateToCart.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
