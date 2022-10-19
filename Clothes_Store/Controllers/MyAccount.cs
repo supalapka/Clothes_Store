@@ -23,19 +23,18 @@ namespace Clothes_Store.Controllers
         }
 
 
-        public IActionResult Cart() 
+        public IActionResult Cart()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var cart = _context.Carts.Where(x => x.ApplicationUserId == userId
             && x.IsOrderFinished == false).ToList();
 
-            List<Clothes> clothes = new List<Clothes>();
             foreach (var cartItem in cart)
             {
-                clothes.Add(_context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault());
+                cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault();
             }
-            return View(clothes);
+            return View(cart);
         }
 
         public IActionResult Orders()  //finished orders
@@ -45,18 +44,16 @@ namespace Clothes_Store.Controllers
             var orders = _context.Carts.Where(x => x.ApplicationUserId == userId
             && x.IsOrderFinished == true).ToList();
 
-            List<Clothes> clothes = new List<Clothes>();
             foreach (var order in orders)
             {
-                clothes.Add(_context.Clothes.Where(x => x.Id == order.ClothesId).FirstOrDefault());
+                order.Clothes = _context.Clothes.Where(x => x.Id == order.ClothesId).FirstOrDefault();
             }
-            return View(clothes);
+
+            return View(orders);
         }
 
         public IActionResult MyAds()
         {
-
-
             return View();
         }
     }
