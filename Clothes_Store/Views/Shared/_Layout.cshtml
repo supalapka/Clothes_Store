@@ -44,14 +44,19 @@
           <li class="item">
             <a href="#"><i class="fas fa-lightbulb"></i></a>
           </li>
-
-          <li class="item button"><a asp-area="Identity" asp-page="/Account/Login"class="btn">Log In</a></li>
+         
+     @*     <li class="item button"><a asp-area="Identity" asp-page="/Account/Login"class="btn">Log In</a></li>
           <li class="item button secondary">
             <a asp-area="Identity" asp-page="/Account/Register" class="btn">Sign Up</a>
-          </li>
-          <li class="toggle">
+          </li>*@
+
+          <partial name="_LoginPartial" />
+
+          <li  class="toggle">
             <a href="#"><i class="fas fa-bars"></i></a>
           </li>
+
+          
         </ul>
       </nav>
     </header>
