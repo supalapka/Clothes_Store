@@ -70,6 +70,11 @@ a {
     color: #ccc;
     transition: 0.3s ease;
 }
+
+.item button:hover::after {
+    color: #ccc;
+    transition: 0.3s ease;
+}
 /* Mobile menu */
 .search {
     margin: 13px auto;
@@ -195,11 +200,29 @@ a {
             border: 1px #0080ff solid;
         }
 
+        .button.secondary button {
+            background: transparent;
+            border: 1px #0080ff solid;
+            color: white;
+            font-size: 16px;
+            height:40px;
+            width:95px;
+        }
+
     .button a:hover {
         text-decoration: none;
     }
 
+    .button button:hover {
+        text-decoration: none;
+    }
+
     .button:not(.secondary) a:hover {
+        background: rgb(41, 91, 240);
+        transition: 0.3s ease;
+    }
+
+    .button:not(.secondary) button:hover {
         background: rgb(41, 91, 240);
         transition: 0.3s ease;
     }
