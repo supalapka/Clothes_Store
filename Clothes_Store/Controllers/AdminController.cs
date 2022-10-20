@@ -37,7 +37,7 @@ namespace Clothes_Store.Controllers
         {
             var fileBytes = FunctionsLib.FileToByteArrayAsync(clothes.PreviwImageFileInput);
             var  seller = _context.Sellers.Where(x=>x.Name == clothes.SellerName).FirstOrDefault();
-            if(seller == null)  //create seller
+            if(seller == null)  //create seller,  temp
             {
                 var sellerNew = new Seller()
                 {

@@ -8,7 +8,7 @@ namespace DbAccessLibrary.DbAccess
     public static class ClothesRepository
     {
         public static async Task CreateAsync(string name, byte[] previewImage, TypesOfClothes typesOfClothes,
-            Colors color, int sellerId, int price, ClothesStoreDbContext _context)
+            Colors color, int sellerId, int price, ClothesStoreDbContext _context) 
         {
             Clothes clothes = new Clothes()
             {

@@ -16,29 +16,20 @@ namespace Clothes_Store.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-
-            var cart = _context.Carts.Where(x => x.ApplicationUserId == userId
-            && x.IsOrderFinished ==false).ToList();
-
-            return View(cart);
-        }  
 
         public async Task<IActionResult> AddToCart(int id)
         {
             var cart = new Cart()
             {
                 ClothesId = id,
-                ApplicationUserId = User.FindFirstValue(ClaimTypes.NameIdentifier), // will give the userId
-                Quantity = 1,
+                ApplicationUserId = User.FindFirstValue(ClaimTypes.NameIdentifier), 
+                Quantity = 1, //temp
                 IsOrderFinished = false,
-                Size = Size.S,
+                Size = Size.S, //temp
             };
            await _context.Carts.AddAsync(cart);
             await _context.SaveChangesAsync();
-            return new EmptyResult();
+            return new EmptyResult();  //temp
         }
 
         public async Task<IActionResult> DeleteFromCart(int id)
@@ -49,7 +40,7 @@ namespace Clothes_Store.Controllers
             _context.Carts.Remove(cartItem);
             await _context.SaveChangesAsync();
 
-            return new EmptyResult();
+            return new EmptyResult(); //temp
         }
 
     }
