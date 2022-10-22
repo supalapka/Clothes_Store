@@ -65,7 +65,7 @@ namespace Unit_Tests
             {
                 Id = 1,
                 ClothesId = 90,
-                ApplicationUserId = "SomeValueHere", //SomeValueHere is new Claim(ClaimTypes.NameIdentifier, "SomeValueHere"),!!
+                ApplicationUserId = "UserId", //UserId is sets on Claim(ClaimTypes.NameIdentifier, "UserId"),!!
                 Date = DateTime.Now,
                 Size = Size.S,
                 Quantity = 2,
@@ -89,7 +89,7 @@ namespace Unit_Tests
         private void CreateMockUserObject(ref CartController controller)
         {
             var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {
-                                        new Claim(ClaimTypes.NameIdentifier, "SomeValueHere"),
+                                        new Claim(ClaimTypes.NameIdentifier, "UserId"),
                                         new Claim(ClaimTypes.Name, "gunnar@somecompany.com")
                                    }, "TestAuthentication"));
             controller.ControllerContext.HttpContext = new DefaultHttpContext { User = user };
