@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clothes_Store", "Clothes_St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DbAccessLibrary", "DbAccessLibrary\DbAccessLibrary.csproj", "{AD8797E2-2174-4F15-914D-6C5634EDA19B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{A8C463DD-368D-496B-B686-B7251BD84325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{A8C463DD-368D-496B-B686-B7251BD84325}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit_Tests", "Unit_Tests\Unit_Tests.csproj", "{DE8343D1-62C6-47AE-8AAD-6ED91685501A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A8C463DD-368D-496B-B686-B7251BD84325}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8C463DD-368D-496B-B686-B7251BD84325}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8C463DD-368D-496B-B686-B7251BD84325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE8343D1-62C6-47AE-8AAD-6ED91685501A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8343D1-62C6-47AE-8AAD-6ED91685501A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8343D1-62C6-47AE-8AAD-6ED91685501A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8343D1-62C6-47AE-8AAD-6ED91685501A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
