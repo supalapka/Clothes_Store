@@ -1,133 +1,45 @@
 ﻿@using DbAccessLibrary.Models
 @model Clothes_Store.Models.ClothesPreview
 
-@{
-    ViewData["Title"] = "AddClothes";
-}
-
-<!--- <h1>AddClothes</h1>
-
-<h4>ClothesPreview</h4>
-<hr />
-
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="AddClothes" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-              <div class="form-group">
-                <label asp-for="PreviwImageFileInput" class="control-label"></label>
-                <input type="file" asp-for="PreviwImageFileInput" class="form-control" />
-                <span asp-validation-for="PreviwImageFileInput" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Color" class="control-label"></label>
-                    <select asp-for="Color" class="form-control" asp-items="Html.GetEnumSelectList<Colors>()" >
-                        <option value="Choose color"></option>
-                        </select>
-                <span asp-validation-for="Color" class="text-danger"></span>
-            </div>
-               <div class="form-group">
-                <label asp-for="TypeOfClothes" class="control-label"></label>
-                 <select asp-for="TypeOfClothes" class="form-control" asp-items="Html.GetEnumSelectList<TypesOfClothes>()" >
-                       <option value="Choose type"></option>
-                        </select>
-                <span asp-validation-for="TypeOfClothes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SellerName" class="control-label"></label>
-                <input asp-for="SellerName" class="form-control" />
-                <span asp-validation-for="SellerName" class="text-danger"></span>
-            </div>
-              <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-          
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>-->
 <div class="container">
         <main role="main" class="pb-3">
-            <h1>Створити оголошення</h1>
-            <h4>Попередній перегляд</h4>
+            <h1>Створити оголошення</h1>            <h4>Попередній перегляд</h4>
             <hr/>
             <div class="row">
                 <div class="col-md-4">
                     <div class="block_form">
-                        <form enctype="multipart/form-data" action="/Admin/Add" method="post">      
+                        <form asp-action="AddClothes" enctype="multipart/form-data">
                             <div class="input-file-container">  
-                                <input class="input-file" onchange="donwload(this)" type="file" data-val="true" data-val-required="The PreviwImageFileInput field is required." id="PreviwImageFileInput" name="PreviwImageFileInput">
+                                <input class="input-file" onchange="donwload(this)" type="file" asp-for="PreviwImageFileInput" data-val="true" data-val-required="The PreviwImageFileInput field is required." id="PreviwImageFileInput" name="PreviwImageFileInput">
                                 <label tabindex="0" for="my-file" class="input-file-trigger">Додати фото</label>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="Name">Заголовок</label>
+                                <label class="control-label" asp-for="Name">Заголовок</label>
                                 <input class="form-control" type="text" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" value="" />
                                 <span class="text-danger field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="Color">Колір</label>
-                                    <select class="form-control" data-val="true" data-val-required="The Color field is required." id="Color" name="Color" laceholder="Color">
-                                        <option value="Choose color"></option>
-                                        <option value="0">Чорний</option>
-                                        <option value="1">Білий</option>
-                                        <option value="2">Червоний</option>
-                                        <option value="3">Зелений</option>
-                                        <option value="4">Синій</option>
-                                        <option value="5">Жовтий</option>
-                                        <option value="6">Коричневий</option>
-                                        <option value="7">Фіолетовий</option>
-                                        <option value="8">Сірий</option>
-                                        <option value="9">Хакі</option>
-                                        <option value="10">Помаранчевий</option>
-                                        <option value="11">Рожевий</option>
-                                    </select>
+                                  <select asp-for="Color" class="form-control" asp-items="Html.GetEnumSelectList<Colors>()" >
+                                  <option value="Choose color"></option>
+                                </select>
                                 <span class="text-danger field-validation-valid" data-valmsg-for="Color" data-valmsg-replace="true"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="TypeOfClothes">Тип одягу</label>
-                                <select class="form-control" data-val="true" data-val-required="The TypeOfClothes field is required." id="TypeOfClothes" name="TypeOfClothes">
-                                        <option value="Choose type"></option>
-                                        <option value="0">Светр</option>
-                                        <option value="1">Сукня</option>
-                                        <option value="2">Толстовки</option>
-                                        <option value="3">Футболка</option>
-                                        <option value="4">Тлегери</option>
-                                        <option value="5">Шорти</option>
-                                        <option value="6">Спідниця</option>
-                                        <option value="7">Джинси</option>
-                                        <option value="8">Взуття</option>
-                                        <option value="9">Пальто</option>
-                                        <option value="10">Високі підбори</option>
-                                        <option value="11">Костюм</option>
-                                        <option value="12">Cap</option>
-                                        <option value="13">Шкарпетки</option>
-                                        <option value="14">Сорочка</option>
-                                        <option value="15">Шарф</option>
-                                        <option value="16">Капелюх</option>
-                                        <option value="17">Рукавички</option>
-                                        <option value="18">Куртка</option>
-                                        <option value="19">Черевики</option>
-                                        <option value="20">Краватка</option>
-                                    </select>
+                                <select asp-for="TypeOfClothes" class="form-control" asp-items="Html.GetEnumSelectList<TypesOfClothes>()" >
+                                 <option value="Choose type"></option>
+                                </select>
                                 <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="SellerName">Ім'я продавця</label>
+                                <label class="control-label"  asp-for="SellerName">Ім'я продавця</label>
                                 <input class="form-control" type="text" data-val="true" data-val-required="The SellerName field is required." id="SellerName" name="SellerName" value="" />
                                 <span class="text-danger field-validation-valid" data-valmsg-for="SellerName" data-valmsg-replace="true"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="Price">Ціна(грн)</label>
-                                <input class="form-control" type="number" data-val="true" data-val-required="The Price field is required." id="Price" name="Price" value="" />
+                                <input class="form-control"  asp-for="Price" data-val="true" data-val-required="The Price field is required." id="Price" name="Price" value="" />
                                 <span class="text-danger field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
                             </div>   
                             <div class="form-submit">
