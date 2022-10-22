@@ -17,18 +17,13 @@
       <nav>
         <ul class="menu">
           <li class="logo">
-            <a href="#"
-              ><img src="~/Images/logo.png" alt="" class="logotype" />GATI</a
-            >
+            <a asp-controller="Home" asp-action="Index">
+              <img src="~/Images/logo.png" alt="" class="logotype" />GATI</a>
           </li>
           <li class="item">
             <form action="#" class="search">
               <input type="text" placeholder=" Пошук по сайту" />
             </form>
-          </li>
-          <li class="item">
-            <a asp-controller="MyAccount" asp-action="Index"
-             class="hover-underline-animation" ><i class="fa fa-user" aria-hidden="true"></i> Профіль</a>
           </li>
           <li class="item"><a href="#" class="hover-underline-animation">ПРО нас</a></li>
           <li class="item has-submenu">
