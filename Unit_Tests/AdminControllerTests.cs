@@ -9,6 +9,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,8 +29,9 @@ namespace Unit_Tests
             var bytes = Encoding.UTF8.GetBytes("This is a file");
             IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "IFormFile.txt");
 
-            ClothesPreview cp = new ClothesPreview()
+            ClothesPreview item = new ClothesPreview()
             {
+                Id = 1,
                 Color = DbAccessLibrary.Models.Colors.Blue,
                 SellerName = "123",
                 Name = "sweater",
@@ -38,10 +40,11 @@ namespace Unit_Tests
                 TypeOfClothes = DbAccessLibrary.Models.TypesOfClothes.Jacket,
             };
             //Act
-            var result = await adminController.AddClothes(cp) as RedirectToActionResult; 
+            await adminController.AddClothes(item); //
+            var itemResult = ctx.Clothes.Where(x => x.Id == item.Id).SingleOrDefault(); //get item from db for assert
 
             //Asset
-            Assert.AreEqual("Index", result.ActionName);
+            Assert.AreEqual(item.Name, itemResult.Name);
 
         }
     }
