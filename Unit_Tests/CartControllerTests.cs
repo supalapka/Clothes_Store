@@ -19,13 +19,11 @@ namespace Unit_Tests
         public async Task AddToCart_Work()
         {
             //Arrange
-            var options = new DbContextOptionsBuilder<ClothesStoreDbContext>()
-             .UseInMemoryDatabase(databaseName: "Clothes_Store").Options;
-            var ctx = new ClothesStoreDbContext(options);
-            var cartController = new CartController(ctx);
+            var ctx  = GetClothesStoreDbContext();
+            var controller = new CartController(ctx);
 
             //first is add clothes to db
-            var bytes = Encoding.UTF8.GetBytes("This is a img file");
+            var bytes = Encoding.UTF8.GetBytes("This is an img file");
             Clothes clothes = new Clothes()
             {
                 Id = 1,
@@ -38,10 +36,10 @@ namespace Unit_Tests
             };
             ctx.Clothes.Add(clothes); 
             ctx.SaveChanges();
-            CreateMockUserObject(ref cartController);
+            CreateMockUserObject(ref controller);
 
             //Act
-            await cartController.AddToCart(clothes.Id);
+            await controller.AddToCart(clothes.Id);
             var itemResult = ctx.Carts.SingleOrDefault(); //get item from db for assert
 
             //Asset
@@ -54,11 +52,8 @@ namespace Unit_Tests
         public async Task DeleteFromCart_Work()
         {
             //Arrange
-            var options = new DbContextOptionsBuilder<ClothesStoreDbContext>()
-             .UseInMemoryDatabase(databaseName: "Clothes_Store").Options;
-            var ctx = new ClothesStoreDbContext(options);
-            var cartController = new CartController(ctx);
-
+            var ctx = GetClothesStoreDbContext();
+            var controller = new CartController(ctx);
 
             //first is add cart to db
             var cart = new Cart()
@@ -74,10 +69,10 @@ namespace Unit_Tests
             ctx.Carts.Add(cart);
             ctx.SaveChanges();
 
-            CreateMockUserObject(ref cartController);
+            CreateMockUserObject(ref controller);
             //Act
 
-            await cartController.DeleteFromCart(cart.ClothesId);
+            await controller.DeleteFromCart(cart.ClothesId);
             var itemResult = ctx.Carts.Where(x=>x.Id == cart.Id).FirstOrDefault(); //get item from db for assert
 
             //Asset
@@ -85,6 +80,12 @@ namespace Unit_Tests
 
         }
 
+        private ClothesStoreDbContext GetClothesStoreDbContext()
+        {
+            var options = new DbContextOptionsBuilder<ClothesStoreDbContext>()
+            .UseInMemoryDatabase(databaseName: "database").Options;
+            return new ClothesStoreDbContext(options);
+        }
 
         private void CreateMockUserObject(ref CartController controller)
         {
