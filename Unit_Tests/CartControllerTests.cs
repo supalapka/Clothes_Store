@@ -19,7 +19,7 @@ namespace Unit_Tests
         public async Task AddToCart_Work()
         {
             //Arrange
-            var ctx  = GetClothesStoreDbContext();
+            var ctx  = MyLibrary.GetClothesStoreDbContext();
             var controller = new CartController(ctx);
 
             //first is add clothes to db
@@ -52,7 +52,7 @@ namespace Unit_Tests
         public async Task DeleteFromCart_Work()
         {
             //Arrange
-            var ctx = GetClothesStoreDbContext();
+            var ctx = MyLibrary.GetClothesStoreDbContext();
             var controller = new CartController(ctx);
 
             //first is add cart to db
@@ -78,13 +78,6 @@ namespace Unit_Tests
             //Asset
             Assert.IsNull(itemResult);
 
-        }
-
-        private ClothesStoreDbContext GetClothesStoreDbContext()
-        {
-            var options = new DbContextOptionsBuilder<ClothesStoreDbContext>()
-            .UseInMemoryDatabase(databaseName: "database").Options;
-            return new ClothesStoreDbContext(options);
         }
 
         private void CreateMockUserObject(ref CartController controller)

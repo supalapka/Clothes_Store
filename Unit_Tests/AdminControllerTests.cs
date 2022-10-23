@@ -21,9 +21,7 @@ namespace Unit_Tests
         public async Task AddClothes_Work()
         {
             //Arrange
-            var options = new DbContextOptionsBuilder<ClothesStoreDbContext>()
-             .UseInMemoryDatabase(databaseName: "Clothes_Store").Options;
-            var ctx = new ClothesStoreDbContext(options);
+            var ctx = MyLibrary.GetClothesStoreDbContext();
             var adminController = new AdminController(ctx);
 
             var bytes = Encoding.UTF8.GetBytes("This is a file");
