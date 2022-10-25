@@ -1,1 +1,90 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/order.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="order-container">
+    <div class="order-item">
+        <img src="img/muzhskaya-futbolka-krasnaya-1002.png" alt="">
+        <div class="product-info">
+            <div class="price">
+                900 грн
+            </div>
+            <div class="consist">
+                Склад 72% cotton, 24% polyester, 4% elastane. Щільність 190 г/м²
+            </div>
+            <div class="gift">
+                У комплекті йде коробка GATISHOP.
+            </div>
+            <div class="size-chart-and-care">
+                <a href="#popup" class="size-chart">Розмірна сітка</a>
+            </div>
+            <div class="size-choose">
+                <p class="select-size">Виберіть розмір:</p>
+                    <form action="#" class="my-form">
+                        <input type="radio" name="size" class="sizes" value="S">S
+                        <input type="radio" name="size" class="sizes" value="L">L
+                        <input type="radio" name="size" class="sizes" value="XL">XL
+                        <input type="radio" name="size" class="sizes" value="2XL">2XL
+                    </form>
+            </div>
+            <div class="count-of-product-and-order-button">
+                <p>Кількість:</p>
+                <div class="counter-and-summary"></div>
+                <div class="counter">
+                    <a class="minus hov">-</a>
+                    <p class="count countOf">1</p>
+                    <a class="plus hov">+</a>
+                </div>
+                <div class="summary">
+                    Загальна сума оплати: <span class="price_">
+                     900 грн
+                    </span>
+                </div>
+                <div class="to-order-button">
+                    <button>Замовити</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+   <div id="popup" class="popup">
+    <a href="#anchor" class="area"></a>
+    <div class="popup-body">
+        <div class="popup-content">
+            <a href="#anchor"></a>
+            <div class="main-container">
+                <div class="popup-text">
+                    <p>Як правильно обрати розмір</p>
+                    <p>Обираєте вашу сорочку та заміряєте метром</p>
+                    <p>Ширина на розмірній сітці вказана літерою А, міряєте під пахвами, від шва до шва, як показано червоною лінією.</p>
+                    <p>Довжина на розмірній сітці вказана літерою B, міряєте від верху шва і до самого низу речі, як показано червоною лінією.</p>
+                    <p>Довжина рукава на розмірній сітці вказана літерою С, міряєте від верху шва і до самого кінця рукава, як показано червоною лінією.</p>
+                    <p>Далі зрівнюєте ваші показники з нашою таблицею розмірів, прикинувши плюс/мінус пару сантиметрів та обираєте розмір.</p>
+                </div>
+               <img src="img/size-charity.webp" alt="" class="image">
+               <img src="img/sizecharity.png" alt="">
+            </div>
+            
+        </div>
+    </div>
+</div>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/order.js"></script>
+
+    
+</body>
+</html>

@@ -46,7 +46,7 @@ a {
     margin-top: 13px;
 }
 
-    .search input {
+    .search .site-surf {
         border-radius: 6px;
         border: 0px;
         height: 25px;
@@ -1060,7 +1060,7 @@ body {
     background-color: #040918
 }
 
-input, .form_prom {
+.inpt, .form_prom {
     outline: none
 }
 
@@ -1702,7 +1702,7 @@ h4 {
     margin: 10px 20px;
 }
 
-select, input {
+select, .inpt {
     -moz-appearance: none;
     -webkit-appearance: none;
     font-size: 22px;
@@ -1865,3 +1865,4 @@ input[type="file" i]::-webkit-file-upload-button {
 @media only screen and (max-width: 1279px) and (min-width: 932px)
 @media only screen and (max-width: 768px) and (min-width: 400px)
 @media only screen and (max-width: 400px)
+
