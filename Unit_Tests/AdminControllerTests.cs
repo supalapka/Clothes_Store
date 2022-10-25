@@ -17,33 +17,33 @@ namespace Unit_Tests
 {
     public class AdminControllerTests
     {
-        [Test]
-        public async Task AddClothes_Work()
-        {
-            //Arrange
-            var ctx = MyLibrary.GetClothesStoreDbContext();
-            var adminController = new AdminController(ctx);
+        //[Test]
+        //public async Task AddClothes_Work()
+        //{
+        //    //Arrange
+        //    var ctx = MyLibrary.GetClothesStoreDbContext();
+        //    var adminController = new AdminController(ctx);
 
-            var bytes = Encoding.UTF8.GetBytes("This is a file");
-            IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "IFormFile.txt");
+        //    var bytes = Encoding.UTF8.GetBytes("This is a file");
+        //    IFormFile file = new FormFile(new MemoryStream(bytes), 0, bytes.Length, "Data", "IFormFile.txt");
 
-            ClothesPreview item = new ClothesPreview()
-            {
-                Id = 1,
-                Color = DbAccessLibrary.Models.Colors.Blue,
-                SellerName = "123",
-                Name = "sweater",
-                Price = 1599,
-                PreviwImageFileInput = file,
-                TypeOfClothes = DbAccessLibrary.Models.TypesOfClothes.Jacket,
-            };
-            //Act
-            await adminController.AddClothes(item); //
-            var itemResult = ctx.Clothes.Where(x => x.Id == item.Id).SingleOrDefault(); //get item from db for assert
+        //    ClothesPreview item = new ClothesPreview()
+        //    {
+        //        Id = 1,
+        //        Color = DbAccessLibrary.Models.Colors.Blue,
+        //        SellerName = "123",
+        //        Name = "sweater",
+        //        Price = 1599,
+        //        PreviwImageFileInput = file,
+        //        TypeOfClothes = DbAccessLibrary.Models.TypesOfClothes.Jacket,
+        //    };
+        //    //Act
+        //    await adminController.AddClothes(item); //
+        //    var itemResult = ctx.Clothes.Where(x => x.Id == item.Id).SingleOrDefault(); //get item from db for assert
 
-            //Asset
-            Assert.AreEqual(item.Name, itemResult.Name);
+        //    //Asset
+        //    Assert.AreEqual(item.Name, itemResult.Name);
 
-        }
+        //}
     }
 }

@@ -1,11 +1,8 @@
 ﻿using Clothes_Store.Controllers;
-using DbAccessLibrary.DbAccess;
 using DbAccessLibrary.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
@@ -19,23 +16,14 @@ namespace Unit_Tests
         public async Task AddToCart_Work()
         {
             //Arrange
-            var ctx  = MyLibrary.GetClothesStoreDbContext();
+            var ctx = MyLibrary.GetClothesStoreDbContext();
             var controller = new CartController(ctx);
 
-            //first is add clothes to db
             var bytes = Encoding.UTF8.GetBytes("This is an img file");
-            Clothes clothes = new Clothes()
-            {
-                Id = 1,
-               Name = "123",
-               SellerId = 3,
-               Color = Colors.White,
-               Price = 1900,
-               TypeOfClothes = TypesOfClothes.Boots,
-               PreviewImage = bytes,
-            };
-            ctx.Clothes.Add(clothes); 
-            ctx.SaveChanges();
+            Clothes clothes = MyLibrary.CreateClothesObject();
+
+            await ctx.Clothes.AddAsync(clothes);
+            await ctx.SaveChangesAsync();
             CreateMockUserObject(ref controller);
 
             //Act
@@ -43,8 +31,11 @@ namespace Unit_Tests
             var itemResult = ctx.Carts.SingleOrDefault(); //get item from db for assert
 
             //Asset
-            Assert.AreEqual(clothes.Id, itemResult.ClothesId); 
+            Assert.AreEqual(clothes.Id, itemResult.ClothesId);
 
+            // delete items that remain in mock db and creating issues for next tests
+            ctx.Clothes.Remove(clothes);
+            await ctx.SaveChangesAsync();
         }
 
 
@@ -55,7 +46,6 @@ namespace Unit_Tests
             var ctx = MyLibrary.GetClothesStoreDbContext();
             var controller = new CartController(ctx);
 
-            //first is add cart to db
             var cart = new Cart()
             {
                 Id = 1,
@@ -70,14 +60,13 @@ namespace Unit_Tests
             ctx.SaveChanges();
 
             CreateMockUserObject(ref controller);
-            //Act
 
+            //Act
             await controller.DeleteFromCart(cart.ClothesId);
-            var itemResult = ctx.Carts.Where(x=>x.Id == cart.Id).FirstOrDefault(); //get item from db for assert
+            var itemResult = ctx.Carts.Where(x => x.Id == cart.Id).FirstOrDefault();
 
             //Asset
             Assert.IsNull(itemResult);
-
         }
 
         private void CreateMockUserObject(ref CartController controller)
