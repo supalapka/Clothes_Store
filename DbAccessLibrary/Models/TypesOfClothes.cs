@@ -1,27 +1,40 @@
-﻿namespace DbAccessLibrary.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DbAccessLibrary.Models
 {
     public enum TypesOfClothes
     {
-        Sweater,
-        Dress,
-        Hoodies,
+        [Display(Name = "Футболка")]
         Tshirt,
-        Flipflops,
+        [Display(Name = "Світер")]
+        Sweater,
+        [Display(Name = "Худі")]
+        Hoodies,
+        [Display(Name = "Шорти")]
         Shorts,
+        [Display(Name = "Спідниця")]
         Skirt,
+        [Display(Name = "Джинси")]
         Jeans,
-        Shoes,
+        [Display(Name = "Пальто")]
         Coat,
-        Highheels,
+        [Display(Name = "Костюм")]
         Suit,
+        [Display(Name = "Головний убір")]
         Cap,
+        [Display(Name = "Шкарпетки")]
         Socks,
+        [Display(Name = "Сорочка")]
         Shirt,
+        [Display(Name = "Шарф")]
         Scarf,
-        Hat,
+        [Display(Name = "Рукавиці")]
         Gloves,
+        [Display(Name = "Куртка")]
         Jacket,
-        Boots,
-        Tie,
+        [Display(Name = "Сукня")]
+        Dress,
+        [Display(Name = "Взуття")]
+        Shoes,
     }
 }

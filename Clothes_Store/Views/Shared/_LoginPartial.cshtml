@@ -5,7 +5,7 @@
 @if (SignInManager.IsSignedIn(User))
 {
         <li class="item"> 
-        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+        <a  asp-controller="MyAccount" asp-action="Index" class="hover-underline-animation" >@User.Identity.Name</a>
         </li>
         <li class="item"> 
         <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
