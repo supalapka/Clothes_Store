@@ -24,5 +24,10 @@ namespace Clothes_Store.Controllers
             return View();
         }
 
+        public IActionResult AddToCart(Cart cart)
+        {
+            return View();
+        }
+
     }
 }
