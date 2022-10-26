@@ -1,0 +1,106 @@
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model Cart
+
+@ViewData["ClothesId"] = @Model.ClothesId;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/order.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="order-container">
+    <form asp-action="AddToCart">
+    <div class="order-item">
+       @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@Model.Clothes.PreviewImage);
+               <img src="@imgSrc"  alt="" />
+                }
+        <div class="product-info">
+            <div class="price">
+                @Model.Clothes.Price грн
+            </div>
+            @*<div class="consist">   add later field with "about" info
+                Склад 72% cotton, 24% polyester, 4% elastane. Щільність 190 г/м²
+            </div>*@
+            <div class="consist">
+                @Model.Clothes.Color
+            </div>
+            <div class="gift">
+                У комплекті йде коробка GATISHOP.
+            </div>
+            <div class="size-chart-and-care">
+                <a href="#popup" class="size-chart">Розмірна сітка</a>
+            </div>
+                <div class="size-choose">
+                    <p class="select-size">Виберіть розмір:</p>
+                        @foreach (object radiotext in Enum.GetValues(typeof(Size)))
+                        {
+                           @Html.RadioButtonFor(x=>x.Size, radiotext.ToString());
+                           <span >@radiotext.ToString()</span>
+                        }
+                </div>
+                <div class="count-of-product-and-order-button">
+                    <p>Кількість:</p>
+                    <div class="counter-and-summary"></div>
+                    <div class="counter">
+                        <a class="minus hov">-</a>
+                        <p class="count countOf">1</p>
+                        <a class="plus hov">+</a>
+                    </div>
+                    <input asp-for="@Model.Quantity" id="quantity"
+                    type="number" value="1" style="visibility:hidden"/> @*invisible input for pass data that changing in js to controller*@
+
+                     <input asp-for="@Model.ClothesId"
+                    type="number" value="@Model.Clothes.Id" style="visibility:hidden"/> @*invisible input for pass data back from model*@
+                    <div class="summary">
+                        Загальна сума оплати: <span class="price_">
+                         @Model.Clothes.Price грн
+                        </span>
+                    </div>
+                     <div class="to-order-button">
+                           <button  type="submit">Замовити</button>
+                     </div>
+                </div>
+        </div>
+    </div>
+       </form>
+   </div>
+
+   <div id="popup" class="popup">
+    <a href="#anchor" class="area"></a>
+    <div class="popup-body">
+        <div class="popup-content">
+            <a href="#anchor"></a>
+            <div class="main-container">
+                <div class="popup-text">
+                    <p>Як правильно обрати розмір</p>
+                    <p>Обираєте вашу сорочку та заміряєте метром</p>
+                    <p>Ширина на розмірній сітці вказана літерою А, міряєте під пахвами, від шва до шва, як показано червоною лінією.</p>
+                    <p>Довжина на розмірній сітці вказана літерою B, міряєте від верху шва і до самого низу речі, як показано червоною лінією.</p>
+                    <p>Довжина рукава на розмірній сітці вказана літерою С, міряєте від верху шва і до самого кінця рукава, як показано червоною лінією.</p>
+                    <p>Далі зрівнюєте ваші показники з нашою таблицею розмірів, прикинувши плюс/мінус пару сантиметрів та обираєте розмір.</p>
+                </div>
+               <img src="img/size-charity.webp" alt="" class="image">
+               <img src="img/sizecharity.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/order.js"></script>
+
+</body>
+</html>

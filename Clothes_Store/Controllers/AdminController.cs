@@ -41,13 +41,13 @@ namespace Clothes_Store.Controllers
                clothes.Color, seller.Id, clothes.Price, _context);
             return RedirectToAction("Index");
         }
-
-
+        
         private async Task<Seller> GetSeller(string sellerName)
         {
             var seller = _context.Sellers.Where(x => x.Name == sellerName).FirstOrDefault();
 
             if (seller == null)  //create seller
+
             {
                 var sellerNew = new Seller() { Name = sellerName };
                 await _context.Sellers.AddAsync(sellerNew);

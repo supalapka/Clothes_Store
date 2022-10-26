@@ -32,7 +32,8 @@ namespace Clothes_Store.Controllers
 
             foreach (var cartItem in cart)
             {
-                cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault();
+                //fill the clothes class into current cart
+                cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault(); 
             }
             return View(cart);
         }
@@ -46,6 +47,7 @@ namespace Clothes_Store.Controllers
 
             foreach (var order in orders)
             {
+                //fill the clothes class into current order
                 order.Clothes = _context.Clothes.Where(x => x.Id == order.ClothesId).FirstOrDefault();
             }
 
