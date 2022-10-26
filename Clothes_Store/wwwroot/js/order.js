@@ -10,11 +10,13 @@ btnPlus.addEventListener('click', () => {
     counter += 1;
     price.textContent = `${currentPrice} грн`;
     count.textContent = counter;
+    $("#quantity").val(counter);
 });
 btnMinus.addEventListener('click', () => {
     if (counter == 1) {
         price.textContent = `${currentPrice} грн`;
         count.textContent = counter;
+        $("#quantity").val(counter);
     }
     else {
         currentPrice -= data;

@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model Cart
+
+@ViewData["ClothesId"] = @Model.ClothesId;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,14 +20,20 @@
 </head>
 <body>
 <div class="order-container">
+    <form asp-action="AddToCart">
     <div class="order-item">
-        <img src="img/muzhskaya-futbolka-krasnaya-1002.png" alt="">
+       @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@Model.Clothes.PreviewImage);
+               <img src="@imgSrc"  alt="" />
+                }
         <div class="product-info">
             <div class="price">
-                900 грн
+                @Model.Clothes.Price грн
             </div>
-            <div class="consist">
+            @*<div class="consist">   add later field with "about" info
                 Склад 72% cotton, 24% polyester, 4% elastane. Щільність 190 г/м²
+            </div>*@
+            <div class="consist">
+                @Model.Clothes.Color
             </div>
             <div class="gift">
                 У комплекті йде коробка GATISHOP.
@@ -29,35 +41,41 @@
             <div class="size-chart-and-care">
                 <a href="#popup" class="size-chart">Розмірна сітка</a>
             </div>
-            <div class="size-choose">
-                <p class="select-size">Виберіть розмір:</p>
-                    <form action="#" class="my-form">
-                        <input type="radio" name="size" class="sizes" value="S">S
-                        <input type="radio" name="size" class="sizes" value="L">L
-                        <input type="radio" name="size" class="sizes" value="XL">XL
-                        <input type="radio" name="size" class="sizes" value="2XL">2XL
-                    </form>
-            </div>
-            <div class="count-of-product-and-order-button">
-                <p>Кількість:</p>
-                <div class="counter-and-summary"></div>
-                <div class="counter">
-                    <a class="minus hov">-</a>
-                    <p class="count countOf">1</p>
-                    <a class="plus hov">+</a>
+                <div class="size-choose">
+                    <p class="select-size">Виберіть розмір:</p>
+                        @foreach (object radiotext in Enum.GetValues(typeof(Size)))
+                        {
+                           @Html.RadioButtonFor(x=>x.Size, radiotext.ToString());
+                           <span >@radiotext.ToString()</span>
+                        }
                 </div>
-                <div class="summary">
-                    Загальна сума оплати: <span class="price_">
-                     900 грн
-                    </span>
+                <div class="count-of-product-and-order-button">
+                    <p>Кількість:</p>
+                    <div class="counter-and-summary"></div>
+                    <div class="counter">
+                        <a class="minus hov">-</a>
+                        <p class="count countOf">1</p>
+                        <a class="plus hov">+</a>
+                    </div>
+                    <input asp-for="@Model.Quantity" id="quantity"
+                    type="number" value="1" style="visibility:hidden"/> @*invisible input for pass data that changing in js to controller*@
+
+                     <input asp-for="@Model.ClothesId"
+                    type="number" value="@Model.Clothes.Id" style="visibility:hidden"/> @*invisible input for pass data back from model*@
+                    <div class="summary">
+                        Загальна сума оплати: <span class="price_">
+                         @Model.Clothes.Price грн
+                        </span>
+                    </div>
+                     <div class="to-order-button">
+                           <button  type="submit">Замовити</button>
+                     </div>
                 </div>
-                <div class="to-order-button">
-                    <button>Замовити</button>
-                </div>
-            </div>
         </div>
     </div>
+       </form>
    </div>
+
    <div id="popup" class="popup">
     <a href="#anchor" class="area"></a>
     <div class="popup-body">
@@ -75,7 +93,6 @@
                <img src="img/size-charity.webp" alt="" class="image">
                <img src="img/sizecharity.png" alt="">
             </div>
-            
         </div>
     </div>
 </div>
@@ -85,6 +102,5 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/order.js"></script>
 
-    
 </body>
 </html>
