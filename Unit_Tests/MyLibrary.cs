@@ -16,17 +16,18 @@ namespace Unit_Tests
             return new ClothesStoreDbContext(options);
         }
 
-        public static Clothes CreateClothesObject()
+        public static Clothes CreateClothesObject(int? clothesId = null)
         {
             var bytes = Encoding.UTF8.GetBytes("This is an img file");
+            int id = clothesId ?? 1;
             return new Clothes()
             {
-                Id = 1,
+                Id = id,
                 Name = "123",
                 SellerId = 3,
                 Color = Colors.White,
                 Price = 1900,
-                TypeOfClothes = TypesOfClothes.Boots,
+                TypeOfClothes = TypesOfClothes.Shoes,
                 PreviewImage = bytes,
             };
         }
