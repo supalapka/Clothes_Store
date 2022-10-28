@@ -1,7 +1,21 @@
 ﻿@using ClassLibrary
 @using DbAccessLibrary.Models
 @model List<Clothes>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/indexpage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
 
+</head>
+<body>
 <!--slider-->
     <div class="slideshow-container">
       <!-- Full-width images with number and caption text -->
@@ -38,7 +52,7 @@
           <div class="desc">
             <div class="product-name prefix slider-text">@item.Name</div>
             <div class="price-and-order">
-              <a onclick="location.href='@Url.Action("ClothesDetails", "Clothes", new {id = @item.Id})'" class="slider-text"><button class="order-btn">
+              <a onclick="location.href='@Url.Action("ClothesDetails", "Clothes", new {id = @item.Id})'" ><button class="order-btn slider-text">
                 Детальніше
               </button></a>
               <div class="price slider-text">@item.Price грн.</div>
@@ -50,3 +64,8 @@
 
       </div>
     </div>
+     <script src="~/js/indexpage.js"></script>
+     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+     <script src="~/js/slick.min.js"></script>
+    </body>
+</html>
