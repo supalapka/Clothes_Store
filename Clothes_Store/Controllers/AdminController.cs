@@ -52,6 +52,7 @@ namespace Clothes_Store.Controllers
                 var sellerNew = new Seller() { Name = sellerName };
                 await _context.Sellers.AddAsync(sellerNew);
                 await _context.SaveChangesAsync();
+                return sellerNew;
             }
             return seller;
         }
