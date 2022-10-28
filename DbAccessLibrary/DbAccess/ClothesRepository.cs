@@ -7,9 +7,8 @@ namespace DbAccessLibrary.DbAccess
 {
     public static class ClothesRepository
     {
-
         public static async Task CreateAsync(string name, byte[] previewImage, TypesOfClothes typesOfClothes,
-            Colors color, int sellerId, int price, ClothesStoreDbContext _context)
+            Colors color, int sellerId, int price, ClothesStoreDbContext _context) 
         {
             Clothes clothes = new Clothes()
             {
@@ -30,6 +29,12 @@ namespace DbAccessLibrary.DbAccess
             var objToRm = _context.Clothes.Where(c => c.Id == id).FirstOrDefault();
             _context.Remove(objToRm);
             await _context.SaveChangesAsync();
+        }
+
+        public static Clothes GetById(int id, ClothesStoreDbContext _context)
+        {
+            var clothes = _context.Clothes.Where(x => x.Id == id).FirstOrDefault();
+            return clothes;
         }
     }
 }
