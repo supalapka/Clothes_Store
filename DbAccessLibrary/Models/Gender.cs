@@ -8,5 +8,7 @@ namespace DbAccessLibrary.Models
         Male,
         [Display(Name = "Жіночий одяг")]
         Female,
+        [Display(Name = "Унісекс одяг")]
+        Unisex,
     }
 }

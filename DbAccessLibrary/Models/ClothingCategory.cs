@@ -7,6 +7,8 @@ namespace DbAccessLibrary.Models
 {
     public enum ClothingCategory
     {
+        [Display(Name = "Без сезону")]
+        Default,
         [Display(Name="Зимній одяг")]
         Winter,
         [Display(Name="Літній одяг")]

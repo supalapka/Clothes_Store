@@ -16,6 +16,11 @@ namespace Clothes_Store.Models
 
         [Required]
         public TypesOfClothes TypeOfClothes { get; set; }
+        [Required]
+        public Gender Gender{ get; set; }
+
+        [Required]
+        public ClothingCategory Category { get; set; }
 
         [Required]
         public Colors Color { get; set; }

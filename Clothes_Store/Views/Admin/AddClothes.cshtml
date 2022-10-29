@@ -21,14 +21,30 @@
                             <div class="form-group">
                                 <label class="control-label" for="Color">Колір</label>
                                   <select asp-for="Color" class="form-control" asp-items="Html.GetEnumSelectList<Colors>()" >
-                                  <option value="Choose color"></option>
+                                  <option value="Виберіть колір"></option>
                                 </select>
                                 <span class="text-danger field-validation-valid" data-valmsg-for="Color" data-valmsg-replace="true"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="TypeOfClothes">Тип одягу</label>
                                 <select asp-for="TypeOfClothes" class="form-control" asp-items="Html.GetEnumSelectList<TypesOfClothes>()" >
-                                 <option value="Choose type"></option>
+                                 <option value="Виберіть тип"></option>
+                                </select>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="control-label" for="TypeOfClothes">Сезон</label>
+                                <select asp-for="Category" class="form-control" asp-items="Html.GetEnumSelectList<ClothingCategory>()" >
+                                 <option value="Виберіть категорію"></option>
+                                </select>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="control-label" for="TypeOfClothes">Для кого</label>
+                                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()" >
+                                 <option value="Виберіть стать"></option>
                                 </select>
                                 <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
                             </div>
