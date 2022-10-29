@@ -39,39 +39,6 @@ for (let item of items) {
     }
     item.addEventListener("keypress", toggleItem, false);
 }
-//// JUST A SLIDER
-
-// MULTY ITEM SLIDER STARTS HERE
-
-console.log("================================");
-
-
-
-
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-    showSlides((slideIndex += n));
-}
-
-function showSlides(n) {
-    let slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length) {
-        slideIndex = 1;
-    }
-    if (n < 1) {
-        slideIndex = slides.length;
-    }
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    slides[slideIndex - 1].style.display = "block";
-    /* dots[slideIndex-1].className += " active"; */
-    /* dots[slideIndex-1].className.add("active"); */
-}
-
 $(document).ready(function () {
     $(".slider").slick({
         arrows: false,
@@ -102,16 +69,7 @@ $(document).ready(function () {
         ],
     });
 });
-//ADMIN PANEL ADD CLOTHES
-//THIS SCRIPT ADDS CHOOSEN IMAGE OF USER? DISPLAYED ON RIGHT DIV
-//CLOSES 63E9
-let wrapper = document.querySelector('.img_main');
 
-function donwload(input) {
-    let file = input.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-        img1.src = reader.result;
-    }
-}
+
+
+
