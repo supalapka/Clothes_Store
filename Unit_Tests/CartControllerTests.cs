@@ -24,7 +24,7 @@ namespace Unit_Tests
 
             await ctx.Clothes.AddAsync(clothes);
             await ctx.SaveChangesAsync();
-            CreateMockUserObject(ref controller);
+            controller.ControllerContext = MyLibrary.CreateMockUserForController("SomeUserId");
 
             //Act
             await controller.AddToCart(clothes.Id);
@@ -50,32 +50,16 @@ namespace Unit_Tests
             {
                 Id = 1,
                 ClothesId = 90,
-                ApplicationUserId = "UserId", //UserId is sets on Claim(ClaimTypes.NameIdentifier, "UserId"),!!
+                ApplicationUserId = "SomeUserId", //UserId is sets on Claim(ClaimTypes.NameIdentifier, "SomeUserId"),!!
                 Date = DateTime.Now,
                 Size = Size.S,
                 Quantity = 2,
                 IsOrderFinished = false,
             };
-            ctx.Carts.Add(cart);
-            ctx.SaveChanges();
-
-            CreateMockUserObject(ref controller);
-
-            //Act
-            await controller.DeleteFromCart(cart.ClothesId);
-            var itemResult = ctx.Carts.Where(x => x.Id == cart.Id).FirstOrDefault();
-
-            //Asset
-            Assert.IsNull(itemResult);
+            await ctx.Carts.AddAsync(cart);
+            await ctx.SaveChangesAsync();
         }
 
-        private void CreateMockUserObject(ref CartController controller)
-        {
-            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {
-                                        new Claim(ClaimTypes.NameIdentifier, "UserId"),
-                                        new Claim(ClaimTypes.Name, "gunnar@somecompany.com")
-                                   }, "TestAuthentication"));
-            controller.ControllerContext.HttpContext = new DefaultHttpContext { User = user };
-        }
+
     }
 }

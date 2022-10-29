@@ -21,10 +21,11 @@ namespace Clothes_Store.Controllers
 
         public IActionResult ClothesDetails(int id)
         {
-            return View();
+            var clothes = _context.Clothes.FirstOrDefault(c => c.Id == id);
+            return View(clothes);
         }
 
-        public IActionResult AddToCart(Cart cart)
+        public IActionResult AddToCart(int id, int quantity, Size size)
         {
             return View();
         }

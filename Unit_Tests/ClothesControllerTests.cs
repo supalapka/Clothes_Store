@@ -2,17 +2,13 @@
 using DbAccessLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Unit_Tests
 {
     public class ClothesControllerTests
     {
-
         [Test]
         public async Task ShowDetails_ValidItems()
         {
@@ -20,9 +16,18 @@ namespace Unit_Tests
             var ctx = MyLibrary.GetClothesStoreDbContext();
             var controller = new ClothesController(ctx);
             int clothesId = 5;
-            Clothes clothes = MyLibrary.CreateClothesObject(clothesId);
-            await ctx.Clothes.AddAsync(clothes);
-
+            Clothes originalClothes = MyLibrary.CreateClothesObject(clothesId);
+            var clothesCopy = new Clothes() //this object will be changed controller.ClothesDetails cause of ref
+            {
+                Id = originalClothes.Id,
+                Name = originalClothes.Name,
+                SellerId = originalClothes.SellerId,
+                Color = originalClothes.Color,
+                Price = originalClothes.Price,
+                PreviewImage = originalClothes.PreviewImage,
+                TypeOfClothes = originalClothes.TypeOfClothes
+            };
+            await ctx.Clothes.AddAsync(clothesCopy);
             await ctx.SaveChangesAsync();
 
             //Act
@@ -30,11 +35,17 @@ namespace Unit_Tests
             Clothes clothesResult = result.Model as Clothes;
 
             // delete items that remain in mock db and creating issues for next tests
-            ctx.Clothes.Remove(clothes);
+            ctx.Clothes.Remove(clothesCopy);
             await ctx.SaveChangesAsync();
 
             //Assert
-            Assert.AreEqual(clothes.Id,clothesResult.Id);
+            Assert.AreEqual(originalClothes.Id, clothesResult.Id);
+            Assert.AreEqual(originalClothes.Name, clothesResult.Name);
+            Assert.AreEqual(originalClothes.SellerId, clothesResult.SellerId);
+            Assert.AreEqual(originalClothes.Color, clothesResult.Color);
+            Assert.AreEqual(originalClothes.TypeOfClothes, clothesResult.TypeOfClothes);
+            Assert.AreEqual(originalClothes.PreviewImage, clothesResult.PreviewImage);
+            Assert.AreEqual(originalClothes.Price, clothesResult.Price);
         }
 
         [Test]
@@ -54,7 +65,7 @@ namespace Unit_Tests
             //Act
             controller.AddToCart(clothes.Id, clothesQuantity, clothesSize);
             var result = ctx.Carts.SingleOrDefault();
-           
+
             // delete items that remain in mock db and creating issues for next tests
             ctx.Clothes.Remove(clothes);
             await ctx.SaveChangesAsync();
@@ -62,7 +73,7 @@ namespace Unit_Tests
                 ctx.Carts.Remove(result);
 
             //Assert
-            Assert.AreEqual(clothes.Id,result.ClothesId);
+            Assert.AreEqual(clothes.Id, result.ClothesId);
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using DbAccessLibrary.DbAccess;
 using DbAccessLibrary.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+using System.Security.Claims;
 using System.Text;
 
 namespace Unit_Tests
@@ -30,6 +31,18 @@ namespace Unit_Tests
                 TypeOfClothes = TypesOfClothes.Shoes,
                 PreviewImage = bytes,
             };
+        }
+
+        public static ControllerContext CreateMockUserForController(string userId = null)
+        {
+            string id = userId ?? "SomeUserId";
+            var user = new ClaimsPrincipal(new ClaimsIdentity(new Claim[] {
+                                        new Claim(ClaimTypes.NameIdentifier, id),
+                                        new Claim(ClaimTypes.Name, "gunnar@somecompany.com")
+                                   }, "TestAuthentication"));
+            var controllerContext = new ControllerContext();
+            controllerContext.HttpContext = new DefaultHttpContext { User = user };
+            return controllerContext;
         }
 
     }
