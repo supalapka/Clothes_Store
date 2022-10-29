@@ -9,7 +9,7 @@ namespace DbAccessLibrary.Models
         public int Id { get; set; }
         public string Code { get; set; }
         public int DiscountPercentage { get; set; }
-        public ClothingCtegory Category { get; set; }
+        public ClothingCategory Category { get; set; }
 
         public ICollection<UsedPromocode> Promocodes { get; set; }
 
