@@ -30,15 +30,9 @@ body {
     font-family: Montserrat;
     color: white;
 }
-/* .container{
-    padding: 40px 20px;
-    background-color: #0e1321;
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-} */
+.container{
+    margin-bottom:30px;
+} 
 .tabs {
     width: 80%;
     margin: 0 auto;
@@ -66,6 +60,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    border-radius:3px;
 }
 
 .tab-item.active {
