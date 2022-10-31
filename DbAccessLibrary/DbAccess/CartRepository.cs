@@ -5,9 +5,10 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace DbAccessLibrary.DbAccess
 {
-    public class CartRepository
+    public static class CartRepository
     {
-        public async Task CreateAsync(int clothesId, int quantity, Size size,
+
+        public static async Task CreateAsync(int clothesId, int quantity, Size size,
             string applicationUserId, ClothesStoreDbContext ctx)
         {
             var cart = new Cart()
@@ -23,28 +24,28 @@ namespace DbAccessLibrary.DbAccess
             await ctx.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(int id, ClothesStoreDbContext ctx)
+        public static async Task DeleteAsync(int id, ClothesStoreDbContext ctx)
         {
             var cart = ctx.Carts.FirstOrDefault(ctx => ctx.Id == id);
             ctx.Carts.Remove(cart);
             await ctx.SaveChangesAsync();
         }
 
-        public List<Cart> GetCartOfUser(string userId, ClothesStoreDbContext ctx)
+        public static List<Cart> GetCartOfUser(string userId, ClothesStoreDbContext ctx)
         {
             var cart = ctx.Carts.Where(x => x.IsOrderFinished == false
             && x.ApplicationUserId == userId).ToList();
             return cart;
         }
 
-        public List<Cart> GetOrdersOfUser(string userId, ClothesStoreDbContext ctx)
+        public static List<Cart> GetOrdersOfUser(string userId, ClothesStoreDbContext ctx)
         {
             var cart = ctx.Carts.Where(x => x.IsOrderFinished == true
             && x.ApplicationUserId == userId).ToList();
             return cart;
         }
 
-        public async Task FinishCurrentCartForUser(string userId, ClothesStoreDbContext ctx)
+        public static async Task FinishCurrentCartForUser(string userId, ClothesStoreDbContext ctx)
         {
             var cart = ctx.Carts.Where(x => x.IsOrderFinished == true
             && x.ApplicationUserId == userId).ToList();
