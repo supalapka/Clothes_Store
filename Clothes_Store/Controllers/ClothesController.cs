@@ -30,5 +30,10 @@ namespace Clothes_Store.Controllers
             return View();
         }
 
+
+        public IActionResult ClothesList()
+        {
+            return View();
+        }
     }
 }
