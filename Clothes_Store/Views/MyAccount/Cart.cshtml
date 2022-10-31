@@ -36,29 +36,31 @@
                  <div class="cart_wrapper">
                 @foreach(var item in Model)
                     {
-                           allClothesPrice += item.Clothes.Price;
-                  <div class="goods_block"><!-- товар -->
-                        <div class="goods">
-                             @{  var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.Clothes.PreviewImage);
-                                   <img src="@imgSrc"  alt="goods" />   }
-                            <div class = "about_goods">
-                                <h2>@item.Clothes.Name</h2>
-                                <p>Колір: @item.Clothes.Color</p>
-                                <p>Розмір: @item.Size</p>
-                                <div class="quantity_goods">  
-                                    <button id="minus" data-action="minus">-</button>  
-                                    <p id="amount" data-counter>1</p>         
-                                    <button id="plus" data-action="plus">+</button>  
+                     <asp:HiddenField runat="server" ID="cartId" />
+                     allClothesPrice += item.Clothes.Price;
+                      <div class="goods_block"><!-- товар -->
+                            <div class="goods">
+                                 @{  var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.Clothes.PreviewImage);
+                                       <img src="@imgSrc"  alt="goods" />   }
+                                <div class = "about_goods">
+                                    <h2>@item.Clothes.Name</h2>
+                                    <p>Колір: @item.Clothes.Color</p>
+                                    <p>Розмір: @item.Size</p>
+                                    <div class="quantity_goods">  
+                                        <button id="minus" data-action="minus">-</button>  
+                                        <p id="amount" data-counter>@item.Quantity</p>         
+                                        <button id="plus" data-action="plus">+</button> 
+                                        <label class="invisibleP" cartId>@item.Id</label> @*pass cart id to js*@
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="trash_price">
-                                <button data-action = "to_trash"></button>
-                                <p><span id = "price" class="pricee">@item.Clothes.Price </span>грн</p>
-                            </div>
-                        </div>         
-                    </div> 
-                    }
-          </div>   
+                                <div class="trash_price">
+                                    <button data-action = "to_trash"></button>
+                                    <p><span id = "price" class="pricee">@item.Clothes.Price </span>грн</p>
+                                </div>
+                            </div>         
+                        </div> 
+                     }
+                 </div>   
             }
               
             </div>   
