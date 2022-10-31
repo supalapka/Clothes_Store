@@ -56,5 +56,21 @@ namespace DbAccessLibrary.DbAccess
             }
             await ctx.SaveChangesAsync();
         }
+
+        public static async Task IncrementQuantity(int id, ClothesStoreDbContext ctx)
+        {
+            var cart = ctx.Carts.FirstOrDefault(cart => cart.Id == id);
+            cart.Quantity++;
+            await ctx.SaveChangesAsync();
+        }
+
+        public static async Task DecrementQuantity(int id, ClothesStoreDbContext ctx)
+        {
+            var cart = ctx.Carts.FirstOrDefault(cart => cart.Id == id);
+            cart.Quantity--;
+            if (cart.Quantity == 0)
+                ctx.Carts.Remove(cart);
+            await ctx.SaveChangesAsync();
+        }
     }
 }
