@@ -1,2 +1,133 @@
-﻿body {
+﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-family: Montserrat;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    background: #040918;
+    font-family: Montserrat;
+    color: white;
+}
+/* .container{
+    padding: 40px 20px;
+    background-color: #0e1321;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+} */
+.tabs {
+    width: 80%;
+    margin: 0 auto;
+    padding: 10px 20px;
+}
+
+.categories-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-btn.active {
+    color: rebeccapurple;
+}
+
+.tab-item {
+    display: none;
+}
+
+.wrapper {
+    padding: 40px 20px;
+    background-color: #0e1321;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.tab-item.active {
+    display: block;
+}
+
+.product-item {
+    background-color: #171f36;
+    padding: 20px 30px;
+    margin-bottom: 2vh;
+    border-radius: 10px;
+}
+
+    .product-item:hover {
+        -webkit-box-shadow: -2px 10px 59px -10px rgba(27,31,94,1);
+        -moz-box-shadow: -2px 10px 59px -10px rgba(27,31,94,1);
+        box-shadow: -2px 10px 59px -10px rgba(27,31,94,1);
+        transition: 0.3s ease;
+    }
+
+.product-img img {
+    width: 250px;
+    height: 300px;
+}
+
+.product-description {
+    width: 100%;
+    background-color: #0e1321;
+    height: 150px;
+    margin-top: 0;
+    border-radius: 10px;
+    padding: 15px 40px;
+    text-align: center;
+}
+
+.price-and-order {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top: 5px;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.order-btn {
+    background-color: #4c2bee; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Montserrat;
+    border-radius: 100px;
+    /* margin-top: 20px; */
+}
+
+    .order-btn:hover {
+        background-color: #4c2bee;
+        box-shadow: 0 0 12px #563cd8;
+        -moz-box-shadow: 0 0 12px #5b45ca;
+        -o-box-shadow: 0 0 12px #5d40e9;
+        -ms-box-shadow: 0 0 12px #5b41dd;
+        -webkit-box-shadow: 0 0 12px #765cf5;
+    }
