@@ -1,6 +1,20 @@
 ﻿@using DbAccessLibrary.Models
 @model Clothes_Store.Models.ClothesPreview
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/addclothes.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
 
+</head>
+<body>
 <div class="container">
         <main role="main" class="pb-3">
             <h1>Створити оголошення</h1>            <h4>Попередній перегляд</h4>
@@ -70,6 +84,9 @@
             </div>
         </main>
     </div>
+    <script src="~/js/addclothes.js"></script>
+    </body>
+</html>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -35,5 +35,10 @@ namespace Clothes_Store.Controllers
             return RedirectToAction("ClothesDetails", new { id });
         }
 
+
+        public IActionResult ClothesList()
+        {
+            return View();
+        }
     }
 }
