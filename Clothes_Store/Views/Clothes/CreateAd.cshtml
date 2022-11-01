@@ -17,12 +17,12 @@
 <body>
 <div class="container">
         <main role="main" class="pb-3">
-            <h1>Створити оголошення</h1>            <h4>Попередній перегляд</h4>
+            <h1>Створити оголошення</h1> 
             <hr/>
             <div class="row">
                 <div class="col-md-4">
                     <div class="block_form">
-                        <form asp-action="AddClothes" enctype="multipart/form-data">
+                        <form asp-action="CreateAd" enctype="multipart/form-data">
                             <div class="input-file-container">  
                                 <input class="input-file inpt" onchange="donwload(this)" type="file" asp-for="PreviwImageFileInput" data-val="true" data-val-required="The PreviwImageFileInput field is required." id="PreviwImageFileInput" name="PreviwImageFileInput">
                                 <label tabindex="0" for="my-file" class="input-file-trigger">Додати фото</label>
@@ -61,11 +61,6 @@
                                  <option value="Виберіть стать"></option>
                                 </select>
                                 <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label"  asp-for="SellerName">Ім'я продавця</label>
-                                <input class="form-control inpt" type="text" data-val="true" data-val-required="The SellerName field is required." id="SellerName" name="SellerName" value="" />
-                                <span class="text-danger field-validation-valid" data-valmsg-for="SellerName" data-valmsg-replace="true"></span>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="Price">Ціна(грн)</label>

@@ -52,7 +52,7 @@
           <div class="desc">
             <div class="product-name prefix slider-text">@item.Name</div>
             <div class="price-and-order">
-              <a onclick="location.href='@Url.Action("ClothesDetails", "Clothes", new {id = @item.Id})'" ><button class="order-btn slider-text">
+              <a onclick="location.href='@Url.Action("Details", "Clothes", new {id = @item.Id})'" ><button class="order-btn slider-text">
                 Детальніше
               </button></a>
               <div class="price slider-text">@item.Price грн.</div>
