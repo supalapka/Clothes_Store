@@ -35,7 +35,8 @@
               <li class="subitem"><a href="#" class="hover-underline-animation">Кросівки</a></li>
             </ul>
           </li>
-          <li class="item"><a asp-controller="Admin" asp-action="AddClothes" class="hover-underline-animation">Адмін панель</a></li>
+          <li class="item"><a asp-controller="Clothes" asp-action="CreateAd" 
+              class="hover-underline-animation">Створити оголошення</a></li>
           <li class="item">
             <a href="#"><i class="fas fa-lightbulb"></i></a>
           </li>
@@ -103,6 +104,7 @@
     <script src="~/js/slick.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/myaccount.js"></script>
+    
 
     @RenderSection("Scripts", required: false)
 </body>

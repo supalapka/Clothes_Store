@@ -31,6 +31,8 @@
     <Compile Remove="Migrations\20221018205048_addedDateToCart.Designer.cs" />
     <Compile Remove="Migrations\20221018205138_addedDateToCart.cs" />
     <Compile Remove="Migrations\20221018205138_addedDateToCart.Designer.cs" />
+    <Compile Remove="Migrations\20221101103734_createSellerId.cs" />
+    <Compile Remove="Migrations\20221101103734_createSellerId.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

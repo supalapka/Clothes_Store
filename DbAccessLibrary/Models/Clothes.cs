@@ -13,13 +13,12 @@ namespace DbAccessLibrary.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public TypesOfClothes TypeOfClothes { get; set; }
+        public ClothingCategory Category { get; set; }
+        public Gender Gender { get; set; }
         public Colors Color { get; set; }
         public byte[] PreviewImage { get; set; }
 
-        public int SellerId { get; set; }
-        [ForeignKey("SellerId")]
-        public Seller Seller { get; set; }
-
+        public string SellerId { get; set; }
         public List<Cart> Carts { get; set; }
     }
 }

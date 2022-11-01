@@ -4,18 +4,20 @@ using DbAccessLibrary.DbAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbAccessLibrary.Migrations
 {
     [DbContext(typeof(ClothesStoreDbContext))]
-    partial class ClothesStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221029125233_addGenderToCLothes")]
+    partial class addGenderToCLothes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.30")
+                .HasAnnotation("ProductVersion", "3.1.29")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -76,13 +78,15 @@ namespace DbAccessLibrary.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
-                    b.Property<string>("SellerId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SellerId")
+                        .HasColumnType("int");
 
                     b.Property<int>("TypeOfClothes")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("SellerId");
 
                     b.ToTable("Clothes");
                 });
@@ -106,6 +110,21 @@ namespace DbAccessLibrary.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Promocodes");
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.Seller", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Sellers");
                 });
 
             modelBuilder.Entity("DbAccessLibrary.Models.UsedPromocode", b =>
@@ -133,6 +152,15 @@ namespace DbAccessLibrary.Migrations
                     b.HasOne("DbAccessLibrary.Models.Clothes", "Clothes")
                         .WithMany("Carts")
                         .HasForeignKey("ClothesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("DbAccessLibrary.Models.Clothes", b =>
+                {
+                    b.HasOne("DbAccessLibrary.Models.Seller", "Seller")
+                        .WithMany("Clothes")
+                        .HasForeignKey("SellerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

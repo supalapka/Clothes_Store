@@ -1,8 +1,13 @@
 ﻿@using ClassLibrary
 @using DbAccessLibrary.Models
-@model Cart
+@model Clothes
 
-@ViewData["ClothesId"] = @Model.ClothesId;
+@{
+    Cart cart = new Cart();
+    cart.Clothes = Model;
+    Model.Carts = new List<Cart>();
+    Model.Carts.Add(cart);
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,18 +27,18 @@
 <div class="order-container">
     <form asp-action="AddToCart">
     <div class="order-item">
-       @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@Model.Clothes.PreviewImage);
+       @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@Model.PreviewImage);
                <img src="@imgSrc"  alt="" />
                 }
         <div class="product-info">
             <div class="price">
-                @Model.Clothes.Price грн
+                @Model.Price грн
             </div>
             @*<div class="consist">   add later field with "about" info
                 Склад 72% cotton, 24% polyester, 4% elastane. Щільність 190 г/м²
             </div>*@
             <div class="consist">
-                @Model.Clothes.Color
+                @Model.Color
             </div>
             <div class="gift">
                 У комплекті йде коробка GATISHOP.
@@ -43,10 +48,10 @@
             </div>
                 <div class="size-choose">
                     <p class="select-size">Виберіть розмір:</p>
-                        @foreach (object radiotext in Enum.GetValues(typeof(Size)))
+                        @foreach (var radiotext in Enum.GetValues(typeof(Size)))
                         {
-                           @Html.RadioButtonFor(x=>x.Size, radiotext.ToString());
-                           <span >@radiotext.ToString()</span>
+                            @Html.RadioButtonFor(x=>x.Carts.Single().Size, radiotext)
+                            <span >@radiotext</span>
                         }
                 </div>
                 <div class="count-of-product-and-order-button">
@@ -57,14 +62,17 @@
                         <p class="count countOf">1</p>
                         <a class="plus hov">+</a>
                     </div>
-                    <input asp-for="@Model.Quantity" id="quantity"
-                    type="number" value="1" style="visibility:hidden"/> @*invisible input for pass data that changing in js to controller*@
 
-                     <input asp-for="@Model.ClothesId"
-                    type="number" value="@Model.Clothes.Id" style="visibility:hidden"/> @*invisible input for pass data back from model*@
+                    @*invisible part*@
+                    @{int quantity = 1;}
+                    <input asp-for="@quantity" id="quantity"
+                    type="number" value="1" style="visibility:hidden"/> @*invisible input for pass data that changing in js to controller*@
+                     <input asp-for="@Model.Id"
+                    type="number" value="@Model.Id" style="visibility:hidden"/> @*invisible input for pass data back from model*@
+
                     <div class="summary">
                         Загальна сума оплати: <span class="price_">
-                         @Model.Clothes.Price грн
+                         @Model.Price грн
                         </span>
                     </div>
                      <div class="to-order-button">
@@ -90,8 +98,8 @@
                     <p>Довжина рукава на розмірній сітці вказана літерою С, міряєте від верху шва і до самого кінця рукава, як показано червоною лінією.</p>
                     <p>Далі зрівнюєте ваші показники з нашою таблицею розмірів, прикинувши плюс/мінус пару сантиметрів та обираєте розмір.</p>
                 </div>
-               <img src="img/size-charity.webp" alt="" class="image">
-               <img src="img/sizecharity.png" alt="">
+               <img src="~/Images/size-charity.webp" alt="" class="image">
+               <img src="~/Images/sizecharity.png" alt="">
             </div>
         </div>
     </div>

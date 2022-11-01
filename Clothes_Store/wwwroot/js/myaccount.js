@@ -12,7 +12,7 @@ function calcCartPrice() {
     });
     totalPriceEl.innerText = priceTotal;
     let delivery_price;
-    if (priceTotal >= 900 || priceTotal == 0) {
+    if (priceTotal >= 3000 || priceTotal == 0) {
         delivery_price = 0;
         devPrice.innerText = "Безкоштовна";
         $('.currency').hide();
@@ -42,18 +42,23 @@ window.addEventListener('click', function (event) {
     CartStatus();
     if (event.target.dataset.action === 'plus' || event.target.dataset.action === 'minus') {
         const counterWrapper = event.target.closest('.quantity_goods');
+        cartId = counterWrapper.querySelector('[cartId]').innerText;
         counter = counterWrapper.querySelector('[data-counter]');
     }
     if (event.target.dataset.action === 'plus') {
         counter.innerText = counter.innerText;
         calcCartPrice();
+        fetch(`/Cart/IncrementItemQuantity?cartId=${cartId}`)
+
     }
     if (event.target.dataset.action === 'minus') {
         if (parseInt(counter.innerText) > 1) {
             counter.innerText = counter.innerText;
             calcCartPrice();
+            fetch(`/Cart/DecrementItemQuantity?cartId=${cartId}`)
         } else if (event.target.closest('.quantity_goods') && parseInt(counter.innerText) === 1) {
             event.target.closest('.goods').remove();
+            fetch(`/Cart/DecrementItemQuantity?cartId=${cartId}`)
         }
         CartStatus();
     }

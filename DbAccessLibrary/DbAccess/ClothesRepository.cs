@@ -8,20 +8,45 @@ namespace DbAccessLibrary.DbAccess
     public static class ClothesRepository
     {
         public static async Task CreateAsync(string name, byte[] previewImage, TypesOfClothes typesOfClothes,
-            Colors color, int sellerId, int price, ClothesStoreDbContext _context) 
+            Colors color, string sellerId, int price,Gender gender,ClothingCategory clothingCategory, 
+            ClothesStoreDbContext _context) 
         {
             Clothes clothes = new Clothes()
             {
                 Name = name,
                 PreviewImage = previewImage,
                 Price = price,
-                SellerId = sellerId,
+                //SellerId = sellerId,
                 TypeOfClothes = typesOfClothes,
                 Color = color,
+                Gender = gender,
+                Category = clothingCategory,
             };
 
             await _context.Clothes.AddAsync(clothes);
             await _context.SaveChangesAsync();
+        }
+
+        public static async Task<int> CreateAndReturnIdAsync(string name, byte[] previewImage, TypesOfClothes typesOfClothes,
+            Colors color, string sellerId, int price, Gender gender, ClothingCategory clothingCategory,
+            ClothesStoreDbContext _context)
+        {
+            Clothes clothes = new Clothes()
+            {
+                Name = name,
+                PreviewImage = previewImage,
+                Price = price,
+                //SellerId = sellerId,
+                TypeOfClothes = typesOfClothes,
+                Color = color,
+                Gender = gender,
+                Category = clothingCategory,
+            };
+
+            await _context.Clothes.AddAsync(clothes);
+            await _context.SaveChangesAsync();
+
+            return clothes.Id;
         }
 
         public static async Task DeleteAsync(int id, ClothesStoreDbContext _context)
