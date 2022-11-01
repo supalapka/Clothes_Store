@@ -37,11 +37,18 @@ namespace Clothes_Store.Controllers
         {
             var fileBytesImage = FunctionsLib.FileToByteArrayAsync(clothes.PreviwImageFileInput); //convert clothes img to byte array for db storing
             var seller = await GetSeller(clothes.SellerName);
-            await ClothesRepository.CreateAsync(clothes.Name, fileBytesImage, clothes.TypeOfClothes,
-               clothes.Color, seller.Id, clothes.Price, _context);
+            await ClothesRepository.CreateAsync(name: clothes.Name,
+                previewImage: fileBytesImage,
+                clothingCategory: clothes.Category,
+                gender: clothes.Gender,
+                color: clothes.Color,
+                sellerId: seller.Id,
+                price: clothes.Price,
+                typesOfClothes: clothes.TypeOfClothes,
+                _context: _context);
             return RedirectToAction("Index");
         }
-        
+
         private async Task<Seller> GetSeller(string sellerName)
         {
             var seller = _context.Sellers.Where(x => x.Name == sellerName).FirstOrDefault();
@@ -52,6 +59,7 @@ namespace Clothes_Store.Controllers
                 var sellerNew = new Seller() { Name = sellerName };
                 await _context.Sellers.AddAsync(sellerNew);
                 await _context.SaveChangesAsync();
+                return sellerNew;
             }
             return seller;
         }

@@ -13,6 +13,8 @@ namespace DbAccessLibrary.Models
         public string Name { get; set; }
         public int Price { get; set; }
         public TypesOfClothes TypeOfClothes { get; set; }
+        public ClothingCategory Category { get; set; }
+        public Gender Gender { get; set; }
         public Colors Color { get; set; }
         public byte[] PreviewImage { get; set; }
 

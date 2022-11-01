@@ -1,11 +1,14 @@
 ﻿using DbAccessLibrary.DbAccess;
 using DbAccessLibrary.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Clothes_Store.Controllers
 {
-    public class ClothesController :Controller
+    [Authorize]
+    public class ClothesController : Controller
     {
         private readonly ClothesStoreDbContext _context;
 
@@ -21,13 +24,15 @@ namespace Clothes_Store.Controllers
 
         public IActionResult ClothesDetails(int id)
         {
-            var clothes = _context.Clothes.FirstOrDefault(c => c.Id == id);
+            var clothes = ClothesRepository.GetById(id,_context);
             return View(clothes);
         }
 
-        public IActionResult AddToCart(int id, int quantity, Size size)
+        public async Task<IActionResult> AddToCart(int id, int quantity, Size size)
         {
-            return View();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            await CartRepository.CreateAsync(id, quantity, size, userId, _context);
+            return RedirectToAction("ClothesDetails", new { id });
         }
 
 
