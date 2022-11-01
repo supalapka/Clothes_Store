@@ -40,7 +40,8 @@ namespace Clothes_Store.Controllers
 
         public IActionResult List()
         {
-            return View();
+            var clothes = _context.Clothes.ToList();
+            return View(clothes);
         }
 
 
@@ -65,6 +66,12 @@ namespace Clothes_Store.Controllers
                 _context: _context);
 
             return RedirectToAction("Details", new { id });
+        }
+
+        public async Task Delete(int id)
+        {
+             await ClothesRepository.DeleteAsync(id, _context);
+         //   return RedirectToAction("Ads", "MyAccount");
         }
 
     }

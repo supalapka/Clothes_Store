@@ -1,0 +1,64 @@
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+ @model List<Clothes>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>   
+    <section class="main_content">
+         <nav class="navigation_account">
+            <div id = "nav_title" class="nav_title">Мій акаунт</div>
+            <div class="nav_items">
+                <ul>
+                    <a asp-controller="MyAccount" asp-action="Cart" ><li>Кошик</li></a>
+                    <a asp-controller="MyAccount" asp-action="Orders" ><li>Мої замовлення</li></a>
+                    <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" ><li>Дані облікового запису</li></a>
+                    <a asp-controller="MyAccount" asp-action="Ads" ><li>Мої оголошення</li></a>
+                </ul>
+            </div>
+        </nav>
+        <div class="mine_block">
+            <div class="location"><p><strong>Мій акаунт</strong></p><p>> Мої оголошення</p></div>
+            <h2>Мої оголошення</h2>
+            <div class="empty_block">
+                <p>ОГОЛОШЕНЬ НЕМАЄ</p>
+                <button class="form_btn"><strong><a asp-controller="Home" asp-action="Index">НА ГОЛОВНУ</a></strong></button>
+            </div>
+            @{
+                foreach(var ad in @Model)
+                {
+                   <div class="order_block">
+                    <div class="order_info">
+                       <!-- <p class="price_info">Активне</p> Активне/Деактивоване -->
+                    </div>
+                    <div class="cart_wrapper">
+                        <div class="goods">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(ad.PreviewImage);
+                                       <img src="@imgSrc"  alt="goods" />   }
+                            <div class = "about_goods">
+                                <h2>@ad.Name</h2>
+                                <p>Колір:@ad.Color</p>
+                                <p>Ціна: <span>@ad.Price</span>грн</p>
+                             
+                               <button onclick="deleteMyAd(this, @ad.Id)" class="btn_condition">Видалити</button><!-- Деактивувати\Активувати -->
+                            </div>
+                        </div>         
+                    </div>      
+                </div>
+                }
+            }
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="../js/sctipt_nav.js"></script>
+    <script src="../js/if_empty.js"></script>
+</body>
+</html>
