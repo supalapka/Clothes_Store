@@ -47,7 +47,7 @@ namespace DbAccessLibrary.DbAccess
 
         public static async Task FinishCurrentCartForUser(string userId, ClothesStoreDbContext ctx)
         {
-            var cart = ctx.Carts.Where(x => x.IsOrderFinished == true
+            var cart = ctx.Carts.Where(x => x.IsOrderFinished == false
             && x.ApplicationUserId == userId).ToList();
             foreach (var cartItem in cart)
             {

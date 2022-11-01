@@ -44,7 +44,7 @@ namespace Clothes_Store.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             var orders = _context.Carts.Where(x => x.ApplicationUserId == userId
-            && x.IsOrderFinished == true).ToList();
+            && x.IsOrderFinished == true).OrderByDescending(x=>x.Id).ToList();
 
             foreach (var order in orders)
             {
