@@ -35,6 +35,7 @@ namespace Clothes_Store.Controllers
                 //fill the clothes class into current cart
                 cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault(); 
             }
+            cart = cart.OrderByDescending(x => x.Id).ToList();
             return View(cart);
         }
 
