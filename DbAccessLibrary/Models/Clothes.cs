@@ -18,10 +18,7 @@ namespace DbAccessLibrary.Models
         public Colors Color { get; set; }
         public byte[] PreviewImage { get; set; }
 
-        public int SellerId { get; set; }
-        [ForeignKey("SellerId")]
-        public Seller Seller { get; set; }
-
+        public string SellerId { get; set; }
         public List<Cart> Carts { get; set; }
     }
 }
