@@ -35,6 +35,7 @@ namespace Clothes_Store.Controllers
                 //fill the clothes class into current cart
                 cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault(); 
             }
+            cart = cart.OrderByDescending(x => x.Id).ToList();
             return View(cart);
         }
 
@@ -54,9 +55,11 @@ namespace Clothes_Store.Controllers
             return View(orders);
         }
 
-        public IActionResult MyAds()
+        public IActionResult Ads()
         {
-            return View();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var adsClothes = _context.Clothes.Where(x => x.SellerId == userId).OrderByDescending(x=>x.Id).ToList();
+            return View(adsClothes);
         }
     }
 }

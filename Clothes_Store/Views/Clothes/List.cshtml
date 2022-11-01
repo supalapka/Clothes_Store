@@ -1,0 +1,198 @@
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model List<Clothes>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/categories.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+</head>
+<body>
+     <div class="tabs">
+      <ul class="categories-nav">
+        <li>
+          <a href="#" class="tab-btn active" data-tab="#tab-1"
+            >Чоловічий одяг</a>
+        </li>
+        <li>
+          <a href="#" class="tab-btn" data-tab="#tab-2">Жіночий одяг</a>
+        </li>
+        <li>
+          <a href="#" class="tab-btn" data-tab="#tab-3">Зимовий Одяг</a>
+        </li>
+        <li>
+          <a href="#" class="tab-btn" data-tab="#tab-4">Дитячий одяг</a>
+        </li>
+        <li>
+          <a href="#" class="tab-btn" data-tab="#tab-5">Взуття</a>
+        </li>
+      </ul>
+    </div>
+    <div class="container">
+      <!-- ЧОЛОВІЧИЙ ОДЯГ -->
+
+      <div class="tab-item active" id="tab-1">
+
+        <div class="wrapper">
+                @{
+                    var menClothes = @Model.Where(x => x.Gender == Gender.Male);
+                    foreach(var item in menClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                            <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
+         
+        </div>
+      </div>
+
+      <!-- Жіночий одяг -->
+      <div class="tab-item " id="tab-2">
+        <div class="wrapper">
+           @{
+                    var femaleClothes = @Model.Where(x => x.Gender == Gender.Female);
+                    foreach(var item in femaleClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
+        </div>
+      </div>
+        <!-- ЗИМОВИЙ ОДЯГ -->
+
+      <div class="tab-item " id="tab-3">
+        <div class="wrapper">
+           @{
+                    var winterClothes = @Model.Where(x => x.Category == ClothingCategory.Winter);
+                    foreach(var item in winterClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                             <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
+        </div>
+      </div>
+
+      <!-- ДИТЯЧИЙ ОДЯГ -->
+      <div class="tab-item " id="tab-4">
+        <div class="wrapper">
+          @{
+                    var kidsClothes = @Model.Where(x => x.TypeOfClothes  == TypesOfClothes.ChildrenClothes);
+                    foreach(var item in kidsClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
+        </div>
+      </div>
+
+      <!-- Взуття -->
+
+      <div class="tab-item " id="tab-5">
+        <div class="wrapper">
+           @{
+                    var shoesClothes = @Model.Where(x => x.TypeOfClothes  == TypesOfClothes.Shoes);
+                    foreach(var item in shoesClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
+        </div>
+      </div>
+
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/categories.js"></script>
+</body>
