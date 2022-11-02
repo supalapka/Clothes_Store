@@ -1,9 +1,15 @@
 ﻿using DbAccessLibrary.DbAccess;
 using DbAccessLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Clothes_Store.Controllers
 {
@@ -37,6 +43,21 @@ namespace Clothes_Store.Controllers
             }
             cart = cart.OrderByDescending(x => x.Id).ToList();
             return View(cart);
+        }
+
+        [System.Web.Http.HttpGet]
+        public async Task<IActionResult> ApplyPromocode(string promo)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            try
+            {
+               await  PromocodeRepository.ApplyPromocodeAsync(promo, userId, _context);
+            }
+            catch(Exception e)
+            {
+              // show exception
+            }
+            return Cart();
         }
 
         public IActionResult Orders()  //finished orders

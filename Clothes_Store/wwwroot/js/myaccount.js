@@ -113,3 +113,8 @@ function finishCart() {
     fetch(`/Cart/FinishCart`)
     document.querySelector('.cart_wrapper').remove()
 }
+
+function applyPromocode() {
+    promocode = document.getElementById("promoInput").value;
+    fetch(`/MyAccount/ApplyPromocode?promo=${promocode}`)
+}
