@@ -27,14 +27,23 @@ namespace Clothes_Store.Controllers
             return View(clothes);
         }
 
-
-        
-
-
         public async Task<IActionResult> DeleteClothes(int id)
         {
             await ClothesRepository.DeleteAsync(id, _context);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult CreatePromocode()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePromocode(Promocode promocode)
+        {
+            await _context.Promocodes.AddAsync(promocode);
+            await _context.SaveChangesAsync();
+            return View();
         }
     }
 }

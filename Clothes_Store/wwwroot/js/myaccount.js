@@ -108,3 +108,13 @@ function deleteMyAd(element,id) {
     fetch(`/Clothes/Delete?id=${id}`)
     element.parentElement.parentElement.parentElement.parentElement.remove(); //remove card
 }
+
+function finishCart() {
+    fetch(`/Cart/FinishCart`)
+    document.querySelector('.cart_wrapper').remove()
+}
+
+function applyPromocode() {
+    promocode = document.getElementById("promoInput").value;
+    fetch(`/MyAccount/ApplyPromocode?promo=${promocode}`)
+}

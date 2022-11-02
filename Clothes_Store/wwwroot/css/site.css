@@ -628,6 +628,10 @@ a {
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
+.order_info{
+    margin-top:10px;
+}
+
 .form, .order_info, .goods, .main_content, .final_price, .location, .about_goods, .quantity_goods, .trash_price, .final_price div, .block_promcode, .block_promcode form {
     display: flex
 }

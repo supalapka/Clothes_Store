@@ -48,10 +48,23 @@
             </div>
                 <div class="size-choose">
                     <p class="select-size">Виберіть розмір:</p>
-                        @foreach (var radiotext in Enum.GetValues(typeof(Size)))
-                        {
-                            @Html.RadioButtonFor(x=>x.Carts.Single().Size, radiotext)
-                            <span >@radiotext</span>
+                        @{
+                            int size = 36;
+                            if (Model.TypeOfClothes != TypesOfClothes.Shoes)
+                              @foreach (var radiotext in Enum.GetValues(typeof(Size)))  // size 2XL
+                                {
+                                    @Html.RadioButtonFor(x=>x.Carts.Single().Size, radiotext)
+                                    <span >@radiotext</span>
+                                }
+                            else
+                            {
+                                @foreach (var radiotext in Enum.GetValues(typeof(Size))) // size 42
+                                {
+                                    @Html.RadioButtonFor(x => x.Carts.Single().Size, size+ "    ") ;
+                                    <span >@size</span>
+                                    size++;
+                                }
+                            }
                         }
                 </div>
                 <div class="count-of-product-and-order-button">

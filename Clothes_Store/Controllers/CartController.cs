@@ -1,5 +1,6 @@
 ﻿using DbAccessLibrary.DbAccess;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Clothes_Store.Controllers
@@ -21,6 +22,12 @@ namespace Clothes_Store.Controllers
         public async Task DecrementItemQuantity(int cartId)
         {
             await CartRepository.DecrementQuantity(cartId, _context);
+        }
+
+        public async Task FinishCart()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            await CartRepository.FinishCurrentCartForUser(userId, _context);
         }
     }
 }
