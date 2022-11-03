@@ -39,7 +39,9 @@ namespace Clothes_Store.Controllers
             foreach (var cartItem in cart)
             {
                 //fill the clothes class into current cart
-                cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault(); 
+                cartItem.Clothes = _context.Clothes.Where(x => x.Id == cartItem.ClothesId).FirstOrDefault();
+                if(cartItem.PromocodeId != null)
+                cartItem.Promocode = _context.Promocodes.Where(x => x.Id == cartItem.PromocodeId).FirstOrDefault();
             }
             cart = cart.OrderByDescending(x => x.Id).ToList();
             return View(cart);
@@ -55,7 +57,16 @@ namespace Clothes_Store.Controllers
             }
             catch(Exception e)
             {
-              // show exception
+                if (e.Message.Contains("Invalid"))
+                {
+                    var response = new HttpResponseMessage(HttpStatusCode.NotFound)
+                    {
+                        Content = new StringContent("Promocode doesn't exist",
+                        System.Text.Encoding.UTF8, "text/plain"),
+                        StatusCode = HttpStatusCode.NotFound
+                    };
+                    throw new HttpResponseException(response);
+                }
             }
             return Cart();
         }

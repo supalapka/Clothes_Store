@@ -117,4 +117,7 @@ function finishCart() {
 function applyPromocode() {
     promocode = document.getElementById("promoInput").value;
     fetch(`/MyAccount/ApplyPromocode?promo=${promocode}`)
+    location.reload();
+
+
 }
