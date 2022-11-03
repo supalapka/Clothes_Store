@@ -19,7 +19,7 @@ namespace DbAccessLibrary.Models
 
         public string ApplicationUserId { get; set; }
 
-        public int PromocodeId { get; set; }
+        public int? PromocodeId { get; set; }
         [ForeignKey("PromocodeId")]
         public Promocode Promocode { get; set; }
     }
