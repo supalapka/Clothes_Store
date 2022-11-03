@@ -10,7 +10,7 @@ namespace DbAccessLibrary.DbAccess
         public static async Task ApplyPromocodeAsync(string _promo, string userId, ClothesStoreDbContext ctx)
         {
             Promocode promocode;
-            try { promocode = GetPromocode(_promo, ctx); }
+            try { promocode = GetPromocodeByCode(_promo, ctx); }
             catch { throw new Exception("Invalid promocode"); }
 
             if (IsUserHaveUsedPromo(promocode.Id, userId, ctx))
@@ -44,7 +44,7 @@ namespace DbAccessLibrary.DbAccess
                 await ctx.SaveChangesAsync();
         }
 
-        public static Promocode GetPromocode(string _promo, ClothesStoreDbContext ctx)
+        public static Promocode GetPromocodeByCode(string _promo, ClothesStoreDbContext ctx)
         {
             var promocode = ctx.Promocodes.SingleOrDefault(x => x.Code == _promo);
             if (promocode == null)
@@ -52,6 +52,14 @@ namespace DbAccessLibrary.DbAccess
             else
                 return promocode;
         }
+
+        public static Promocode GetPromocodeById(int id, ClothesStoreDbContext ctx)
+        {
+            var promocode = ctx.Promocodes.SingleOrDefault(x => x.Id == id);
+            return promocode;
+        }
+
+
         private static bool IsUserHaveUsedPromo(int promoId, string userId, ClothesStoreDbContext ctx)
         {
             var isPromoUsed = ctx.UsedPromocodes.SingleOrDefault(x => x.PromocodeId == promoId
