@@ -21,8 +21,9 @@
               <img src="~/Images/logo.png" alt="" class="logotype" />GATI</a>
           </li>
           <li class="item">
-            <form action="#" class="search">
-              <input type="text" class="site-surf" placeholder=" Пошук по сайту" />
+            <form method="post" asp-controller="Clothes" asp-action="Search" class="search" defaultbutton="btnSubmit">
+              <input type="text" name="request" class="site-surf" placeholder=" Пошук по сайту" />
+               <asp:Button ID="btnSubmit" runat="server" Text="Submit"/>
             </form>
           </li>
           <li class="item"><a href="#" class="hover-underline-animation">ПРО нас</a></li>
