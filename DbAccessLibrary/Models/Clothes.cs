@@ -17,7 +17,8 @@ namespace DbAccessLibrary.Models
         public Gender Gender { get; set; }
         public Colors Color { get; set; }
         public byte[] PreviewImage { get; set; }
-
+        public int Rating { get; set; }
+        public int CountSell { get; set; }
         public string SellerId { get; set; }
         public List<Cart> Carts { get; set; }
     }
