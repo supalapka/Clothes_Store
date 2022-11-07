@@ -27,8 +27,14 @@ namespace Clothes_Store.Controllers
             return View(clothes);
         }
 
+        public IActionResult statistics()
+        {
+            return View();
+        }
 
-        
+
+
+
 
 
         public async Task<IActionResult> DeleteClothes(int id)
