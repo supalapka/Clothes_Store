@@ -1,4 +1,5 @@
 ﻿@using ClassLibrary
+@using DbAccessLibrary.DbAccess
 @using DbAccessLibrary.Models
  @model List<Cart>
 
@@ -10,7 +11,7 @@
                     <a asp-controller="MyAccount" asp-action="Cart" ><li>Кошик</li></a>
                     <a asp-controller="MyAccount" asp-action="Orders" ><li>Мої замовлення</li></a>
                     <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" ><li>Дані облікового запису</li></a>
-                    <a asp-controller="MyAccount" asp-action="Cart" ><li>Мої оголошення</li></a>
+                    <a asp-controller="MyAccount" asp-action="Ads" ><li>Мої оголошення</li></a>
                 </ul>
             </div>
         </nav>
@@ -20,7 +21,10 @@
             <div class="location"><p><strong>Мій акаунт</strong></p><p>> Кошик</p></div>
             <h2>Кошик</h2> 
 
-             @{ int deliveryPrice = 100;
+        @{
+            int deliveryPrice = 45;
+            int currentClothesPrice = 0;
+            double promoDiscount = 0;
             int allClothesPrice = 0;
             int totalPrice = 0;
             }
@@ -36,16 +40,30 @@
                  <div class="cart_wrapper">
                 @foreach(var item in Model)
                     {
-                     <asp:HiddenField runat="server" ID="cartId" />
-                     allClothesPrice += item.Clothes.Price;
+                    if(item.Promocode != null)
+                    {
+                        promoDiscount = (double)(item.Clothes.Price / (double)100) * (double)item.Promocode.DiscountPercentage; // 1000 / 100 * 15 = 150 discount
+                        currentClothesPrice = item.Clothes.Price - (int)promoDiscount;
+                    }
+                    else
+                    {
+                        currentClothesPrice = item.Clothes.Price;
+                    }
+                    allClothesPrice += currentClothesPrice;
                       <div class="goods_block"><!-- товар -->
                             <div class="goods">
                                  @{  var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.Clothes.PreviewImage);
                                        <img src="@imgSrc"  alt="goods" />   }
                                 <div class = "about_goods">
-                                    <h2>@item.Clothes.Name</h2>
+                                    <a asp-controller="Clothes" asp-action="Details" asp-route-id="@item.ClothesId" >
+                                        <h2>@item.Clothes.Name</h2></a>
                                     <p>Колір: @item.Clothes.Color</p>
                                     <p>Розмір: @item.Size</p>
+
+                                    @{  if(item.Promocode != null){
+                                    <p>Застосований промокод @item.Promocode.Code: знижка @((int)promoDiscount) грн</p>
+                                      }         }
+
                                     <div class="quantity_goods">  
                                         <button id="minus" data-action="minus">-</button>  
                                         <p id="amount" data-counter>@item.Quantity</p>         
@@ -55,17 +73,14 @@
                                 </div>
                                 <div class="trash_price">
                                     <button data-action = "to_trash"></button>
-                                    <p><span id = "price" class="pricee">@item.Clothes.Price </span>грн</p>
+                                    <p><span id = "price" class="pricee">@currentClothesPrice </span>грн</p>
                                 </div>
                             </div>         
                         </div> 
                      }
                  </div>   
             }
-              
             </div>   
-            
-
 
              <div class="final_price">
             <div><p>Ціна товарів</p>
@@ -80,13 +95,13 @@
                 <p>Загальна сума</p>
                 <p class="price_right"><span class="all_price" span>@totalPrice </span>грн</p>
             </div>   
-            <button>Оформити</button>   
+            <button onclick="finishCart()" >Оформити</button>   
             <div class="block_promcode">
                 <p class="prom_p">У МЕНЕ Є ПРОМКОД</p>
                 <div>
-                    <form>
-                        <input class = "form_prom" type="text" name="" id="" placeholder="Введіть код">
-                        <input class = "form_btn" type="button" name="" id="" value="ЗАСТОСУВАТИ">
+                    <form method="post" action="ApplyPromocode">
+                        <input class = "form_prom" type="text" id="promoInput" name="" placeholder="Введіть код">
+                        <input class = "form_btn" type="button" onclick="applyPromocode()" name="" id="" value="ЗАСТОСУВАТИ">
                     </form>
                 </div>  
             </div>  

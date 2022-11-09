@@ -1,0 +1,136 @@
+﻿
+
+/*login */
+.login {
+    background-color: #040918;
+    width: 1440px;
+    height: 780px;
+    margin: auto auto;
+    padding-top: 70px;
+    background-size: cover;
+    margin-bottom: 40px;
+}
+
+.main-block {
+    background-color: rgba(255, 255, 255, 0.04);
+    width: 836px;
+    height: 640px;
+    margin: auto auto;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+.EN-button {
+    width: 30px;
+    height: 30px;
+    padding-top: 55px;
+    margin-left: 55px;
+}
+
+.EN {
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 30px;
+}
+
+.theme-button {
+    padding-left: 747px;
+    margin-top: -20px;
+    width: 44px;
+    height: 44px;
+}
+
+.log_in {
+    font-size: 36px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 45px;
+    width: 101px;
+    color: white;
+    margin-left: 367px;
+    margin-top: -45px;
+}
+
+.username {
+    color: #5B5B5B;
+    font-size: 26px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 40px;
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 59px;
+    margin-left: 152px;
+    border: 0px;
+}
+
+.password-field {
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 59px;
+    margin-left: 152px;
+}
+
+.password {
+    color: #5B5B5B;
+    font-size: 26px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 40px;
+    width: 540px;
+    height: 64px;
+    background-color: rgba(7, 9, 27, 0.87);
+    border-radius: 10px;
+    margin-top: 59px;
+    margin-left: 152px;
+    border: 0px;
+}
+
+.proceed-button {
+    background-color: #1D275A;
+    padding: 10px 15px;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    margin-top: 56px;
+    margin-left: 325px;
+    border-radius: 10px;
+}
+
+.proceed {
+    color: #A9A9A9;
+    font-family: 'Mulish', sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.list-login {
+    list-style: none;
+    margin-top: 66px;
+    padding: 0px;
+}
+
+
+.create-account {
+    color: #5B5B5B;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 25px;
+    margin-left: 154px;
+    text-decoration: none;
+}
+
+.lost-password {
+    color: #5B5B5B;
+    font-size: 20px;
+    font-family: 'Mulish', sans-serif;
+    line-height: 25px;
+    width: 25px;
+    margin-left: 212px;
+    text-decoration: none;
+}

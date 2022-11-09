@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model List<Clothes>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,135 +17,183 @@
 
 </head>
 <body>
-     <div class="tabs">
+     <div class="content">
+     <nav class="tabs">
       <ul class="categories-nav">
         <li>
           <a href="#" class="tab-btn active" data-tab="#tab-1"
-            >Чоловічий одяг</a
-          >
+            >Чоловічий одяг</a>
         </li>
         <li>
-          <a href="#" class="tab-btn" data-tab="#tab-2">Зимовий одяг</a>
+          <a href="#" class="tab-btn" data-tab="#tab-2">Жіночий одяг</a>
         </li>
         <li>
-          <a href="#" class="tab-btn" data-tab="#tab-3">Жіночий одяг</a>
+          <a href="#" class="tab-btn" data-tab="#tab-3">Зимовий Одяг</a>
         </li>
         <li>
           <a href="#" class="tab-btn" data-tab="#tab-4">Дитячий одяг</a>
         </li>
         <li>
-          <a href="#" class="tab-btn" data-tab="#tab-5">Кросівки</a>
+          <a href="#" class="tab-btn" data-tab="#tab-5">Взуття</a>
         </li>
       </ul>
-    </div>
+    </nav>
     <div class="container">
       <!-- ЧОЛОВІЧИЙ ОДЯГ -->
+
       <div class="tab-item active" id="tab-1">
+
         <div class="wrapper">
-          <div class="product-item">
-            <div class="product-img">
-              <img src="img/muzhskaya-futbolka-krasnaya-1002.png" alt="" />
-            </div>
-            <div class="product-description">
-              <div class="product-name prefix slider-text">
-                Футболка чоловіча
-              </div>
-              <div class="price-and-order">
-                <a href="order.html" class="slider-text"
-                  ><button class="order-btn">Детальніше</button></a
-                >
-                <div class="price slider-text">650 грн.</div>
-              </div>
-            </div>
-          </div>
+                @{
+                    var menClothes = @Model.Where(x => x.Gender == Gender.Male);
+                    foreach(var item in menClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                            <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
+         
         </div>
       </div>
-      <!--ЗИМОВИЙ ОДЯГ  -->
+
+      <!-- Жіночий одяг -->
       <div class="tab-item " id="tab-2">
         <div class="wrapper">
-          <div class="product-item">
-            <div class="product-img">
-              <img src="img/muzhskaya-futbolka-krasnaya-1002.png" alt="" />
-            </div>
-            <div class="product-description">
-              <div class="product-name prefix slider-text">
-                Футболка чоловіча
-              </div>
-              <div class="price-and-order">
-                <a href="order.html" class="slider-text"
-                  ><button class="order-btn">Детальніше</button></a
-                >
-                <div class="price slider-text">650 грн.</div>
-              </div>
-            </div>
-          </div>
+           @{
+                    var femaleClothes = @Model.Where(x => x.Gender == Gender.Female);
+                    foreach(var item in femaleClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
         </div>
       </div>
-        <!-- ЖІНОЧИЙ ОДЯГ -->
+        <!-- ЗИМОВИЙ ОДЯГ -->
+
       <div class="tab-item " id="tab-3">
         <div class="wrapper">
-          <div class="product-item">
-            <div class="product-img">
-              <img src="img/muzhskaya-futbolka-krasnaya-1002.png" alt="" />
-            </div>
-            <div class="product-description">
-              <div class="product-name prefix slider-text">
-                Футболка чоловіча
-              </div>
-              <div class="price-and-order">
-                <a href="order.html" class="slider-text"
-                  ><button class="order-btn">Детальніше</button></a
-                >
-                <div class="price slider-text">650 грн.</div>
-              </div>
-            </div>
-          </div>
+           @{
+                    var winterClothes = @Model.Where(x => x.Category == ClothingCategory.Winter);
+                    foreach(var item in winterClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                             <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
         </div>
       </div>
+
       <!-- ДИТЯЧИЙ ОДЯГ -->
       <div class="tab-item " id="tab-4">
         <div class="wrapper">
-          <div class="product-item">
-            <div class="product-img">
-              <img src="img/muzhskaya-futbolka-krasnaya-1002.png" alt="" />
-            </div>
-            <div class="product-description">
-              <div class="product-name prefix slider-text">
-                Футболка чоловіча
-              </div>
-              <div class="price-and-order">
-                <a href="order.html" class="slider-text"
-                  ><button class="order-btn">Детальніше</button></a
-                >
-                <div class="price slider-text">650 грн.</div>
-              </div>
-            </div>
-          </div>
+          @{
+                    var kidsClothes = @Model.Where(x => x.TypeOfClothes  == TypesOfClothes.ChildrenClothes);
+                    foreach(var item in kidsClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
         </div>
       </div>
 
-      <!-- КРОСІВКИ -->
+      <!-- Взуття -->
+
       <div class="tab-item " id="tab-5">
         <div class="wrapper">
-          <div class="product-item">
-            <div class="product-img">
-              <img src="img/muzhskaya-futbolka-krasnaya-1002.png" alt="" />
-            </div>
-            <div class="product-description">
-              <div class="product-name prefix slider-text">
-                Футболка чоловіча
-              </div>
-              <div class="price-and-order">
-                <a href="order.html" class="slider-text"
-                  ><button class="order-btn">Детальніше</button></a
-                >
-                <div class="price slider-text">650 грн.</div>
-              </div>
-            </div>
-          </div>
+           @{
+                    var shoesClothes = @Model.Where(x => x.TypeOfClothes  == TypesOfClothes.Shoes);
+                    foreach(var item in shoesClothes)
+                    {
+                         <div class="product-item">
+                        <div class="product-img">
+                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                           <img src="@imgSrc"  alt="" />
+                            }
+                        </div>
+                        <div class="product-description">
+                          <div class="product-name prefix slider-text">
+                           @item.Name
+                          </div>
+                          <div class="price-and-order">
+                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                            new {id = @item.Id})'" class="slider-text">
+                            <button class="order-btn">Детальніше</button> </a>
+                            <div class="price slider-text">@item.Price</div>
+                          </div>
+                        </div>
+                      </div>
+                    }
+                }
         </div>
       </div>
 
+    </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/categories.js"></script>

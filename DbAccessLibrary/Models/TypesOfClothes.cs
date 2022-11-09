@@ -38,5 +38,8 @@ namespace DbAccessLibrary.Models
         Socks,
         [Display(Name = "Взуття")]
         Shoes,
+
+        [Display(Name = "Дитячий Одяг")]
+        ChildrenClothes,
     }
 }

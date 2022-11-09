@@ -11,7 +11,7 @@
                     <a asp-controller="MyAccount" asp-action="Cart" ><li>Кошик</li></a>
                     <a asp-controller="MyAccount" asp-action="Orders" ><li>Мої замовлення</li></a>
                     <a asp-area="Identity" asp-page="/Account/Manage/ChangePassword" ><li>Дані облікового запису</li></a>
-                    <a href="../my_sales/my_sales.html"><li>Мої оголошення</li></a>
+                    <a asp-controller="MyAccount" asp-action="Ads" ><li>Мої оголошення</li></a>
                 </ul>
             </div>
         </nav>
@@ -26,31 +26,37 @@
                 <button class="form_btn"><strong><a asp-controller="Home" asp-action="Index" >НА ГОЛОВНУ</a></strong></button>
             </div>
         } else  {
-                @foreach(var item in Model)
+                @for(int i = 0; i < Model.Count() - 1; )
                     {
-                         <div class="order_block">
-                            <div class="order_info">
-                                @{int total = @item.Clothes.Price * @item.Quantity;}
-                                <p class="price_info">Оплата: <span>@total </span>грн</p>
-                                <p class="data_info">Дата: <span>@item.Date </span></p>
-                            </div>
-
+                <div class="order_block">
+                         @{int total = 0;/* @Model[i].Clothes.Price * @Model[i].Quantity;*/}
                             <div class="cart_wrapper">
-                                <div class="goods">
-                                     @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(item.Clothes.PreviewImage);
-                                   <img src="@imgSrc"  alt="goods" />   }
-                                    <div class = "about_goods">
-                                        <h2>@item.Clothes.Name</h2>
-                                        <p>Колір: @item.Clothes.Color</p>
-                                        <p>Розмір: @item.Size </p>
-                                        <p>@item.Quantity <span>шт.</span></p>
-                                        <p>@item.Clothes.Price <span>грн</span></p>
+                             @do 
+                                {
+                                    total += @Model[i].Clothes.Price * @Model[i].Quantity;
+                                    <div class="goods">
+                                             @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(Model[i].Clothes.PreviewImage);
+                                           <img src="@imgSrc"  alt="goods" />   }
+                                            <div class = "about_goods">
+                                                <h2>@Model[i].Clothes.Name</h2>
+                                                <p>Колір: @Model[i].Clothes.Color</p>
+                                                <p>Розмір: @Model[i].Size </p>
+                                                <p>@Model[i].Quantity <span>шт.</span></p>
+                                                <p >@Model[i].Clothes.Price <span>грн</span></p>
+                                            </div>
                                     </div>
-                                </div>         
-                            </div>  
+                                    int dayIndex = i;
+                                 }
+                                @while(@DateTime.Equals(@Model[i].Date.Date, @Model[++i].Date.Date)
+                                && i < @Model.Count()-1);
+                                
+                            </div> 
+                                 <div class="order_info">
+                                <p class="price_info">Оплата: <span>@total </span>грн</p>
+                                <p class="data_info">Дата: <span>@Model[i-1].Date.ToString("dd/MM/yyyy") </span></p>
+                            </div>
                         </div>             
                     }
             }
             </div>
-        }
     </section>
