@@ -1,5 +1,47 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model List<Clothes>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/search.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="search-content">
+
+        @foreach(var item in Model)
+        {
+            
+        <div class="search-item">
+            <div class="search-img-control">
+               @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                  <img src="@imgSrc"  alt="" />
+                }
+            </div>
+            <div class="search-desc">
+              <div class="product-name prefix slider-text">@item.Name</div>
+              <div class="price-and-order">
+                 <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                   new {id = @item.Id})'"  class="slider-text"><button class="order-btn">
+                  Детальніше
+                </button></a>
+                <div class="price slider-text">@item.Price грн.</div>
+              </div>
+            </div>
+          </div>
+        }
+
+    </div>
+</body>
+</html>>
