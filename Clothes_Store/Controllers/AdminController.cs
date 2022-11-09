@@ -27,6 +27,12 @@ namespace Clothes_Store.Controllers
             return View(clothes);
         }
 
+
+        public IActionResult Statistics()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> DeleteClothes(int id)
         {
             await ClothesRepository.DeleteAsync(id, _context);

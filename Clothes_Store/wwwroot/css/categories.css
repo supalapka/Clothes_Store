@@ -30,18 +30,30 @@ body {
     font-family: Montserrat;
     color: white;
 }
-.container{
-    margin-bottom:30px;
-} 
-.tabs {
+/* .container{
+    padding: 40px 20px;
+    background-color: #0e1321;
     width: 80%;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+} */
+.content {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.tabs {
     padding: 10px 20px;
 }
 
 .categories-nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    ;
+    gap: 30px;
 }
 
 .tab-btn.active {
@@ -55,12 +67,10 @@ body {
 .wrapper {
     padding: 40px 20px;
     background-color: #0e1321;
-    width: 80%;
-    margin: 0 auto;
+    width: 1400px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    border-radius:3px;
 }
 
 .tab-item.active {

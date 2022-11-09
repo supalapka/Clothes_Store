@@ -68,11 +68,6 @@ window.addEventListener('click', function (event) {
     }
 });
 
-$(document).ready(function () {
-    $('.nav_title').click(function (event) {
-        $(this).toggleClass('active').next().slideToggle(300);
-    });
-});
 
 
 window.onload = CartStatus(), calcCartPrice();
