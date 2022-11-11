@@ -38,7 +38,7 @@ namespace DbAccessLibrary.Migrations
                     b.Property<bool>("IsOrderFinished")
                         .HasColumnType("bit");
 
-                    b.Property<int>("PromocodeId")
+                    b.Property<int?>("PromocodeId")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantity")
@@ -69,6 +69,9 @@ namespace DbAccessLibrary.Migrations
                     b.Property<int>("Color")
                         .HasColumnType("int");
 
+                    b.Property<int>("CountSell")
+                        .HasColumnType("int");
+
                     b.Property<int>("Gender")
                         .HasColumnType("int");
 
@@ -79,6 +82,9 @@ namespace DbAccessLibrary.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
                         .HasColumnType("int");
 
                     b.Property<string>("SellerId")
@@ -143,9 +149,7 @@ namespace DbAccessLibrary.Migrations
 
                     b.HasOne("DbAccessLibrary.Models.Promocode", "Promocode")
                         .WithMany()
-                        .HasForeignKey("PromocodeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PromocodeId");
                 });
 
             modelBuilder.Entity("DbAccessLibrary.Models.UsedPromocode", b =>

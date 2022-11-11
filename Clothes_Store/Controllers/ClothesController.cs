@@ -70,7 +70,14 @@ namespace Clothes_Store.Controllers
         public async Task Delete(int id)
         {
              await ClothesRepository.DeleteAsync(id, _context);
-         //   return RedirectToAction("Ads", "MyAccount");
+        }
+
+
+        [HttpPost]
+        public IActionResult Search(string request)
+        {
+            var clothes = ClothesRepository.GetBySearchString(request,_context);
+            return View(clothes);
         }
 
     }

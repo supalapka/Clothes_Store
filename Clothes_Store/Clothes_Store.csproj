@@ -53,4 +53,11 @@
     <ProjectReference Include="..\DbAccessLibrary\DbAccessLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Views\Clothes\Search.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

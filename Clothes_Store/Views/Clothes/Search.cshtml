@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model List<Clothes>
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,20 +19,29 @@
 </head>
 <body>
     <div class="search-content">
+
+        @foreach(var item in Model)
+        {
+            
         <div class="search-item">
             <div class="search-img-control">
-              <img src="../img/muzhskaya-futbolka-krasnaya-1002.png" alt="" />
+               @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                  <img src="@imgSrc"  alt="" />
+                }
             </div>
             <div class="search-desc">
-              <div class="product-name prefix slider-text">Футболка чоловіча</div>
+              <div class="product-name prefix slider-text">@item.Name</div>
               <div class="price-and-order">
-                <a href="order.html" class="slider-text"><button class="order-btn">
+                 <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                   new {id = @item.Id})'"  class="slider-text"><button class="order-btn">
                   Детальніше
                 </button></a>
-                <div class="price slider-text">650 грн.</div>
+                <div class="price slider-text">@item.Price грн.</div>
               </div>
             </div>
           </div>
+        }
+
     </div>
 </body>
 </html>>
