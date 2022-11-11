@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace Clothes_Store.Controllers
 {
-    [Authorize]
     public class ClothesController : Controller
     {
         private readonly ClothesStoreDbContext _context;
@@ -38,9 +37,9 @@ namespace Clothes_Store.Controllers
             return RedirectToAction("Details", new { id });
         }
 
-        public IActionResult List()
+        public IActionResult List(TypesOfClothes? type = null, Gender? gender = null, ClothingCategory? category = null)
         {
-            var clothes = _context.Clothes.ToList();
+            var clothes = ClothesRepository.GetClothesByParams(gender, category,type, _context);
             return View(clothes);
         }
 
