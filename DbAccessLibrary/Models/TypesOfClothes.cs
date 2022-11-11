@@ -14,9 +14,9 @@ namespace DbAccessLibrary.Models
         Sweater,
         [Display(Name = "Сорочка")]
         Shirt,
-        [Display(Name = "Футболка")]
-
+        [Display(Name = "Майка")]
         Tshirt,
+
         [Display(Name = "Штани")]
         Pants,
         [Display(Name = "Джинси")]
