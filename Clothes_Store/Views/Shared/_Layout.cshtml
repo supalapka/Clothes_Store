@@ -26,15 +26,10 @@
                <asp:Button ID="btnSubmit" runat="server" Text="Submit"/>
             </form>
           </li>
-          <li class="item"><a asp-controller="AboutUs" asp-action="Index" class="hover-underline-animation">ПРО нас</a></li>
-          <li class="item has-submenu">
-            <a tabindex="0" class="hover-underline-animation">Категорії товарів</a>
-            <ul class="submenu">
-              <li class="subitem"><a href="#" class="hover-underline-animation">Футболки</a></li>
-              <li class="subitem"><a href="#" class="hover-underline-animation">Сорочки</a></li>
-              <li class="subitem"><a href="#" class="hover-underline-animation">Штани</a></li>
-              <li class="subitem"><a href="#" class="hover-underline-animation">Кросівки</a></li>
-            </ul>
+          <li class="item"><a href="#" class="hover-underline-animation">ПРО нас</a></li>
+          <li class="item">
+            <a asp-controller="Clothes" asp-action="List" class="hover-underline-animation">Одяг</a>
+
           </li>
           <li class="item"><a asp-controller="Clothes" asp-action="CreateAd" 
               class="hover-underline-animation">Створити оголошення</a></li>

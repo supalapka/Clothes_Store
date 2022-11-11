@@ -27,7 +27,7 @@ namespace Clothes_Store.Controllers
             return View(clothes);
         }
 
-        public IActionResult Privacy()
+        public IActionResult AboutUs()
         {
             return View();
         }
