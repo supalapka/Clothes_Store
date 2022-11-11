@@ -18,7 +18,7 @@ namespace DbAccessLibrary.Models
 
         Tshirt,
         [Display(Name = "Штани")]
-        pants,
+        Pants,
         [Display(Name = "Джинси")]
         Jeans,
         [Display(Name = "Шорти")]
