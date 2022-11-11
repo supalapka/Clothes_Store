@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\NewFolder1\**" />
+    <Content Remove="Views\NewFolder1\**" />
+    <EmbeddedResource Remove="Views\NewFolder1\**" />
+    <None Remove="Views\NewFolder1\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Data\Migrations\20221007130951_UserInit.cs" />
     <Compile Remove="Data\Migrations\20221007130951_UserInit.Designer.cs" />
     <Compile Remove="Data\Migrations\20221008133126_add-relationCartToClothes.cs" />

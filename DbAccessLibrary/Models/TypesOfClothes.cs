@@ -14,11 +14,11 @@ namespace DbAccessLibrary.Models
         Sweater,
         [Display(Name = "Сорочка")]
         Shirt,
-        [Display(Name = "Футболка")]
-
+        [Display(Name = "Майка")]
         Tshirt,
+
         [Display(Name = "Штани")]
-        pants,
+        Pants,
         [Display(Name = "Джинси")]
         Jeans,
         [Display(Name = "Шорти")]

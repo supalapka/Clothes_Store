@@ -20,33 +20,119 @@
      <div class="content">
      <nav class="tabs">
       <ul class="categories-nav">
-        <li>
-          <a href="#" class="tab-btn active" data-tab="#tab-1"
-            >Чоловічий одяг</a>
-        </li>
-        <li>
-          <a href="#" class="tab-btn" data-tab="#tab-2">Жіночий одяг</a>
-        </li>
-        <li>
-          <a href="#" class="tab-btn" data-tab="#tab-3">Зимовий Одяг</a>
-        </li>
-        <li>
-          <a href="#" class="tab-btn" data-tab="#tab-4">Дитячий одяг</a>
-        </li>
-        <li>
-          <a href="#" class="tab-btn" data-tab="#tab-5">Взуття</a>
-        </li>
+      
+
+        <li class="item has-submenu">
+            <a tabindex="0" class="hover-underline-animation">Літній одяг</a>
+            <ul class="submenu">
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"    asp-route-type="@TypesOfClothes.Tshirt"
+                  class="hover-underline-animation">Футболки</a></li>
+
+             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"  asp-route-type="@TypesOfClothes.Shorts"
+                   class="hover-underline-animation">Шорти</a></li>
+
+             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"    asp-route-type="@TypesOfClothes.Pants"
+                  class="hover-underline-animation">Штани</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"    asp-route-type="@TypesOfClothes.Shoes"
+                  class="hover-underline-animation">Кросівки</a></li>
+            </ul>
+          </li>
+
+            <li class="item has-submenu">
+            <a tabindex="0" class="hover-underline-animation">Зимній одяг</a>
+            <ul class="submenu">
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Jacket"
+                   class="hover-underline-animation">Куртки</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Pants"
+                   class="hover-underline-animation">Штани</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Shoes"
+                   class="hover-underline-animation">Черевики</a></li>
+
+            <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Cap"
+                   class="hover-underline-animation">Шапки</a></li>
+
+            </ul>
+          </li>
+
+            <li class="item has-submenu">
+            <a tabindex="0" class="hover-underline-animation">Чоловічий одяг</a>
+            <ul class="submenu">
+                <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Sweater"
+                class="hover-underline-animation">Світери</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Jacket"
+                class="hover-underline-animation">Куртки</a></li>
+
+             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Tshirt"
+                class="hover-underline-animation">Майки</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Suit"
+                class="hover-underline-animation">Костюми</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Pants"
+                class="hover-underline-animation">Штани</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Shoes"
+                class="hover-underline-animation">Взуття</a></li>
+
+            </ul>
+          </li>
+
+            <li class="item has-submenu">
+            <a tabindex="0" class="hover-underline-animation">Жіночий одяг</a>
+            <ul class="submenu">
+                  <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Sweater"
+                class="hover-underline-animation">Світери</a></li>
+
+            <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Jacket"
+                class="hover-underline-animation">Куртки</a></li>
+
+             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Tshirt"
+                class="hover-underline-animation">Майки</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Skirt"
+                class="hover-underline-animation">Спідниці</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Pants"
+                class="hover-underline-animation">Штани</a></li>
+
+              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
+                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Shoes"
+                class="hover-underline-animation">Туфлі</a></li>
+            </ul>
+          </li>
+
       </ul>
     </nav>
     <div class="container">
-      <!-- ЧОЛОВІЧИЙ ОДЯГ -->
 
-      <div class="tab-item active" id="tab-1">
 
         <div class="wrapper">
                 @{
-                    var menClothes = @Model.Where(x => x.Gender == Gender.Male);
-                    foreach(var item in menClothes)
+                    foreach(var item in Model)
                     {
                          <div class="product-item">
                         <div class="product-img">
@@ -68,11 +154,9 @@
                       </div>
                     }
                 }
-         
         </div>
-      </div>
 
-      <!-- Жіночий одяг -->
+     @* <!-- Жіночий одяг -->
       <div class="tab-item " id="tab-2">
         <div class="wrapper">
            @{
@@ -191,7 +275,7 @@
                     }
                 }
         </div>
-      </div>
+      </div>*@
 
     </div>
     </div>

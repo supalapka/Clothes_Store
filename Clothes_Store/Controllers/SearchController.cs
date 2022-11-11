@@ -2,9 +2,9 @@
 
 namespace Clothes_Store.Controllers
 {
-    public class AboutUsController : Controller
+    public class SearchController : Controller
     {
-        public IActionResult about_us()
+        public IActionResult Search()
         {
             return View();
         }
