@@ -77,6 +77,21 @@ namespace DbAccessLibrary.DbAccess
             return clothesResult;
         }
 
+        public static List<Clothes> GetClothesByParams(Gender? gender, ClothingCategory? category, TypesOfClothes? type, ClothesStoreDbContext context)
+        {
+            List<Clothes> clothes = context.Clothes.ToList();
+            if (gender != null)
+                clothes = clothes.Where(x => x.Gender == gender).ToList();
+
+            if (category != null)
+                clothes = clothes.Where(x => x.Category == category).ToList();
+
+            if (type != null)
+                clothes = clothes.Where(x => x.TypeOfClothes == type).ToList();
+
+            return clothes;
+        }
+
         public static string GetDisplayNameFromEnum<T>(T enum1)
         {
             FieldInfo field = enum1.GetType().GetField(enum1.ToString());
