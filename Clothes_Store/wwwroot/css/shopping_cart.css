@@ -1,0 +1,145 @@
+﻿.mine_block {
+    width: 50%;
+    padding: 0px 20px;
+}
+
+.final_price {
+    width: 25%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.quantity_goods {
+    display: flex;
+    margin-top: auto;
+    margin-bottom: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    max-width: max-content;
+    border: 2px solid rgba(41, 40, 40, 0.3);
+}
+
+    .quantity_goods p {
+        font-size: 17px;
+        margin: 5px 5px;
+    }
+
+    .quantity_goods button {
+        font-size: 32px;
+        width: 35px;
+        height: 35px;
+        opacity: .20;
+        color: white;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+    }
+
+.trash_price {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-bottom: 10px;
+}
+
+    .trash_price img {
+        width: 18px;
+        height: auto;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .trash_price button {
+        background: url(images/sump.png) center center / 15px 15px no-repeat;
+        width: 15px;
+        height: 15px;
+        margin: 10px;
+        margin-left: auto;
+        border: none;
+        cursor: pointer;
+    }
+
+        .trash_price button:hover {
+            background: url(images/sump_hover.png) center center / 15px 15px no-repeat;
+        }
+
+    .trash_price p {
+        margin: 10px;
+        margin-top: auto;
+    }
+
+.final_price div {
+    display: flex;
+    margin: 10px 0;
+}
+
+.prom_p {
+    margin-top: 20px;
+}
+
+.price_right {
+    margin-left: auto;
+}
+
+#amount {
+    margin-bottom: 0px;
+}
+
+.form_prom {
+    background: transparent;
+    border: 1px solid rgba(83, 83, 83, 0.9);
+    height: 30px;
+    max-width: 155px;
+    outline: none;
+    color: white;
+    padding-left: 10px;
+}
+
+.final_price button {
+    font-size: 13px;
+    line-height: 3.08;
+}
+
+.form_btn {
+    margin-top: 8px;
+    padding: 10px 30px;
+    font-size: 11px;
+}
+
+.block_promcode,
+.block_promcode form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media only screen and (max-width:880px) {
+    .final_price {
+        width: 70%;
+        margin: 40px auto 10px auto;
+    }
+
+        .final_price button {
+            width: 70%;
+            margin: 0 auto;
+        }
+}
+
+@media only screen and (max-width:550px) {
+    .trash_price {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 0px;
+    }
+}
+
+@media only screen and (max-width:190px) {
+    .location {
+        flex-direction: column;
+    }
+}
