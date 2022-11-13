@@ -19,7 +19,24 @@
 <body>
      <div class="content">
      <nav class="tabs">
-      <ul class="categories-nav">
+        
+         <div class="dropdown">
+            <div class="select">
+                <span>Літній одяг</span>
+                <i class="fa fa-chevron-left"></i>
+            </div>
+            @*інпут по факту не дуже нужен,но можна зробити так щоб вибраний айтем відображався замість дропдавн тайтла(у джс файлі розкоментувати останні строки) *@
+            <input type="hidden" name="">
+            <ul class="dropdown-menu">
+                <li id="">ВАРІАНТИ ВИБОРУ СЮДА</li>
+                
+            </ul>
+        </div>
+
+       
+       
+        
+     @* <ul class="categories-nav">
       
 
         <li class="item has-submenu">
@@ -125,7 +142,7 @@
             </ul>
           </li>
 
-      </ul>
+      </ul>*@
     </nav>
     <div class="container">
 
@@ -279,6 +296,7 @@
 
     </div>
     </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/categories.js"></script>
 </body>
