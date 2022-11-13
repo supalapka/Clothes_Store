@@ -19,21 +19,23 @@
 <body>
      <div class="content">
      <nav class="tabs">
-         
-          <div class="dropdown-container">
-            <div class="dropdown-toggle click-dropdown">
-              DropDown Menu
+        
+         <div class="dropdown">
+            <div class="select">
+                <span>Літній одяг</span>
+                <i class="fa fa-chevron-left"></i>
             </div>
-            <div class="dropdown-menu">
-              <ul>
-                <li><a href="#">DropDown Menu Item 1</a></li>
-                <li><a href="#">DropDown Menu Item 2</a></li>
-                <li><a href="#">DropDown Menu Item 3</a></li>
-                <li><a href="#">DropDown Menu Item 4</a></li>
-              </ul>
-            </div>
-          </div>
+            @*інпут по факту не дуже нужен,но можна зробити так щоб вибраний айтем відображався замість дропдавн тайтла(у джс файлі розкоментувати останні строки) *@
+            <input type="hidden" name="">
+            <ul class="dropdown-menu">
+                <li id="">ВАРІАНТИ ВИБОРУ СЮДА</li>
+                
+            </ul>
         </div>
+
+       
+       
+        
      @* <ul class="categories-nav">
       
 
@@ -294,6 +296,7 @@
 
     </div>
     </div>
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/categories.js"></script>
 </body>
