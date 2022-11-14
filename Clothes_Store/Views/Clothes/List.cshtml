@@ -25,275 +25,161 @@
                 <span>Літній одяг</span>
                 <i class="fa fa-chevron-left"></i>
             </div>
-            @*інпут по факту не дуже нужен,но можна зробити так щоб вибраний айтем відображався замість дропдавн тайтла(у джс файлі розкоментувати останні строки) *@
-            <input type="hidden" name="">
+           
             <ul class="dropdown-menu">
-                <li id="">ВАРІАНТИ ВИБОРУ СЮДА</li>
-                
+                 <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"  asp-route-type="@TypesOfClothes.Tshirt">  <li class="subitem">
+                  Футболки</li></a> 
+
+                  <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"  asp-route-type="@TypesOfClothes.Shorts">  <li class="subitem">
+                  Шорти</li></a>
+                   
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"  asp-route-type="@TypesOfClothes.Pants">  <li class="subitem">
+                  Штани</li></a>
+
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Summer"  asp-route-type="@TypesOfClothes.Shoes">  <li class="subitem">
+                  Кросівки</li></a>
             </ul>
         </div>
 
-       
-       
-        
-     @* <ul class="categories-nav">
-      
 
-        <li class="item has-submenu">
-            <a tabindex="0" class="hover-underline-animation">Літній одяг</a>
-            <ul class="submenu">
+         <div class="dropdown">
+            <div class="select">
+                <span>Зимній одяг</span>
+                <i class="fa fa-chevron-left"></i>
+            </div>
+          
+            <ul class="dropdown-menu">
+                     <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"  asp-route-type="@TypesOfClothes.Jacket">  <li class="subitem">
+                  Куртки</li></a> 
+                   
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"  asp-route-type="@TypesOfClothes.Pants">  <li class="subitem">
+                  Штани</li></a>
 
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Summer"    asp-route-type="@TypesOfClothes.Tshirt"
-                  class="hover-underline-animation">Футболки</a></li>
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"  asp-route-type="@TypesOfClothes.Gloves">  <li class="subitem">
+                  Рукавиці</li></a>
 
-             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Summer"  asp-route-type="@TypesOfClothes.Shorts"
-                   class="hover-underline-animation">Шорти</a></li>
+                    <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"  asp-route-type="@TypesOfClothes.Cap">  <li class="subitem">
+                  Шапки</li></a>
 
-             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Summer"    asp-route-type="@TypesOfClothes.Pants"
-                  class="hover-underline-animation">Штани</a></li>
-
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Summer"    asp-route-type="@TypesOfClothes.Shoes"
-                  class="hover-underline-animation">Кросівки</a></li>
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-category="@ClothingCategory.Winter"  asp-route-type="@TypesOfClothes.Shoes">  <li class="subitem">
+                  Черевики</li></a>
+                  
             </ul>
-          </li>
+        </div>
 
-            <li class="item has-submenu">
-            <a tabindex="0" class="hover-underline-animation">Зимній одяг</a>
-            <ul class="submenu">
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Jacket"
-                   class="hover-underline-animation">Куртки</a></li>
+         <div class="dropdown">
+            <div class="select">
+                <span>Чоловічий одяг</span>
+                <i class="fa fa-chevron-left"></i>
+            </div>
+          
+            <ul class="dropdown-menu">
+                  <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Jacket"  asp-route-gender="@Gender.Male">  <li class="subitem">
+                  Куртки</li></a> 
 
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Pants"
-                   class="hover-underline-animation">Штани</a></li>
+                  <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Sweater"  asp-route-gender="@Gender.Male">  <li class="subitem">
+                  Світери</li></a> 
 
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Shoes"
-                   class="hover-underline-animation">Черевики</a></li>
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Tshirt"  asp-route-gender="@Gender.Male">  <li class="subitem">
+                  Футболки</li></a> 
 
-            <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                  asp-route-category="@ClothingCategory.Winter"    asp-route-type="@TypesOfClothes.Cap"
-                   class="hover-underline-animation">Шапки</a></li>
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Pants"  asp-route-gender="@Gender.Male">  <li class="subitem">
+                  Штани</li></a> 
 
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Shoes"  asp-route-gender="@Gender.Male">  <li class="subitem">
+                  Взуття</li></a> 
+
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Suit"  asp-route-gender="@Gender.Male">  <li class="subitem">
+                  Костюми</li></a> 
             </ul>
-          </li>
+        </div>
 
-            <li class="item has-submenu">
-            <a tabindex="0" class="hover-underline-animation">Чоловічий одяг</a>
-            <ul class="submenu">
-                <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Sweater"
-                class="hover-underline-animation">Світери</a></li>
+          <div class="dropdown">
+            <div class="select">
+                <span>Жіночий одяг</span>
+                <i class="fa fa-chevron-left"></i>
+            </div>
+          
+            <ul class="dropdown-menu">
+                  <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Jacket"  asp-route-gender="@Gender.Female">  <li class="subitem">
+                  Куртки/Накидки</li></a> 
 
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Jacket"
-                class="hover-underline-animation">Куртки</a></li>
+                  <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Sweater"  asp-route-gender="@Gender.Female">  <li class="subitem">
+                  Світери</li></a> 
 
-             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Tshirt"
-                class="hover-underline-animation">Майки</a></li>
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Tshirt"  asp-route-gender="@Gender.Female">  <li class="subitem">
+                  Майки</li></a> 
 
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Suit"
-                class="hover-underline-animation">Костюми</a></li>
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Pants"  asp-route-gender="@Gender.Female">  <li class="subitem">
+                  Штани</li></a> 
 
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Pants"
-                class="hover-underline-animation">Штани</a></li>
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Shoes"  asp-route-gender="@Gender.Female">  <li class="subitem">
+                  Взуття</li></a> 
 
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Male"  asp-route-type="@TypesOfClothes.Shoes"
-                class="hover-underline-animation">Взуття</a></li>
-
+                   <a asp-controller="Clothes" asp-action="List"
+                  asp-route-type="@TypesOfClothes.Skirt"  asp-route-gender="@Gender.Female">  <li class="subitem">
+                  Спідниці</li></a> 
             </ul>
-          </li>
-
-            <li class="item has-submenu">
-            <a tabindex="0" class="hover-underline-animation">Жіночий одяг</a>
-            <ul class="submenu">
-                  <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Sweater"
-                class="hover-underline-animation">Світери</a></li>
-
-            <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Jacket"
-                class="hover-underline-animation">Куртки</a></li>
-
-             <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Tshirt"
-                class="hover-underline-animation">Майки</a></li>
-
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Skirt"
-                class="hover-underline-animation">Спідниці</a></li>
-
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Pants"
-                class="hover-underline-animation">Штани</a></li>
-
-              <li class="subitem"><a asp-controller="Clothes" asp-action="List"
-                asp-route-gender="@Gender.Female"  asp-route-type="@TypesOfClothes.Shoes"
-                class="hover-underline-animation">Туфлі</a></li>
-            </ul>
-          </li>
-
-      </ul>*@
+        </div>
     </nav>
+
+
     <div class="container">
 
 
         <div class="wrapper">
                 @{
-                    foreach(var item in Model)
+                    if (Model.Any())
                     {
-                         <div class="product-item">
-                        <div class="product-img">
-                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
-                           <img src="@imgSrc"  alt="" />
-                            }
-                        </div>
-                        <div class="product-description">
-                          <div class="product-name prefix slider-text">
-                           @item.Name
-                          </div>
-                          <div class="price-and-order">
-                            <a onclick="location.href='@Url.Action("Details", "Clothes", 
+                        foreach (var item in Model)
+                        {
+                            <div class="product-item">
+                                <div class="product-img">
+                                    @{
+                                        var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
+                                        <img src="@imgSrc"  alt="" />
+                                    }
+                                </div>
+                                <div class="product-description">
+                                    <div class="product-name prefix slider-text">
+                                        @item.Name
+                                    </div>
+                                    <div class="price-and-order">
+                                        <a onclick="location.href='@Url.Action("Details", "Clothes", 
                             new {id = @item.Id})'" class="slider-text">
-                            <button class="order-btn">Детальніше</button> </a>
-                            <div class="price slider-text">@item.Price</div>
-                          </div>
-                        </div>
-                      </div>
+                                            <button class="order-btn">Детальніше</button> </a>
+                                        <div class="price slider-text">@item.Price</div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <h1>Одяг не знайдено</h1>
                     }
                 }
         </div>
-
-     @* <!-- Жіночий одяг -->
-      <div class="tab-item " id="tab-2">
-        <div class="wrapper">
-           @{
-                    var femaleClothes = @Model.Where(x => x.Gender == Gender.Female);
-                    foreach(var item in femaleClothes)
-                    {
-                         <div class="product-item">
-                        <div class="product-img">
-                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
-                           <img src="@imgSrc"  alt="" />
-                            }
-                        </div>
-                        <div class="product-description">
-                          <div class="product-name prefix slider-text">
-                           @item.Name
-                          </div>
-                          <div class="price-and-order">
-                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
-                            new {id = @item.Id})'" class="slider-text">
-                            <button class="order-btn">Детальніше</button> </a>
-                            <div class="price slider-text">@item.Price</div>
-                          </div>
-                        </div>
-                      </div>
-                    }
-                }
-        </div>
-      </div>
-        <!-- ЗИМОВИЙ ОДЯГ -->
-
-      <div class="tab-item " id="tab-3">
-        <div class="wrapper">
-           @{
-                    var winterClothes = @Model.Where(x => x.Category == ClothingCategory.Winter);
-                    foreach(var item in winterClothes)
-                    {
-                         <div class="product-item">
-                        <div class="product-img">
-                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
-                           <img src="@imgSrc"  alt="" />
-                            }
-                        </div>
-                        <div class="product-description">
-                          <div class="product-name prefix slider-text">
-                           @item.Name
-                          </div>
-                          <div class="price-and-order">
-                             <a onclick="location.href='@Url.Action("Details", "Clothes", 
-                            new {id = @item.Id})'" class="slider-text">
-                            <button class="order-btn">Детальніше</button> </a>
-                            <div class="price slider-text">@item.Price</div>
-                          </div>
-                        </div>
-                      </div>
-                    }
-                }
-        </div>
-      </div>
-
-      <!-- ДИТЯЧИЙ ОДЯГ -->
-      <div class="tab-item " id="tab-4">
-        <div class="wrapper">
-          @{
-                    var kidsClothes = @Model.Where(x => x.TypeOfClothes  == TypesOfClothes.ChildrenClothes);
-                    foreach(var item in kidsClothes)
-                    {
-                         <div class="product-item">
-                        <div class="product-img">
-                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
-                           <img src="@imgSrc"  alt="" />
-                            }
-                        </div>
-                        <div class="product-description">
-                          <div class="product-name prefix slider-text">
-                           @item.Name
-                          </div>
-                          <div class="price-and-order">
-                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
-                            new {id = @item.Id})'" class="slider-text">
-                            <button class="order-btn">Детальніше</button> </a>
-                            <div class="price slider-text">@item.Price</div>
-                          </div>
-                        </div>
-                      </div>
-                    }
-                }
-        </div>
-      </div>
-
-      <!-- Взуття -->
-
-      <div class="tab-item " id="tab-5">
-        <div class="wrapper">
-           @{
-                    var shoesClothes = @Model.Where(x => x.TypeOfClothes  == TypesOfClothes.Shoes);
-                    foreach(var item in shoesClothes)
-                    {
-                         <div class="product-item">
-                        <div class="product-img">
-                          @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@item.PreviewImage);
-                           <img src="@imgSrc"  alt="" />
-                            }
-                        </div>
-                        <div class="product-description">
-                          <div class="product-name prefix slider-text">
-                           @item.Name
-                          </div>
-                          <div class="price-and-order">
-                              <a onclick="location.href='@Url.Action("Details", "Clothes", 
-                            new {id = @item.Id})'" class="slider-text">
-                            <button class="order-btn">Детальніше</button> </a>
-                            <div class="price slider-text">@item.Price</div>
-                          </div>
-                        </div>
-                      </div>
-                    }
-                }
-        </div>
-      </div>*@
-
     </div>
     </div>
     
