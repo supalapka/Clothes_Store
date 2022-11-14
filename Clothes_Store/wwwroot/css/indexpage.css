@@ -54,7 +54,7 @@ hr {
 .desc {
     width: 100%;
     background-color: #0e1321;
-    height: 150px;
+    height: 215px;
     margin-top: 0;
     border-radius: 0 0 10px 10px;
     margin-bottom: 20px;
@@ -110,18 +110,21 @@ hr {
 
 /* Слайд */
 .slick-slide {
+    
 }
-    /* Слайд активный */
+    /* активний слайд */
     .slick-slide.slick-active {
+        height: 400px;
+        width:100%;
     }
-    /* Слайд основной */
+    /* основний */
     .slick-slide.slick-current {
     }
     /* Слайд по центру */
     .slick-slide.slick-center {
     }
-
-/* Стрелка */
+    
+/* Стрылка */
 .slick-arrow {
     /*  position: absolute;
   top: 50%;
@@ -216,6 +219,7 @@ hr {
 
 .slider__item {
     padding: 0px 15px;
+   
 }
 
     .slider__item img {
@@ -291,6 +295,14 @@ slider */
         opacity: 1;
     }
 }
+@media only screen and (max-width: 1900px) and (min-width: 1528px){
+    .slick-slide.slick-active{
+        height:328px;
+    }
+    .desc{
+        height:171px;
+    }
+}
 @media only screen and (max-width: 1279px) and (min-width: 932px) {
     .wrapper {
         width: 850px;
@@ -300,7 +312,7 @@ slider */
   } */
     .desc {
         height: 150px;
-        padding: 15px 30px;
+        padding: 15px 0;
     }
 
     .slideshow-container img {
@@ -331,6 +343,12 @@ slider */
     .payment-options {
         text-align: center;
     }
+    .slick-slide.slick-active {
+        height: 210px;
+        
+    }
+    
+    
 }
 
 @media only screen and (max-width: 931px) and (min-width: 767px) {
@@ -374,137 +392,157 @@ slider */
     .payment-options {
         text-align: center;
     }
-}
-
-@media only screen and (max-width: 768px) and (min-width: 400px) {
-    .wrapper {
-        width: auto;
-    }
-
-    .desc {
-        height: 120px;
-        padding: 15px 50px;
-    }
-
-    .slider-text {
-        font-size: 10px;
-    }
-
-    .order-btn {
-        padding: 5px 10px;
-        width: 10vh;
-        margin: 0 auto;
-    }
-
-    .slideshow-container img {
-        height: 250px;
-    }
-    /*footer response*/
-    .footer-text,
-    .prefix {
-        font-size: 16px;
-    }
-
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 55px;
-    }
-
-    .working-hours {
-        display: flex;
-        text-align: center;
-    }
-
-    .social-media,
-    .contacts,
-    .payment-options {
-        width: 45%;
-    }
-
-    .contacts {
-        align-items: center;
-    }
-
-    .payment-options,
-    .footer-copyrigth {
-        text-align: center;
-    }
-
-    .visa-wayforpray,
-    .mastercard-privat {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+    .slick-slide.slick-active {
+        height: 146px;
     }
 }
 
-@media only screen and (max-width: 400px) {
-    .wrapper {
-        width: 320px;
-    }
+    @media only screen and (max-width: 768px) and (min-width: 400px) {
+        .wrapper {
+            width: auto;
+        }
 
-    .desc {
-        height: 130px;
-        padding: 15px 30px;
-    }
+        .desc {
+            height: 120px;
+            padding: 15px 0;
+        }
 
-    .slider-text {
-        font-size: 10px;
-    }
+        .slider-text {
+            /*font-size: 30px;*/
+        }
 
-    .order-btn {
-        padding: 5px 10px;
-    }
+        .order-btn {
+            padding: 5px 10px;
+            width: 20vh;
+            margin: 0 auto;
+        }
 
-    .slideshow-container img {
-        height: 150px;
-    }
+        .slideshow-container img {
+            height: 250px;
+        }
+        /*footer response*/
+        .footer-text,
+        .prefix {
+            font-size: 16px;
+        }
 
-    .footer-text,
-    .prefix {
-        font-size: 16px;
-    }
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 55px;
+        }
 
-    .footer-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 55px;
-    }
+        .working-hours {
+            display: flex;
+            text-align: center;
+        }
 
-    .working-hours {
-        display: flex;
-        text-align: center;
-    }
+        .social-media,
+        .contacts,
+        .payment-options {
+            width: 45%;
+        }
 
-    .social-media,
-    .contacts,
-    .payment-options {
-        width: 65%;
-    }
+        .contacts {
+            align-items: center;
+        }
 
-    .contacts {
-        align-items: center;
-    }
+        .payment-options,
+        .footer-copyrigth {
+            text-align: center;
+        }
 
-    .payment-options,
-    .footer-copyrigth {
-        text-align: center;
-    }
+        .visa-wayforpray,
+        .mastercard-privat {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
 
-    .visa-wayforpray,
-    .mastercard-privat {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        .slick-slide.slick-active {
+            height: 311px;
+        }
+    }
+@media only screen and (max-width: 632px) and (min-width: 550px) {
+    .slick-slide.slick-active {
+        height: 254px;
     }
 }
-
-@media (max-width: 767px) {
-    .wrapper {
-        padding: 50px 10px;
+@media only screen and (max-width: 550px) {
+    .slick-slide.slick-active {
+        height: 457px;
     }
 }
+    @media only screen and (max-width: 400px) {
+        .wrapper {
+            width: 320px;
+        }
+
+        .slick-slide.slick-active {
+            height: 240px;
+        }
+
+        .desc {
+            height: 130px;
+            padding: 15px 30px;
+        }
+
+        .slider-text {
+            font-size: 10px;
+        }
+
+        .order-btn {
+            padding: 5px 10px;
+        }
+
+        .slideshow-container img {
+            height: 150px;
+        }
+
+        .footer-text,
+        .prefix {
+            font-size: 16px;
+        }
+
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .working-hours {
+            display: flex;
+            text-align: center;
+        }
+
+        .social-media,
+        .contacts,
+        .payment-options {
+            width: 65%;
+        }
+
+        .contacts {
+            align-items: center;
+        }
+
+        .payment-options,
+        .footer-copyrigth {
+            text-align: center;
+        }
+
+        .visa-wayforpray,
+        .mastercard-privat {
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .wrapper {
+            padding: 50px 10px;
+        }
+    }
 
 
 
