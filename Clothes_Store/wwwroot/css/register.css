@@ -1,126 +1,64 @@
-﻿
-.register {
-    background-color: #040918;
-    width: 1440px;
-    height: 780px;
-    margin: auto auto;
-    padding-top: 70px;
-    background-size: cover;
-    margin-bottom: 40px;
-}
+﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
-.register-block {
-    background-color: rgba(255, 255, 255, 0.04);
-    width: 836px;
-    height: 640px;
-    ф margin: auto auto;
-    margin-top: 70px;
-    border-radius: 10px;
-}
-
-.EN-button {
-    width: 30px;
-    height: 30px;
-    padding-top: 55px;
-    margin-left: 55px;
-}
-
-.EN {
-    color: #FFFFFF;
-    font-size: 20px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 25px;
-    width: 30px;
-}
-
-.theme-button {
-    padding-left: 747px;
-    margin-top: -20px;
-    width: 44px;
-    height: 44px;
-}
-
-.create-account {
-    font-size: 36px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 50px;
-    width: 280px;
-    color: white;
-    margin-left: 295px;
-    margin-top: -45px;
-}
-
-.input1 {
-    color: #5B5B5B;
-    font-size: 26px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 40px;
-    width: 540px;
-    height: 64px;
-    background-color: rgba(7, 9, 27, 0.87);
-    border-radius: 10px;
-    margin-top: 39px;
-    margin-left: 153px;
-    border: 0px;
-}
-
-.input2 {
-    width: 540px;
-    height: 64px;
-    background-color: rgba(7, 9, 27, 0.87);
-    border-radius: 10px;
-    margin-top: 34px;
-    margin-left: 153px;
-    color: #5B5B5B;
-    font-size: 26px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 40px;
-    border: 0px;
-}
-
-.input3 {
-    color: #5B5B5B;
-    font-size: 26px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 40px;
-    width: 540px;
-    height: 64px;
-    background-color: rgba(7, 9, 27, 0.87);
-    border-radius: 10px;
-    margin-top: 34px;
-    margin-left: 153px;
-    border: 0px;
-}
-
-.proceed-button {
-    background-color: #1D275A;
-    padding: 10px 15px;
-    border: none;
-    text-align: center;
-    display: inline-block;
-    margin-top: 56px;
-    margin-left: 325px;
-    border-radius: 10px;
-}
-
-.proceed {
-    color: #A9A9A9;
-    font-family: 'Mulish', sans-serif;
-    font-size: 32px;
-    line-height: 40px;
-    text-decoration: none;
-}
-
-.log_in {
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
     list-style: none;
 }
 
-.log-in {
-    color: #5B5B5B;
-    font-size: 20px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 25px;
-    width: 156px;
-    margin-left: 350px;
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+a {
+    color: white;
     text-decoration: none;
+    font-family: Montserrat;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    background: #040918;
+    font-family: Montserrat;
+    color: white;
+}
+
+.sign-btn {
+    background-color: #4c2bee;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: Montserrat;
+    border-radius: 100px;
+    /* margin-top: 20px; */
+}
+
+    .sign-btn:hover {
+        background-color: #4c2bee;
+        box-shadow: 0 0 12px #563cd8;
+        -moz-box-shadow: 0 0 12px #5b45ca;
+        -o-box-shadow: 0 0 12px #5d40e9;
+        -ms-box-shadow: 0 0 12px #5b41dd;
+        -webkit-box-shadow: 0 0 12px #765cf5;
+    }
+
+.register {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: #0e1321;
+    margin: 50px auto;
+    border-radius: 10px;
 }
