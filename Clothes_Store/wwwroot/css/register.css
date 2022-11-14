@@ -29,6 +29,7 @@ body {
     background: #040918;
     font-family: Montserrat;
     color: white;
+    
 }
 
 .sign-btn {
@@ -60,5 +61,20 @@ body {
     gap: 50px;
     background-color: #0e1321;
     margin: 50px auto;
+    align-items:center;
     border-radius: 10px;
+    width:30%;
+    padding:40px;
+}
+.register >form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:30px;
+}
+form > input {
+    width: 90%;
+    border: 0;
+    padding: 10px;
+    border-radius: 5px;
 }
