@@ -226,7 +226,9 @@ body {
     .content {
         flex-direction: column;
     }
-
+    .wrapper{
+        width:755px;
+    }
     .select {
         padding: 0;
         width: 120px;
@@ -235,5 +237,104 @@ body {
     .tabs {
         display: flex;
         gap: 35px;
+        width:755px;
+    }
+}
+@media only screen and (max-width: 931px) and (min-width: 767px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .wrapper {
+        width: 555px;
+    }
+    .select {
+        padding: 0;
+        width: 100px;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 25px;
+        width: 555px;
+    }
+    
+}
+@media only screen and (max-width: 768px) and (min-width: 400px){
+    .content {
+        flex-direction: column;
+    }
+    .order-btn{
+        padding:5px;
+        width:100%;
+    }
+    .wrapper {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .select {
+        padding: 0;
+        width: 120px;
+        margin: 0 auto;
+        width:100%;
+    }
+
+    .tabs {
+        font-size: 16px;
+        display: flex;
+        gap: 20px;
+        width: 300px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .product-img img {
+        width: 181px;
+        height: 194px;
+    }
+}
+@media only screen and (max-width: 400px){
+    .content {
+        flex-direction: column;
+        
+    }
+
+    .order-btn {
+        padding: 5px;
+        width: 100%;
+    }
+    .product-description{
+        padding:10px
+    }
+    .wrapper {
+        width: 240px;
+        margin: 0 auto;
+    }
+
+    .select {
+        padding: 0;
+        width: 120px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .tabs {
+        font-size: 16px;
+        display: flex;
+        gap: 20px;
+        width: 240px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .product-item{
+        width:190px;
+    }
+    .product-img img {
+        width: 181px;
+        height: 194px;
     }
 }
