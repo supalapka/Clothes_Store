@@ -19,6 +19,24 @@ body {
 
 .login {
     background-color: #0e1321;
+    margin: 50px auto;
+    border-radius:10px;
+    width:30%;
+    padding:40px;
+    justify-content:center;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
+}
+#account{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    width:60%;
+    margin:0 auto;
+    align-items:center;
+    
 }
 .form_btn {
     margin: 0 auto;
