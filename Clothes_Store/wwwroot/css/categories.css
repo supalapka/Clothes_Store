@@ -222,3 +222,18 @@ body {
         }
 
         /*sec*/
+@media only screen and (max-width: 1279px) and (min-width: 932px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .select {
+        padding: 0;
+        width: 120px;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 35px;
+    }
+}
