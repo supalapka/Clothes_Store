@@ -74,3 +74,52 @@ body {
     gap:60px;
     list-style: none;
 }
+/*RESPONSIVE*/
+@media only screen and (max-width: 1279px) and (min-width: 932px) {
+    .form_btn {
+        padding: 10px;
+        font-size: 15px;
+    }
+    #account{
+        gap:40px;
+    }
+}
+
+@media only screen and (max-width: 931px) and (min-width: 767px) {
+    .login {
+        width: 40%;
+    }
+    #account {
+        gap: 40px;
+    }
+    .form_btn {
+        padding: 10px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 400px) {
+    .login {
+        width: 65%
+    }
+    #account {
+        gap: 40px;
+    }
+    .form_btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .login {
+        width: 65%
+    }
+    #account {
+        gap: 40px;
+    }
+    .form_btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
