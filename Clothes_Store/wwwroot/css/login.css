@@ -32,7 +32,7 @@ body {
 #account{
     display:flex;
     flex-direction:column;
-    gap:20px;
+    gap:40px;
     width:60%;
     margin:0 auto;
     align-items:center;
