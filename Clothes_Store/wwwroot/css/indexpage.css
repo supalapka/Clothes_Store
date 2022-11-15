@@ -413,7 +413,7 @@ slider */
 
         .order-btn {
             padding: 5px 10px;
-            width: 20vh;
+            width: 12vh;
             margin: 0 auto;
         }
 
@@ -467,10 +467,11 @@ slider */
     .slick-slide.slick-active {
         height: 254px;
     }
+    
 }
 @media only screen and (max-width: 550px) {
     .slick-slide.slick-active {
-        height: 457px;
+        height: 334px;
     }
 }
     @media only screen and (max-width: 400px) {
