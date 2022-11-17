@@ -1,136 +1,125 @@
-﻿
+﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
 
-/*login */
-.login {
-    background-color: #040918;
-    width: 1440px;
-    height: 780px;
-    margin: auto auto;
-    padding-top: 70px;
-    background-size: cover;
-    margin-bottom: 40px;
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
-.main-block {
-    background-color: rgba(255, 255, 255, 0.04);
-    width: 836px;
-    height: 640px;
-    margin: auto auto;
-    margin-top: 70px;
-    border-radius: 10px;
-}
-
-.EN-button {
-    width: 30px;
-    height: 30px;
-    padding-top: 55px;
-    margin-left: 55px;
-}
-
-.EN {
-    color: #FFFFFF;
-    font-size: 20px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 25px;
-    width: 30px;
-}
-
-.theme-button {
-    padding-left: 747px;
-    margin-top: -20px;
-    width: 44px;
-    height: 44px;
-}
-
-.log_in {
-    font-size: 36px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 45px;
-    width: 101px;
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    background: #040918;
+    font-family: Montserrat;
     color: white;
-    margin-left: 367px;
-    margin-top: -45px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.username {
-    color: #5B5B5B;
-    font-size: 26px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 40px;
-    width: 540px;
-    height: 64px;
-    background-color: rgba(7, 9, 27, 0.87);
-    border-radius: 10px;
-    margin-top: 59px;
-    margin-left: 152px;
-    border: 0px;
+.login {
+    background-color: #0e1321;
+    margin: 50px auto;
+    border-radius:10px;
+    width:30%;
+    padding:40px;
+    justify-content:center;
+    display:flex;
+    flex-direction:column;
+    gap:50px;
+    align-items:center;
 }
-
-.password-field {
-    width: 540px;
-    height: 64px;
-    background-color: rgba(7, 9, 27, 0.87);
-    border-radius: 10px;
-    margin-top: 59px;
-    margin-left: 152px;
+#account{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+    width:60%;
+    margin:0 auto;
+    align-items:center;
+    
 }
-
-.password {
-    color: #5B5B5B;
-    font-size: 26px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 40px;
-    width: 540px;
-    height: 64px;
-    background-color: rgba(7, 9, 27, 0.87);
-    border-radius: 10px;
-    margin-top: 59px;
-    margin-left: 152px;
-    border: 0px;
+.username,.password{
+    width:90%;
+    border:0;
+    padding:10px;
+    border-radius:5px;
+   
 }
-
-.proceed-button {
-    background-color: #1D275A;
-    padding: 10px 15px;
+.form_btn {
+    margin: 0 auto;
+    background-color: #4c2bee;
     border: none;
+    color: white;
+    padding: 15px 32px;
     text-align: center;
+    text-decoration: none;
     display: inline-block;
-    margin-top: 56px;
-    margin-left: 325px;
-    border-radius: 10px;
+    font-size: 16px;
+    font-family: Montserrat;
+    border-radius: 100px;
+    /* margin-top: 20px; */
 }
 
-.proceed {
-    color: #A9A9A9;
-    font-family: 'Mulish', sans-serif;
-    font-size: 32px;
-    line-height: 40px;
-    text-decoration: none;
+.form_btn {
+    background-color: #4c2bee;
+    box-shadow: 0 0 12px #563cd8;
+    -moz-box-shadow: 0 0 12px #5b45ca;
+    -o-box-shadow: 0 0 12px #5d40e9;
+    -ms-box-shadow: 0 0 12px #5b41dd;
+    -webkit-box-shadow: 0 0 12px #765cf5;
 }
-
-.list-login {
+.list-login{
+    
+    display:flex;
+    gap:60px;
     list-style: none;
-    margin-top: 66px;
-    padding: 0px;
+}
+/*RESPONSIVE*/
+@media only screen and (max-width: 1279px) and (min-width: 932px) {
+    .form_btn {
+        padding: 10px;
+        font-size: 15px;
+    }
+    #account{
+        gap:40px;
+    }
 }
 
-
-.create-account {
-    color: #5B5B5B;
-    font-size: 20px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 25px;
-    width: 25px;
-    margin-left: 154px;
-    text-decoration: none;
+@media only screen and (max-width: 931px) and (min-width: 767px) {
+    .login {
+        width: 40%;
+    }
+    #account {
+        gap: 40px;
+    }
+    .form_btn {
+        padding: 10px;
+        font-size: 15px;
+    }
 }
 
-.lost-password {
-    color: #5B5B5B;
-    font-size: 20px;
-    font-family: 'Mulish', sans-serif;
-    line-height: 25px;
-    width: 25px;
-    margin-left: 212px;
-    text-decoration: none;
+@media only screen and (max-width: 768px) and (min-width: 400px) {
+    .login {
+        width: 65%
+    }
+    #account {
+        gap: 40px;
+    }
+    .form_btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .login {
+        width: 65%
+    }
+    #account {
+        gap: 40px;
+    }
+    .form_btn {
+        padding: 10px;
+        font-size: 14px;
+    }
 }

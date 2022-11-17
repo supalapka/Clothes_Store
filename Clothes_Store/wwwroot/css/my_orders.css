@@ -1,0 +1,36 @@
+﻿.mine_block {
+    width: 70%;
+    padding: 0px 40px;
+}
+
+.form_btn {
+    margin-top: auto;
+    margin-bottom: 10px;
+    font-size: 11px;
+    padding: 10px 20px;
+}
+
+.order_block {
+    padding: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(41, 40, 40, 0.3);
+}
+
+.order_info {
+    display: flex;
+}
+
+.price_info {
+    margin-right: auto;
+}
+
+.data_info {
+    margin-left: auto;
+}
+
+@media only screen and (max-width:300px) {
+    .location {
+        flex-direction: column;
+    }
+}
