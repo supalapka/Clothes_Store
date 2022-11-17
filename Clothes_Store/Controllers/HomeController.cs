@@ -23,7 +23,7 @@ namespace Clothes_Store.Controllers
 
         public IActionResult Index()
         {   // Замість прайса став новий стовпець СountSell
-            var clothes = _context.Clothes.OrderBy(x => x.Price).ToList();
+            var clothes = _context.Clothes.OrderByDescending(x => x.CountSell).ToList();
             
             return View(clothes);
         }

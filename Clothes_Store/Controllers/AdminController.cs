@@ -37,7 +37,7 @@ namespace Clothes_Store.Controllers
             ApplicationValues valuesForStatistic = new ApplicationValues();
            
             // Замість x.id став новий стовпець CountSell
-            List<Clothes> listClothes = _context.Clothes.OrderBy(x=>x.Id).ToList();
+            List<Clothes> listClothes = _context.Clothes.OrderBy(x=>x.CountSell).ToList();
             int CountUser = _appContext.Users.Count();
             int Amount_money_spent =  _context.Carts.Where(x => x.IsOrderFinished == true).Sum(x=>x.Clothes.Price);
             int AveragePrice = Amount_money_spent / _context.Carts.Where(x => x.IsOrderFinished == true).Count();

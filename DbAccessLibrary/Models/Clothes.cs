@@ -19,6 +19,7 @@ namespace DbAccessLibrary.Models
         public string SellerId { get; set; }
         public int Rating { get; set; }
         public int CountSell { get; set; }
+        public bool ChoosedClothes { get; set; }
         public List<Cart> Carts { get; set; }
     }
 }
