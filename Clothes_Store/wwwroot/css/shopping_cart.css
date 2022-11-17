@@ -54,7 +54,7 @@
     }
 
     .trash_price button {
-        background: url(images/sump.png) center center / 15px 15px no-repeat;
+        background: url(../Images/Home/sump.png) center center / 15px 15px no-repeat;
         width: 15px;
         height: 15px;
         margin: 10px;
@@ -64,7 +64,7 @@
     }
 
         .trash_price button:hover {
-            background: url(images/sump_hover.png) center center / 15px 15px no-repeat;
+            background: url(../Images/Home/sump_hover.png) center center / 15px 15px no-repeat;
         }
 
     .trash_price p {
