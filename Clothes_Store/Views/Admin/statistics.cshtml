@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model ApplicationValues; 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,29 +18,29 @@
             <p>Загальна кількість потрачених грошей</p>
             <img class="img_content_1 img_content" src="img/money.png" alt="money_ico">
             <p>|</p>
-            <p>10000 грн</p>
+            <p>@Model.Amount_money_spent грн</p>
         </div>
         <div class="content_block">
             <p>Топ 3 популярних товарів</p>
             <img class="img_content_2 img_content" src="img/hanger.png" alt="hanger_ico">
             <p>|</p>
             <div class="list">
-                <p>1. <span>Блузка</span></p>
-                <p>2. <span>Джинси</span></p>
-                <p>3. <span>Зимнє взуття</span></p>
+                <p>1. <span>@Model.clothes[0].Name</span></p>
+                <p>2. <span>@Model.clothes[1].Name</span></p>
+                <p>3. <span>@Model.clothes[2].Name</span></p>
             </div>
         </div>
         <div class="content_block">
             <p>Загальна кількість клієнтів які нам довіряють</p>
             <img class="img_content_3 img_content" src="img/human.png" alt="human_ico">
             <p>|</p>
-            <p>20</p>
+            <p>@Model.CoutnUser красавчиків</p>
         </div>
         <div class="content_block">
             <p>Середня сума замовлень</p>
             <img class="img_content_4 img_content" src="img/touch.png" alt="touch_ico">
             <p class="">|</p>
-            <p>5000 грн</p>
+            <p>@Model.AveragePrice грн</p>
         </div>
     </div>
 </body>
