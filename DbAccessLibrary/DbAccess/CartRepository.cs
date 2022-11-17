@@ -11,7 +11,6 @@ namespace DbAccessLibrary.DbAccess
         public static async Task CreateAsync(int clothesId, int quantity, Size size,
             string applicationUserId, ClothesStoreDbContext ctx)
         {
-            
             var cart = new Cart()
             {
                 ApplicationUserId = applicationUserId,
@@ -48,14 +47,10 @@ namespace DbAccessLibrary.DbAccess
 
         public static async Task FinishCurrentCartForUser(string userId, ClothesStoreDbContext ctx)
         {
-            
             var cart = ctx.Carts.Where(x => x.IsOrderFinished == false
             && x.ApplicationUserId == userId).ToList();
             foreach (var cartItem in cart)
-            { 
-                
-                Clothes updateClothes =  ctx.Clothes.Where(x => x.Id == cartItem.ClothesId).SingleOrDefault();
-                updateClothes.CountSell += cart.Where(x => x.Clothes == updateClothes).Count();
+            {
                 cartItem.IsOrderFinished = true;
                 cartItem.Date = DateTime.Now;
             }
