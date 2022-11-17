@@ -66,9 +66,6 @@ namespace DbAccessLibrary.Migrations
                     b.Property<int>("Category")
                         .HasColumnType("int");
 
-                    b.Property<bool>("ChoosedClothes")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Color")
                         .HasColumnType("int");
 

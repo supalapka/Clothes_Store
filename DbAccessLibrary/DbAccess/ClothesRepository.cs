@@ -23,8 +23,6 @@ namespace DbAccessLibrary.DbAccess
                 Color = color,
                 Gender = gender,
                 Category = clothingCategory,
-                ChoosedClothes = false,
-                CountSell = 0,
             };
 
             await _context.Clothes.AddAsync(clothes);
@@ -45,8 +43,6 @@ namespace DbAccessLibrary.DbAccess
                 Color = color,
                 Gender = gender,
                 Category = clothingCategory,
-                ChoosedClothes = false,
-                CountSell = 0,
             };
 
             await _context.Clothes.AddAsync(clothes);
