@@ -1,5 +1,4 @@
 ﻿using Clothes_Store.Models;
-using DbAccessLibrary.DbAccess;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,21 +12,18 @@ namespace Clothes_Store.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ClothesStoreDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, ClothesStoreDbContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _context = context;
         }
 
         public IActionResult Index()
         {
-            var clothes = _context.Clothes.ToList();
-            return View(clothes);
+            return View();
         }
 
-        public IActionResult AboutUs()
+        public IActionResult Privacy()
         {
             return View();
         }

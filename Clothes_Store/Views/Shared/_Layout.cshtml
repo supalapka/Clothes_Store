@@ -4,103 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Clothes_Store</title>
-  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <header>
-      <nav>
-        <ul class="menu">
-          <li class="logo">
-            <a asp-controller="Home" asp-action="Index">
-              <img src="~/Images/logo.png" alt="" class="logotype" />GATI</a>
-          </li>
-          <li class="item">
-            <form action="#" class="search">
-              <input type="text" class="site-surf" placeholder=" Пошук по сайту" />
-            </form>
-          </li>
-          <li class="item"><a href="#" class="hover-underline-animation">ПРО нас</a></li>
-          <li class="item">
-            <a asp-controller="Clothes" asp-action="List" class="hover-underline-animation">Одяг</a>
-
-          </li>
-          <li class="item"><a asp-controller="Clothes" asp-action="CreateAd" 
-              class="hover-underline-animation">Створити оголошення</a></li>
-          <li class="item">
-            <a href="#"><i class="fas fa-lightbulb"></i></a>
-          </li>
-         
-          <partial name="_LoginPartial" />
-
-          <li  class="toggle">
-            <a href="#"><i class="fas fa-bars"></i></a>
-          </li>
-
-          
-        </ul>
-      </nav>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Clothes_Store</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial" />
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
-
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer style="margin-top: auto;">
-        <div class="footer-container">
-        <!--SOCIAL MEDIA -->
-        <div class="social-media">
-          <div class="logo-name">
-            <img src="~/Images/logo.png" class="logotype" alt="" />
-          </div>
-          <span class="footer-shop-name footer-text">GATI SHOP</span>
-          <div class="social-media-items">
-            <i class="fab fa-instagram"></i
-            ><i class="fab fa-facebook-square"></i
-            ><i class="fab fa-telegram"></i>
-          </div>
-          <div class="footer-copyrigth footer-text">© 2022, gatishop.com</div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Clothes_Store - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-        <!--CONTACTS-->
-        <div class="contacts">
-          <div class="email prefix footer-text">E-MAIL:</div>
-          <div class="email-name footer-text">support@gatishop.com</div>
-          <div class="working-hours prefix footer-text">
-            ЧАС РОБОТИ СЛУЖБИ ПІДТРИМКИ
-          </div>
-          <div class="working-hours-content footer-text">
-            ПН-ПТ: 9:00 - 22:00
-          </div>
-        </div>
-        <!--PAYMENT OPTIONS-->
-        <div class="payment-options">
-          <div class="prefix footer-text">ПРИЙМАЄМО ДО СПЛАТИ</div>
-          <div class="visa-wayforpray">
-            <i class="fab fa-cc-visa"></i>
-            <img src="~/Images/wayforpray.png" alt="" />
-          </div>
-          <div class="mastercard-privat">
-            <img src="~/Images/mastercard.webp" alt="" />
-            <img src="~/Images/privat24.webp" alt="" />
-          </div>
-        </div>
-      </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/slick.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/myaccount.js"></script>
-    
-
+    <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
