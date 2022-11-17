@@ -4,14 +4,16 @@ using DbAccessLibrary.DbAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DbAccessLibrary.Migrations
 {
     [DbContext(typeof(ClothesStoreDbContext))]
-    partial class ClothesStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221117064036_addCountSellToClothes")]
+    partial class addCountSellToClothes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,9 +68,6 @@ namespace DbAccessLibrary.Migrations
                     b.Property<int>("Category")
                         .HasColumnType("int");
 
-                    b.Property<bool>("ChoosedClothes")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Color")
                         .HasColumnType("int");
 
@@ -85,9 +84,6 @@ namespace DbAccessLibrary.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Rating")
                         .HasColumnType("int");
 
                     b.Property<string>("SellerId")
