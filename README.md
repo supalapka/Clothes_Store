@@ -27,6 +27,6 @@ You need to apply migrations before running the project
 
 Open Package Manager Console and paste 2 commands
 
->  update-database -context ApplicationDbContext
+> update-database -context ApplicationDbContext
 
 > update-database -context ClothesStoreDbContext
