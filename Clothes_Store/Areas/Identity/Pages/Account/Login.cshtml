@@ -1,0 +1,39 @@
+﻿@page
+@model LoginModel
+
+            <head>
+                <meta charset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+                <title>Document</title>
+                <link rel="stylesheet" href="~/css/login.css">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            </head>
+
+            <div class="login">
+                <div class="main-block">
+                  @*  <div class="EN-button">
+                        <p class="EN">Укр</p>
+                    </div>*@
+                   @* <div class="theme-button">
+                        <a href="#"><img src="~/Images/Theme button.png" alt=""></a>
+                    </div>*@
+                    <p class="log_in">Увійти</p>
+
+                      <form id="account" method="post">
+                        <input class="username" asp-for="Input.Email" placeholder="Пошта">
+                        <input class="password" asp-for="Input.Password" placeholder="Пароль">
+                         <div class="items-center" >
+                          <button type="submit" class="form_btn">Продовжити</button>
+                        </div>
+                      </form>
+                  
+                    <ul class="list-login">
+                        <li><a class="create-account" asp-area="Identity" asp-page="/Account/Register">Створити акаунт?</a></li>
+                        <li><a class="lost-password" asp-area="Identity" asp-page="/Account/Register">Забув пароль?</a></li>
+                    </ul>
+                </div>
+            </div>

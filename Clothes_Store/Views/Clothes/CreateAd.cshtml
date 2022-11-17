@@ -1,0 +1,87 @@
+﻿@using DbAccessLibrary.Models
+@model Clothes_Store.Models.ClothesPreview
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/addclothes.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+        <main role="main" class="pb-3">
+            <h1>Створити оголошення</h1> 
+            <hr/>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="block_form">
+                        <form asp-action="CreateAd" enctype="multipart/form-data">
+                            <div class="input-file-container">  
+                                <input class="input-file inpt" onchange="donwload(this)" type="file" asp-for="PreviwImageFileInput" data-val="true" data-val-required="The PreviwImageFileInput field is required." id="PreviwImageFileInput" name="PreviwImageFileInput">
+                                <label tabindex="0" for="my-file" class="input-file-trigger">Додати фото</label>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" asp-for="Name">Заголовок</label>
+                                <input class="form-control inpt" type="text" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" value="" />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="Color">Колір</label>
+                                  <select asp-for="Color" class="form-control" asp-items="Html.GetEnumSelectList<Colors>()" >
+                                  <option value="Виберіть колір"></option>
+                                </select>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Color" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="TypeOfClothes">Тип одягу</label>
+                                <select asp-for="TypeOfClothes" class="form-control" asp-items="Html.GetEnumSelectList<TypesOfClothes>()" >
+                                 <option value="Виберіть тип"></option>
+                                </select>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="control-label" for="TypeOfClothes">Сезон</label>
+                                <select asp-for="Category" class="form-control" asp-items="Html.GetEnumSelectList<ClothingCategory>()" >
+                                 <option value="Виберіть категорію"></option>
+                                </select>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="control-label" for="TypeOfClothes">Для кого</label>
+                                <select asp-for="Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()" >
+                                 <option value="Виберіть стать"></option>
+                                </select>
+                                <span class="text-danger field-validation-valid" data-valmsg-for="TypeOfClothes" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="Price">Ціна(грн)</label>
+                                <input class="form-control inpt"  asp-for="Price" data-val="true" data-val-required="The Price field is required." id="Price" name="Price" value="" />
+                                <span class="text-danger field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
+                            </div>   
+                            <div class="form-submit">
+                                <input type="submit" value="Опублікувати" class="btn_btn-primary" />
+                            </div>
+                        <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Ny683f1Dc9NpC8soqbZOxzxhkjMFSRFwjmnjUVL3D9xTQpQRi2YfgM2ccnWzd4Hd2aEJAk16p9fNKjCQYPp7Oxn8QloP2FavjDETaSLdhN4FJYebi2km3P4QvuVAbae9KpsKdL-XVAkV2cN1TnywLDL5O41epuBSPojpyDHqGzAiPODRCOC8f2KRCzl_vy-Aw" /></form>
+                    </div>
+                </div>
+                <div class="added_photo">
+                    <img src="" id="img1">
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="~/js/addclothes.js"></script>
+    </body>
+</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

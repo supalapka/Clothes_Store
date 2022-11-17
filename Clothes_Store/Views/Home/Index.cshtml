@@ -1,8 +1,71 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model List<Clothes>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/indexpage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+</head>
+<body>
+<!--slider-->
+    <div class="slideshow-container">
+      <!-- Full-width images with number and caption text -->
+      <div class="mySlides fade">
+        <img
+          src="~/Images/34d9aa618f832510ce7290b4f183484a-shop-online-slider-template.jpg"
+          style="width: 100%"
+        />
+      </div>
+
+      <div class="mySlides fade">
+        <img src="~/Images/discount.webp" style="width: 100%" />
+      </div>
+      <!-- Next and previous buttons -->
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br />
+    <div style="text-align: center">
+      <span class="dot"></span>
+    </div>
+    <!--carousel-->
+
+    <div class="wrapper">
+      <div class="slider">
+
+          @foreach(var item in Model){
+        <div class="slider__item filter">
+          <div class="img-control">
+              @{  var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.PreviewImage);
+               <img src="@imgSrc"  alt="" />
+                }
+          </div>
+          <div class="desc">
+            <div class="product-name prefix slider-text">@item.Name</div>
+            <div class="price-and-order">
+              <a onclick="location.href='@Url.Action("Details", "Clothes", new {id = @item.Id})'" ><button class="order-btn slider-text">
+                Детальніше
+              </button></a>
+              <div class="price slider-text">@item.Price грн.</div>
+            </div>
+          </div>
+        </div>
+        }
+
+
+      </div>
+    </div>
+     <script src="~/js/indexpage.js"></script>
+     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+     <script src="~/js/slick.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,127 @@
+﻿@using ClassLibrary
+@using DbAccessLibrary.Models
+@model Clothes
+
+@{
+    Cart cart = new Cart();
+    cart.Clothes = Model;
+    Model.Carts = new List<Cart>();
+    Model.Carts.Add(cart);
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clothes_Store</title>
+  @*  <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
+    <link rel="stylesheet" href="~/css/order.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mulish&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="order-container">
+    <form asp-action="AddToCart">
+    <div class="order-item">
+       @{  var imgSrc = FunctionsLib.GetImageSourceFromBytes(@Model.PreviewImage);
+               <img src="@imgSrc"  alt="" />
+                }
+        <div class="product-info">
+            <div class="price">
+                @Model.Price грн
+            </div>
+            @*<div class="consist">   add later field with "about" info
+                Склад 72% cotton, 24% polyester, 4% elastane. Щільність 190 г/м²
+            </div>*@
+            <div class="consist">
+                @Model.Color
+            </div>
+            <div class="gift">
+                У комплекті йде коробка GATISHOP.
+            </div>
+            <div class="size-chart-and-care">
+                <a href="#popup" class="size-chart">Розмірна сітка</a>
+            </div>
+                <div class="size-choose">
+                    <p class="select-size">Виберіть розмір:</p>
+                        @{
+                            int size = 36;
+                            if (Model.TypeOfClothes != TypesOfClothes.Shoes)
+                              @foreach (var radiotext in Enum.GetValues(typeof(Size)))  // size 2XL
+                                {
+                                    @Html.RadioButtonFor(x=>x.Carts.Single().Size, radiotext)
+                                    <span >@radiotext</span>
+                                }
+                            else
+                            {
+                                @foreach (var radiotext in Enum.GetValues(typeof(Size))) // size 42
+                                {
+                                    @Html.RadioButtonFor(x => x.Carts.Single().Size, size+ "    ") ;
+                                    <span >@size</span>
+                                    size++;
+                                }
+                            }
+                        }
+                </div>
+                <div class="count-of-product-and-order-button">
+                    <p>Кількість:</p>
+                    <div class="counter-and-summary"></div>
+                    <div class="counter">
+                        <a class="minus hov">-</a>
+                        <p class="count countOf">1</p>
+                        <a class="plus hov">+</a>
+                    </div>
+
+                    @*invisible part*@
+                    @{int quantity = 1;}
+                    <input asp-for="@quantity" id="quantity"
+                    type="number" value="1" style="visibility:hidden"/> @*invisible input for pass data that changing in js to controller*@
+                     <input asp-for="@Model.Id"
+                    type="number" value="@Model.Id" style="visibility:hidden"/> @*invisible input for pass data back from model*@
+
+                    <div class="summary">
+                        Загальна сума оплати: <span class="price_">
+                         @Model.Price грн
+                        </span>
+                    </div>
+                     <div class="to-order-button">
+                           <button  type="submit">Замовити</button>
+                     </div>
+                </div>
+        </div>
+    </div>
+       </form>
+   </div>
+
+   <div id="popup" class="popup">
+    <a href="#anchor" class="area"></a>
+    <div class="popup-body">
+        <div class="popup-content">
+            <a href="#anchor"></a>
+            <div class="main-container">
+                <div class="popup-text">
+                    <p>Як правильно обрати розмір</p>
+                    <p>Обираєте вашу сорочку та заміряєте метром</p>
+                    <p>Ширина на розмірній сітці вказана літерою А, міряєте під пахвами, від шва до шва, як показано червоною лінією.</p>
+                    <p>Довжина на розмірній сітці вказана літерою B, міряєте від верху шва і до самого низу речі, як показано червоною лінією.</p>
+                    <p>Довжина рукава на розмірній сітці вказана літерою С, міряєте від верху шва і до самого кінця рукава, як показано червоною лінією.</p>
+                    <p>Далі зрівнюєте ваші показники з нашою таблицею розмірів, прикинувши плюс/мінус пару сантиметрів та обираєте розмір.</p>
+                </div>
+               <img src="~/Images/size-charity.webp" alt="" class="image">
+               <img src="~/Images/sizecharity.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/slick.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/order.js"></script>
+
+</body>
+</html>
