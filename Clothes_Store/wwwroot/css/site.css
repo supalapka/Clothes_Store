@@ -151,40 +151,7 @@ a {
     border-bottom: 1px #444 solid;
 }
 
-.submenu {
-    display: none;
-}
 
-.submenu-active .submenu {
-    display: block;
-}
-
-.has-submenu {
-    cursor: pointer;
-}
-
-    .has-submenu i {
-        font-size: 12px;
-    }
-
-    .has-submenu > a::after {
-        font-family: "Font Awesome 5 Free";
-        font-size: 12px;
-        line-height: 16px;
-        font-weight: 900;
-        content: "\f078";
-        color: white;
-        padding-left: 5px;
-    }
-
-.subitem a {
-    padding: 10px 15px;
-}
-
-.submenu-active {
-    background-color: #111;
-    border-radius: 3px;
-}
 
 @media all and (min-width: 700px) {
     .menu {
