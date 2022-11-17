@@ -14,7 +14,8 @@ body {
     max-width: 1200px;
     padding: 27px 45px 29px 45px;
     margin: 0 auto;
-    margin-top: 64px;
+    margin-top: 80px;
+    margin-bottom: 300px;
     background: #0E1321;
     border-radius: 100px;
     display: flex;

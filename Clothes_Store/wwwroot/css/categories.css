@@ -42,17 +42,20 @@ body {
 .content {
     display: flex;
     justify-content: center;
-    margin: 50px 0;
+    margin: 50px auto;
+    width:70%;
+    border-radius:10px;
 }
 
 .tabs {
-    padding: 10px 20px;
+    padding: 40px 20px;
+    width:25%;
 }
 
 .categories-nav {
     display: flex;
     flex-direction: column;
-    ;
+    
     gap: 30px;
 }
 
@@ -66,8 +69,8 @@ body {
 
 .wrapper {
     padding: 40px 20px;
-    background-color: #0e1321;
-    width: 1400px;
+    background-color: #0b0e18;
+    width: 1200px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
@@ -76,6 +79,7 @@ body {
 .tab-item.active {
     display: block;
 }
+/*nav*/
 
 .product-item {
     background-color: #171f36;
@@ -115,7 +119,7 @@ body {
 }
 
 .order-btn {
-    background-color: #4c2bee; /* Green */
+    background-color: #4c2bee; 
     border: none;
     color: white;
     padding: 15px 32px;
@@ -136,3 +140,201 @@ body {
         -ms-box-shadow: 0 0 12px #5b41dd;
         -webkit-box-shadow: 0 0 12px #765cf5;
     }
+    /*drop-down*/
+.dropdown {
+    width:200px;
+    display: inline-block;
+    border-radius: 2px;
+    transition: all .5s ease;
+    position: relative;
+    font-size: 14px;
+    color: white;
+    height: 100%;
+    text-align: left;
+    height:50px;
+     
+}
+
+
+    .dropdown .select {
+        cursor: pointer;
+        display: block;
+        padding: 10px;
+        
+    }
+
+        .dropdown .select > i {
+            font-size: 13px;
+            color: #888;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+            float: right;
+            line-height: 20px
+        }
+
+    
+
+    .dropdown:active {
+        background-color: #0e1321
+    }
+
+    .dropdown.active:hover,
+    .dropdown.active {
+        border-radius: 3px;
+        background-color: #425079;
+    }
+
+        .dropdown.active .select > i {
+            transform: rotate(-90deg)
+        }
+
+    .dropdown .dropdown-menu {
+        position: absolute;
+        background-color: #171f36;
+        width: 100%;
+        left: 0;
+        margin-top: 1px;
+        border-radius: 0 1px 2px 2px;
+        overflow: hidden;
+        display: none;
+        max-height: 144px;
+        overflow-y: auto;
+        z-index: 9
+    }
+
+        .dropdown .dropdown-menu li {
+            padding: 10px;
+            transition: all .2s ease-in-out;
+            cursor: pointer
+        }
+
+    .dropdown .dropdown-menu {
+        padding: 0;
+        list-style: none
+    }
+
+        .dropdown .dropdown-menu li:hover {
+            background-color: #040918
+        }
+
+        .dropdown .dropdown-menu li:active {
+            background-color: #0e1321;
+        }
+
+        /*sec*/
+@media only screen and (max-width: 1279px) and (min-width: 932px) {
+    .content {
+        flex-direction: column;
+    }
+    .wrapper{
+        width:755px;
+    }
+    .select {
+        padding: 0;
+        width: 120px;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 35px;
+        width:755px;
+    }
+}
+@media only screen and (max-width: 931px) and (min-width: 767px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .wrapper {
+        width: 555px;
+    }
+    .select {
+        padding: 0;
+        width: 100px;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 25px;
+        width: 555px;
+    }
+    
+}
+@media only screen and (max-width: 768px) and (min-width: 400px){
+    .content {
+        flex-direction: column;
+    }
+    .order-btn{
+        padding:5px;
+        width:100%;
+    }
+    .wrapper {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .select {
+        padding: 0;
+        width: 120px;
+        margin: 0 auto;
+        width:100%;
+    }
+
+    .tabs {
+        font-size: 16px;
+        display: flex;
+        gap: 20px;
+        width: 300px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .product-img img {
+        width: 181px;
+        height: 194px;
+    }
+}
+@media only screen and (max-width: 400px){
+    .content {
+        flex-direction: column;
+        
+    }
+
+    .order-btn {
+        padding: 5px;
+        width: 100%;
+    }
+    .product-description{
+        padding:10px
+    }
+    .wrapper {
+        width: 240px;
+        margin: 0 auto;
+    }
+
+    .select {
+        padding: 0;
+        width: 120px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .tabs {
+        font-size: 16px;
+        display: flex;
+        gap: 20px;
+        width: 240px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin: 0 auto;
+    }
+    .product-item{
+        width:190px;
+    }
+    .product-img img {
+        width: 181px;
+        height: 194px;
+    }
+}

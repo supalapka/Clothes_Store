@@ -24,12 +24,14 @@ namespace Clothes_Store.Controllers
             return View();
         }
 
+        [Authorize]
         public IActionResult Details(int id)
         {
             var clothes = ClothesRepository.GetById(id,_context);
             return View(clothes);
         }
 
+        [Authorize]
         public async Task<IActionResult> AddToCart(int id, int quantity, Size size)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -43,11 +45,11 @@ namespace Clothes_Store.Controllers
             return View(clothes);
         }
 
-
+        [Authorize]
         [Route("Clothes/ad")]
         public IActionResult CreateAd() { return View(); }
 
-
+        [Authorize]
         [Route("Clothes/ad")]
         [HttpPost]
         public async Task<IActionResult> CreateAd(ClothesPreview clothes)
@@ -70,7 +72,14 @@ namespace Clothes_Store.Controllers
         public async Task Delete(int id)
         {
              await ClothesRepository.DeleteAsync(id, _context);
-         //   return RedirectToAction("Ads", "MyAccount");
+        }
+
+
+        [HttpPost]
+        public IActionResult Search(string request)
+        {
+            var clothes = ClothesRepository.GetBySearchString(request,_context);
+            return View(clothes);
         }
 
     }

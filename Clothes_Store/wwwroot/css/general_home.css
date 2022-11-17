@@ -1,0 +1,263 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+}
+
+body {
+    background-color: #040918;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+input {
+    outline: none;
+}
+
+.main_content {
+    display: flex;
+    letter-spacing: 0.8px;
+    color: white;
+    margin: 80px auto 200px auto;
+    max-width: 1200px;
+    padding: 10px;
+}
+
+.navigation_account {
+    width: 25%;
+    font-size: 16px;
+    height: max-content;
+    padding: 20px;
+}
+
+.navigation_account,
+.goods,
+.final_price {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(41, 40, 40, 0.3);
+    border-radius: 10px;
+}
+
+    .navigation_account ul {
+        margin: 10px 0px 0px 35px;
+    }
+
+    .navigation_account li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+
+        .navigation_account li:hover {
+            text-decoration: underline;
+        }
+
+.nav_title {
+    position: relative;
+    padding: 0px 0px 0px 24px;
+    cursor: pointer;
+}
+
+    .nav_title::before,
+    .nav_title::after {
+        content: '';
+        width: 10px;
+        height: 1px;
+        background-color: white;
+        position: absolute;
+        top: 8px;
+    }
+
+    .nav_title::before {
+        transform: rotate(-40deg);
+        left: 0px;
+    }
+
+    .nav_title::after {
+        transform: rotate(40deg);
+        left: 8px;
+    }
+
+    .nav_title.active:before {
+        transform: rotate(40deg);
+    }
+
+    .nav_title.active:after {
+        transform: rotate(-40deg);
+    }
+
+.location {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+    .location p {
+        color: #949393;
+        font-size: 14px;
+        margin-right: 6px;
+    }
+
+.goods img {
+    height: 100%;
+    width: 150px;
+    object-fit: cover;
+}
+
+.about_goods {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 0px 10px;
+}
+
+.empty_block {
+    font-size: 25px;
+    text-align: center;
+    margin: 50px 0;
+}
+
+.image_blockk img {
+    width: 100%;
+    height: 100%;
+}
+
+.goods h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.goods p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.input_btn:hover,
+.form_btn:hover,
+.btn_condition:hover,
+.final_price button:hover,
+.form_btn:hover {
+    background-color: #4c2bee;
+    box-shadow: 0 0 12px #563cd8;
+    -moz-box-shadow: 0 0 12px #5b45ca;
+    -o-box-shadow: 0 0 12px #5d40e9;
+    -ms-box-shadow: 0 0 12px #5b41dd;
+    -webkit-box-shadow: 0 0 12px #765cf5;
+}
+
+.form_btn,
+.btn_condition,
+.input_btn,
+.final_price button {
+    background-color: #4c2bee; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+.goods {
+    width: 100%;
+    display: flex;
+    margin-top: 15px;
+    height: 200px;
+}
+
+@media only screen and (max-width:1280px) {
+    .final_price,
+    .navigation_account,
+    .mine_block {
+        padding: 10px;
+    }
+
+    .block_promcode,
+    .block_promcode form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width:880px) {
+    .main_content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav_items {
+        display: none;
+    }
+
+    .nav_title::before {
+        transform: rotate(40deg);
+        left: 0px;
+    }
+
+    .nav_title::after {
+        transform: rotate(-40deg);
+        left: 8px;
+    }
+
+    .nav_title.active:before {
+        transform: rotate(-40deg);
+    }
+
+    .nav_title.active:after {
+        transform: rotate(+40deg);
+    }
+
+    .mine_block {
+        width: 100%;
+        margin: 20px auto 10px auto;
+        padding: 0px 50px;
+    }
+
+    .navigation_account {
+        margin: 0 auto;
+        width: max-content;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+        .navigation_account ul {
+            margin: 10px 0px 0px 0px;
+        }
+
+    .nav_title {
+        margin-right: 24px;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .goods,
+    .about_goods {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .mine_block,
+    .final_price {
+        padding: 0 10px;
+        width: 97%;
+    }
+
+    .goods img,
+    .form {
+        width: 100%;
+    }
+}

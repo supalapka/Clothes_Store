@@ -1,0 +1,61 @@
+﻿.mine_block {
+    width: 70%;
+    padding: 0px 40px;
+}
+
+.order_block {
+    padding: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(41, 40, 40, 0.3);
+}
+
+.order_info {
+    display: flex;
+}
+
+.price_info {
+    margin-right: auto;
+}
+
+.data_info {
+    margin-left: auto;
+}
+
+.form_btn,
+.btn_condition {
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 5px;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.btn_condition {
+    max-width: 200px;
+    font-size: 16px;
+}
+
+.form_btn {
+    font-size: 11px;
+    padding: 10px 20px;
+}
+
+@media only screen and (max-width:1280px) {
+    .mine_block {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width:550px) {
+    .btn_condition {
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width:300px) {
+    .location {
+        flex-direction: column;
+    }
+}
