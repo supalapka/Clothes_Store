@@ -33,6 +33,8 @@
     <Compile Remove="Migrations\20221018205138_addedDateToCart.Designer.cs" />
     <Compile Remove="Migrations\20221101103734_createSellerId.cs" />
     <Compile Remove="Migrations\20221101103734_createSellerId.Designer.cs" />
+    <Compile Remove="Migrations\20221117063819_addCountSellToClothes.cs" />
+    <Compile Remove="Migrations\20221117063819_addCountSellToClothes.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,10 +42,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.29" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.29" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.25" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
