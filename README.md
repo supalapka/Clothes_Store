@@ -30,3 +30,5 @@ Open Package Manager Console and paste 2 commands
 > update-database -context ApplicationDbContext
 
 > update-database -context ClothesStoreDbContext
+
+## Посилання на вайрфрейм https://app.uizard.io/p/e18d82ef
