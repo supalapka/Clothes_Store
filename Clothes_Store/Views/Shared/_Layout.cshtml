@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -26,7 +27,14 @@
                <asp:Button ID="btnSubmit" runat="server" Text="Submit"/>
             </form>
           </li>
-          <li class="item"><a href="#" class="hover-underline-animation">ПРО нас</a></li>
+          <li class="item"><a asp-controller="Home" asp-action="AboutUs" class="hover-underline-animation">ПРО нас</a></li>
+
+            @if (User.IsInRole("Administrator"))
+            {
+                <li class="item"><a asp-controller="Admin" asp-action="Index" 
+                    class="hover-underline-animation">Адмін панель</a></li>
+            }
+
           <li class="item">
             <a asp-controller="Clothes" asp-action="List" class="hover-underline-animation">Одяг</a>
 
