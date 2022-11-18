@@ -1,13 +1,27 @@
-﻿@using ClassLibrary
-@using DbAccessLibrary.Models
-@using System.IO
-@model List<Clothes>
+﻿
+        <a asp-controller="Admin" asp-action="CreatePromocode" ><button class="order-btn slider-text">
+                Створити промокод 
+              </button></a>
+        <br />
+         <br />
+          <br />
+           <br />
+          <a asp-controller="Admin" asp-action="Statistics" ><button class="order-btn slider-text">
+                Статистика продаж
+              </button></a>
 
 
-@foreach (var item in Model)
-{
-        var imgSrc =FunctionsLib.GetImageSourceFromBytes(item.PreviewImage);
-        <img src="@imgSrc" style=" max-height:1000px; max-width:700px;"  />
-         <input type="button" style=" margin:5px" class="btn btn-primary" value="Delete"
-         onclick="location.href='@Url.Action("DeleteClothes", "Admin", new {id = @item.Id})'" />
-}
+              <style>
+                .order-btn {
+                background-color: #4c2bee;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                font-family: Montserrat;
+                border-radius: 100px;
+               
+            }</style>
