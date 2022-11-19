@@ -75,9 +75,13 @@ namespace DbAccessLibrary.DbAccess
             foreach (var item in allClothes)
             {
                 if (GetDisplayNameFromEnum(item.TypeOfClothes).Contains(request) ||
-                    GetDisplayNameFromEnum(item.Category).Contains(request))
+                    GetDisplayNameFromEnum(item.Category).Contains(request) || item.Name.Contains(request)
+                    )
                     clothesResult.Add(item);
             }
+
+
+
             return clothesResult;
         }
 
